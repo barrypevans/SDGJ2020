@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\glm-proj\CMakeFiles\dca874ee5151cbde45064bf3e851d215\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{9554050B-719B-36E5-831A-D654124845A7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{e20d6cde-0bfa-4f23-abec-fdd4b44304d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{789224f4-5dba-4b2d-a176-b49e519f812e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\game.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\window.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\game.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ISystem.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\window.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="external\stb_image.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="core\assert.h">
+      <Filter>core</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

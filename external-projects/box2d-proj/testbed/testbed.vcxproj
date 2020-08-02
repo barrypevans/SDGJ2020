@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{763E1209-2DDB-31EA-85C5-09E37B170054}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>testbed</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">testbed.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">testbed</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">testbed.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">testbed</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">testbed.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">testbed</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">testbed.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">testbed</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/data/ C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/data/
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\src\Debug\box2d.lib;..\extern\glfw\Debug\glfw.lib;..\extern\imgui\Debug\imgui.lib;..\extern\sajson\Debug\sajson.lib;..\extern\glad\Debug\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/Debug/testbed.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/Debug/testbed.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/data/ C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/data/
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\src\Release\box2d.lib;..\extern\glfw\Release\glfw.lib;..\extern\imgui\Release\imgui.lib;..\extern\sajson\Release\sajson.lib;..\extern\glad\Release\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/Release/testbed.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/Release/testbed.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/data/ C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/data/
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\src\MinSizeRel\box2d.lib;..\extern\glfw\MinSizeRel\glfw.lib;..\extern\imgui\MinSizeRel\imgui.lib;..\extern\sajson\MinSizeRel\sajson.lib;..\extern\glad\MinSizeRel\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/MinSizeRel/testbed.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/MinSizeRel/testbed.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\src\..\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glfw\include;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\sajson\..;C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/data/ C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/data/
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\src\RelWithDebInfo\box2d.lib;..\extern\glfw\RelWithDebInfo\glfw.lib;..\extern\imgui\RelWithDebInfo\imgui.lib;..\extern\sajson\RelWithDebInfo\sajson.lib;..\extern\glad\RelWithDebInfo\glad.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/RelWithDebInfo/testbed.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/RelWithDebInfo/testbed.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/testbed/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\testbed\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\draw.cpp" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\draw.h" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\imgui_impl_glfw.cpp" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\imgui_impl_glfw.h" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\imgui_impl_opengl3.cpp" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\imgui_impl_opengl3.h" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\main.cpp" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\settings.h" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\settings.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\test.cpp" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\test.h" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\add_pair.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\apply_force.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\body_types.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\box_stack.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\breakable.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\bridge.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\bullet_test.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\cantilever.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\car.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\chain.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\chain_problem.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\character_collision.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\circle_stack.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\collision_filtering.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\collision_processing.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\compound_shapes.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\confined.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\continuous_test.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\convex_hull.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\conveyor_belt.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\distance_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\distance_test.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\dominos.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\dump_loader.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\dynamic_tree.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\edge_shapes.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\edge_test.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\friction.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\gear_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\heavy1.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\heavy2.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\mobile_balanced.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\mobile_unbalanced.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\motor_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\pinball.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\platformer.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\polygon_collision.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\polygon_shapes.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\prismatic_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\pulley_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\pyramid.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\ray_cast.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\restitution.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\revolute_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\rope.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\rope_joint.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\sensor.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\shape_cast.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\shape_editing.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\skier.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\slider_crank_1.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\slider_crank_2.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\theo_jansen.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\tiles.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\time_of_impact.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\tumbler.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\testbed\tests\wheel_joint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\ZERO_CHECK.vcxproj">
+      <Project>{1DF534C0-5F0D-3C49-AAEE-23A464769507}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\src\box2d.vcxproj">
+      <Project>{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}</Project>
+      <Name>box2d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\glad\glad.vcxproj">
+      <Project>{EB15ECF2-E592-33FC-82E8-2AAA166FF210}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\glfw\glfw.vcxproj">
+      <Project>{2C3F4B09-B7E5-3116-BB3C-7D42A6E3E8BA}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\imgui.vcxproj">
+      <Project>{A20C98D6-21E1-3754-A7EE-E96559DADC54}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\sajson\sajson.vcxproj">
+      <Project>{BF9C87C2-1EB0-384A-BF97-56A322818CD8}</Project>
+      <Name>sajson</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

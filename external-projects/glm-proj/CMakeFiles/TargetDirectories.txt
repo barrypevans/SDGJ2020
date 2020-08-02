@@ -1,0 +1,7 @@
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/CMakeFiles/RUN_TESTS.dir
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/CMakeFiles/ALL_BUILD.dir
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/CMakeFiles/ZERO_CHECK.dir
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/glm/CMakeFiles/RUN_TESTS.dir
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/glm/CMakeFiles/glm_static.dir
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/glm/CMakeFiles/glm_shared.dir
+C:/Users/barry/Documents/SDGJ_2020/external-projects/glm-proj/test/CMakeFiles/RUN_TESTS.dir
