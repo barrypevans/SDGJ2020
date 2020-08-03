@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A20C98D6-21E1-3754-A7EE-E96559DADC54}</ProjectGuid>
+    <ProjectGuid>{7A6E539A-3196-3C58-88EB-E7110C87B605}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -59,26 +59,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgui.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">imgui.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">imgui.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">imgui.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -111,7 +111,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -128,10 +128,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -161,10 +161,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -177,7 +177,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -193,10 +193,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -208,10 +208,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -220,11 +220,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -233,11 +233,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -246,11 +246,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake/extern/imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake -BC:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj --check-stamp-file C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -259,25 +259,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\extern\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imgui.cpp" />
-    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imgui_demo.cpp" />
-    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imgui_draw.cpp" />
-    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imgui_widgets.cpp" />
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imconfig.h" />
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imgui.h" />
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imgui_internal.h" />
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imstb_rectpack.h" />
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imstb_textedit.h" />
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\imgui\imstb_truetype.h" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imgui.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imgui_demo.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imgui_draw.cpp" />
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imgui_widgets.cpp" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imconfig.h" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imgui.h" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imgui_internal.h" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imstb_rectpack.h" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imstb_textedit.h" />
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-proj\ZERO_CHECK.vcxproj">
-      <Project>{1DF534C0-5F0D-3C49-AAEE-23A464769507}</Project>
+    <ProjectReference Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\ZERO_CHECK.vcxproj">
+      <Project>{CA00FC56-E426-35EB-A838-E76F34142CC9}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

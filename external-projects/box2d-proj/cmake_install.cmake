@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake
+# Install script for directory: C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,13 +34,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/src/cmake_install.cmake")
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/unit-test/cmake_install.cmake")
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/glad/cmake_install.cmake")
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/glfw/cmake_install.cmake")
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/imgui/cmake_install.cmake")
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/extern/sajson/cmake_install.cmake")
-  include("C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/testbed/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/unit-test/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/glad/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/glfw/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/imgui/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/extern/sajson/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/testbed/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-proj/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

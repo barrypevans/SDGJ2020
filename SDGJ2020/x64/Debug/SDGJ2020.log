@@ -1,0 +1,83 @@
+﻿  SDGJ2020.vcxproj -> C:\Users\barry\Documents\SDGJ2020\SDGJ2020\intermediate\SDGJ2020.exe
+  
+  -------------------------------------------------------------------------------
+     ROBOCOPY     ::     Robust File Copy for Windows                              
+  -------------------------------------------------------------------------------
+  
+    Started : Sunday, August 2, 2020 7:54:11 PM
+     Source : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\bin\
+       Dest : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\build\debug\
+  
+      Files : *.*
+  	    
+    Options : *.* /S /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+  
+  ------------------------------------------------------------------------------
+  
+  	                   5	C:\Users\barry\Documents\SDGJ2020\SDGJ2020\bin\
+  
+  ------------------------------------------------------------------------------
+  
+                 Total    Copied   Skipped  Mismatch    FAILED    Extras
+      Dirs :         1         0         1         0         0         0
+     Files :         5         0         5         0         0         0
+     Bytes :    2.91 m         0    2.91 m         0         0         0
+     Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+     Ended : Sunday, August 2, 2020 7:54:11 PM
+  
+  
+  -------------------------------------------------------------------------------
+     ROBOCOPY     ::     Robust File Copy for Windows                              
+  -------------------------------------------------------------------------------
+  
+    Started : Sunday, August 2, 2020 7:54:11 PM
+     Source : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\intermediate\
+       Dest : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\build\debug\
+  
+      Files : *.*
+  	    
+    Options : *.* /S /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+  
+  ------------------------------------------------------------------------------
+  
+  	                   5	C:\Users\barry\Documents\SDGJ2020\SDGJ2020\intermediate\
+  	  *EXTRA File 		  282112	box2d.dll
+  	  *EXTRA File 		  422912	glew32.dll
+  	  *EXTRA File 		  539648	glewinfo.exe
+  	  *EXTRA File 		   1.4 m	SDL2.dll
+  	  *EXTRA File 		  338432	visualinfo.exe
+  	    New File  		   71680	SDGJ2020.exe
+    0%  
+  100%  
+  	    New File  		  507396	SDGJ2020.ilk
+    0%  
+   25%  
+   51%  
+   77%  
+  100%  
+  	    New File  		   46263	SDGJ2020.iobj
+    0%  
+  100%  
+  	    New File  		   19664	SDGJ2020.ipdb
+    0%  
+  100%  
+  	    New File  		  520192	SDGJ2020.pdb
+    0%  
+   25%  
+   50%  
+   75%  
+  100%  
+  
+  ------------------------------------------------------------------------------
+  
+                 Total    Copied   Skipped  Mismatch    FAILED    Extras
+      Dirs :         1         0         1         0         0         0
+     Files :         5         5         0         0         0         5
+     Bytes :    1.11 m    1.11 m         0         0         0    2.91 m
+     Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+  
+  
+     Speed :           145649375 Bytes/sec.
+     Speed :            8334.124 MegaBytes/min.
+     Ended : Sunday, August 2, 2020 7:54:11 PM
+  

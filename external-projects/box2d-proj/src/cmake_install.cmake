@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/barry/Documents/SDGJ_2020/external-projects/box2d-cmake/src
+# Install script for directory: C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,3 +32,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/src/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/unit-test/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/extern/glad/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/extern/glfw/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/extern/imgui/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/extern/sajson/cmake_install.cmake")
+  include("C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/testbed/cmake_install.cmake")
+
+endif()
+
+if(CMAKE_INSTALL_COMPONENT)
+  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+else()
+  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
+endif()
+
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+file(WRITE "C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-proj/src/${CMAKE_INSTALL_MANIFEST}"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")

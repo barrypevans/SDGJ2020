@@ -138,8 +138,8 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy $(ProjectDir)bin $(ProjectDir)build /s
-robocopy $(ProjectDir)intermediate $(ProjectDir)build /s
+      <Command>robocopy $(ProjectDir)bin $(ProjectDir)build/debug /s
+robocopy $(ProjectDir)intermediate $(ProjectDir)build/debug /s
 IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -183,8 +183,8 @@ IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;opengl32.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy $(ProjectDir)bin $(ProjectDir)build /s
-robocopy $(ProjectDir)intermediate $(ProjectDir)build /s
+      <Command>robocopy $(ProjectDir)bin $(ProjectDir)build/release /s
+robocopy $(ProjectDir)intermediate $(ProjectDir)build/release /s
 IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

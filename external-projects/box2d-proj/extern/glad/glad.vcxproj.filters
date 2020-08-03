@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\src\gl.c">
+    <ClCompile Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\glad\src\gl.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include\glad\gl.h">
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\glad\include\glad\gl.h">
       <Filter>include\glad</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\include\KHR\khrplatform.h">
+    <ClInclude Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\glad\include\KHR\khrplatform.h">
       <Filter>include\KHR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\barry\Documents\SDGJ_2020\external-projects\box2d-cmake\extern\glad\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-cmake\extern\glad\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
-      <UniqueIdentifier>{6BEE4DB3-6AA4-3963-B630-298C1EB459D2}</UniqueIdentifier>
+      <UniqueIdentifier>{35D49478-2F58-3131-9D69-C9081EDD8D60}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\KHR">
-      <UniqueIdentifier>{484B1CFD-6759-3A76-8D2E-EF7BD99FEC36}</UniqueIdentifier>
+      <UniqueIdentifier>{0C561808-48A9-3111-A3E7-EF4DF87B1B54}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\glad">
-      <UniqueIdentifier>{C58EB220-C765-3BB0-BEA8-B77C98D76C8A}</UniqueIdentifier>
+      <UniqueIdentifier>{D4DFB628-F4DA-3E23-8513-C9CDFF9FB303}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{A22DE5A3-E94D-3207-A553-659627846239}</UniqueIdentifier>
+      <UniqueIdentifier>{5C6B21C5-F496-30DA-BF80-BF822F859709}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,0 +1,10 @@
+^C:\USERS\BARRY\DOCUMENTS\SDGJ2020\EXTERNAL-PROJECTS\BOX2D-CMAKE\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -S../../box2d-cmake -B./ --check-stamp-file ./src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

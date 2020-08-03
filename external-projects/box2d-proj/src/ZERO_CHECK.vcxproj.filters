@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\barry\Documents\SDGJ2020\external-projects\box2d-proj\src\CMakeFiles\7fe75bb36c4dbfd980e32f25e29420bf\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{039CBBCA-9114-356B-9EA6-8AF75BECDADF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
