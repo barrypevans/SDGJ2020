@@ -1,9 +1,0 @@
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/CMakeFiles/ALL_BUILD.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/CMakeFiles/ZERO_CHECK.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/src/CMakeFiles/box2d.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/unit-test/CMakeFiles/unit_test.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/extern/glad/CMakeFiles/glad.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/extern/glfw/CMakeFiles/glfw.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/extern/imgui/CMakeFiles/imgui.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/extern/sajson/CMakeFiles/sajson.dir
-G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-proj/src/testbed/CMakeFiles/testbed.dir
