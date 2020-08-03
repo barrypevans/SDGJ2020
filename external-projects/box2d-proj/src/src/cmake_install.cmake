@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/barry/Documents/SDGJ2020/external-projects/box2d-cmake/src
+# Install script for directory: G:/Program Files/GitHub/SDGJ2020/external-projects/box2d-cmake/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

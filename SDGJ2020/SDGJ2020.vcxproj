@@ -30,14 +30,6 @@
     <ClInclude Include="core\window.h" />
     <ClInclude Include="external\stb_image.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\external-projects\box2d-proj\src\box2d.vcxproj">
-      <Project>{abb5dc6e-8a39-3f71-a1d4-ea32f181bfa9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\external-projects\glm-proj\glm\glm_static.vcxproj">
-      <Project>{4d728db1-46e9-3288-8c78-3e13b31c493e}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{CD1FFA11-D796-41E4-9D84-0457BC2B42C8}</ProjectGuid>
@@ -183,8 +175,8 @@ IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;opengl32.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy $(ProjectDir)bin $(ProjectDir)build/release /s
-robocopy $(ProjectDir)intermediate $(ProjectDir)build/release /s
+      <Command>robocopy "$(ProjectDir)bin" "$(ProjectDir)build/release" /s
+robocopy "$(ProjectDir)intermediate" "$(ProjectDir)build/release" /s
 IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

@@ -1,12 +1,19 @@
-﻿  SDGJ2020.vcxproj -> C:\Users\barry\Documents\SDGJ2020\SDGJ2020\intermediate\SDGJ2020.exe
+﻿  game.cpp
+  window.cpp
+  main.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 20 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SDGJ2020.vcxproj -> G:\Program Files\GitHub\SDGJ2020\SDGJ2020\intermediate\SDGJ2020.exe
   
   -------------------------------------------------------------------------------
      ROBOCOPY     ::     Robust File Copy for Windows                              
   -------------------------------------------------------------------------------
   
-    Started : Sunday, August 2, 2020 7:54:21 PM
-     Source : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\bin\
-       Dest : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\build\release\
+    Started : Monday, August 3, 2020 9:34:15 AM
+     Source : G:\Program Files\GitHub\SDGJ2020\SDGJ2020\bin\
+       Dest : G:\Program Files\GitHub\SDGJ2020\SDGJ2020\build\release\
   
       Files : *.*
   	    
@@ -14,7 +21,7 @@
   
   ------------------------------------------------------------------------------
   
-  	  New Dir          5	C:\Users\barry\Documents\SDGJ2020\SDGJ2020\bin\
+  	  New Dir          5	G:\Program Files\GitHub\SDGJ2020\SDGJ2020\bin\
   	    New File  		  282112	box2d.dll
     0%  
    46%  
@@ -54,18 +61,18 @@
      Times :   0:00:00   0:00:00                       0:00:00   0:00:00
   
   
-     Speed :           381824000 Bytes/sec.
-     Speed :           21848.144 MegaBytes/min.
-     Ended : Sunday, August 2, 2020 7:54:21 PM
+     Speed :            72728380 Bytes/sec.
+     Speed :            4161.551 MegaBytes/min.
+     Ended : Monday, August 3, 2020 9:34:15 AM
   
   
   -------------------------------------------------------------------------------
      ROBOCOPY     ::     Robust File Copy for Windows                              
   -------------------------------------------------------------------------------
   
-    Started : Sunday, August 2, 2020 7:54:21 PM
-     Source : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\intermediate\
-       Dest : C:\Users\barry\Documents\SDGJ2020\SDGJ2020\build\release\
+    Started : Monday, August 3, 2020 9:34:15 AM
+     Source : G:\Program Files\GitHub\SDGJ2020\SDGJ2020\intermediate\
+       Dest : G:\Program Files\GitHub\SDGJ2020\SDGJ2020\build\release\
   
       Files : *.*
   	    
@@ -73,44 +80,37 @@
   
   ------------------------------------------------------------------------------
   
-  	                   5	C:\Users\barry\Documents\SDGJ2020\SDGJ2020\intermediate\
+  	                   4	G:\Program Files\GitHub\SDGJ2020\SDGJ2020\intermediate\
   	  *EXTRA File 		  282112	box2d.dll
   	  *EXTRA File 		  422912	glew32.dll
   	  *EXTRA File 		  539648	glewinfo.exe
   	  *EXTRA File 		   1.4 m	SDL2.dll
   	  *EXTRA File 		  338432	visualinfo.exe
-  	    New File  		   71680	SDGJ2020.exe
+  	    New File  		   14848	SDGJ2020.exe
     0%  
   100%  
-  	    New File  		  507396	SDGJ2020.ilk
-    0%  
-   25%  
-   51%  
-   77%  
-  100%  
-  	    New File  		   46263	SDGJ2020.iobj
+  	    New File  		   45947	SDGJ2020.iobj
     0%  
   100%  
-  	    New File  		   19664	SDGJ2020.ipdb
+  	    New File  		   23680	SDGJ2020.ipdb
     0%  
   100%  
-  	    New File  		  520192	SDGJ2020.pdb
+  	    New File  		  536576	SDGJ2020.pdb
     0%  
-   25%  
-   50%  
-   75%  
+   48%  
+   97%  
   100%  
   
   ------------------------------------------------------------------------------
   
                  Total    Copied   Skipped  Mismatch    FAILED    Extras
       Dirs :         1         0         1         0         0         0
-     Files :         5         5         0         0         0         5
-     Bytes :    1.11 m    1.11 m         0         0         0    2.91 m
+     Files :         4         4         0         0         0         5
+     Bytes :   606.4 k   606.4 k         0         0         0    2.91 m
      Times :   0:00:00   0:00:00                       0:00:00   0:00:00
   
   
-     Speed :           145649375 Bytes/sec.
-     Speed :            8334.124 MegaBytes/min.
-     Ended : Sunday, August 2, 2020 7:54:21 PM
+     Speed :            51754250 Bytes/sec.
+     Speed :            2961.401 MegaBytes/min.
+     Ended : Monday, August 3, 2020 9:34:15 AM
   
