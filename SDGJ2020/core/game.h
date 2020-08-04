@@ -3,6 +3,7 @@
 
 class Window;
 #include "window.h"
+#include "level.h"
 
 class Game : public ISystem
 {
@@ -22,4 +23,5 @@ private:
 	void InitSystems();
 
 	bool m_isRunning;
+	Level* m_pLoadedLevel;
 };

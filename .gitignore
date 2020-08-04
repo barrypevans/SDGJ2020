@@ -42,3 +42,4 @@ external-projects/box2d-proj/src/box2d.sln
 external-projects/box2d-proj/src/extern/imgui/imgui.vcxproj*
 external-projects/box2d-proj/src/unit-test/CMakeFiles/
 external-projects/box2d-proj/src/C/
+external-projects/box2d-proj/src/testbed/

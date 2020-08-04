@@ -2,12 +2,15 @@
 #include "stdio.h"
 #include "Assert.h"
 #include "glm/glm.hpp"
+#include "level-test.h"
 
 void Game::Init()
 {
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
+	m_pLoadedLevel = new TestLevel();
+	
 }
 
 void Game::CleanUp()
@@ -21,7 +24,6 @@ void Game::CleanUp()
 
 void Game::Update()
 {
-
 	if (m_pWindow)
 	{
 		m_pWindow->PollEvents();

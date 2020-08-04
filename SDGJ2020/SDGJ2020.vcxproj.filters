@@ -16,6 +16,18 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="core\entity.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\renderable.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\level.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\level-test.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -31,6 +43,18 @@
       <Filter>external</Filter>
     </ClInclude>
     <ClInclude Include="core\assert.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\entity.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\renderable.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\level.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\level-test.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
