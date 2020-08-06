@@ -39,18 +39,8 @@
     <ClInclude Include="core\audio.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\fmod\fmod.h" />
-    <ClInclude Include="..\include\fmod\fmod.hpp" />
-    <ClInclude Include="..\include\fmod\fmod_codec.h" />
-    <ClInclude Include="..\include\fmod\fmod_common.h" />
-    <ClInclude Include="..\include\fmod\fmod_dsp.h" />
-    <ClInclude Include="..\include\fmod\fmod_dsp_effects.h" />
-    <ClInclude Include="..\include\fmod\fmod_errors.h" />
-    <ClInclude Include="..\include\fmod\fmod_output.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\include\fmod\fmod.cs" />
-    <None Include="..\include\fmod\fmod_dsp.cs" />
-    <None Include="..\include\fmod\fmod_errors.cs" />
   </ItemGroup>
 </Project>

@@ -25,14 +25,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\fmod\fmod.h" />
-    <ClInclude Include="..\include\fmod\fmod.hpp" />
-    <ClInclude Include="..\include\fmod\fmod_codec.h" />
-    <ClInclude Include="..\include\fmod\fmod_common.h" />
-    <ClInclude Include="..\include\fmod\fmod_dsp.h" />
-    <ClInclude Include="..\include\fmod\fmod_dsp_effects.h" />
-    <ClInclude Include="..\include\fmod\fmod_errors.h" />
-    <ClInclude Include="..\include\fmod\fmod_output.h" />
     <ClInclude Include="core\assert.h" />
     <ClInclude Include="core\audio.h" />
     <ClInclude Include="core\game.h" />
@@ -42,8 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\include\fmod\fmod.cs" />
-    <None Include="..\include\fmod\fmod_dsp.cs" />
-    <None Include="..\include\fmod\fmod_errors.cs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -104,7 +94,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)intermediate\</OutDir>
     <LibraryPath>../lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\Users\Jacob\Desktop\My Games\2020 Compo\SDGJ2020\include\fmod;$(IncludePath)</IncludePath>
+    <IncludePath>$(IncludePath);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -113,7 +103,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)intermediate\</OutDir>
     <LibraryPath>../lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\Users\Jacob\Desktop\My Games\2020 Compo\SDGJ2020\include\fmod;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
