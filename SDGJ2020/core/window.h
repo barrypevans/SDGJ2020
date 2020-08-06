@@ -10,7 +10,6 @@ class Game;
 class Window : public ISystem
 {
 public:
-
 	Window(Game* pGame) : m_pGame(pGame) {}
 
 	// Inherited via ISystem

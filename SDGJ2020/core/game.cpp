@@ -8,6 +8,8 @@ void Game::Init()
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
+
+	m_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
 }
 
 void Game::CleanUp()
@@ -43,4 +45,7 @@ void Game::InitSystems()
 {
 	m_pWindow = new Window(this);
 	m_pWindow->Init();
+
+	m_pAudio = new Audio();
+	m_pAudio->Init();
 }

@@ -2,7 +2,9 @@
 #include "ISystem.h"
 
 class Window;
+class Audio;
 #include "window.h"
+#include "audio.h"
 
 class Game : public ISystem
 {
@@ -17,6 +19,7 @@ public:
 
 	// Define All game systems here
 	Window* m_pWindow;
+	Audio* m_pAudio;
 
 private:
 	void InitSystems();
