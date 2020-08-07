@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="core\asset-manager.cpp" />
     <ClCompile Include="core\audio.cpp" />
     <ClCompile Include="core\game.cpp" />
     <ClCompile Include="core\window.cpp" />
@@ -26,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\assert.h" />
+    <ClInclude Include="core\asset-manager.h" />
     <ClInclude Include="core\audio.h" />
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\game.h" />
@@ -139,6 +141,7 @@
     <PostBuildEvent>
       <Command>robocopy "$(ProjectDir)bin" "$(ProjectDir)build/debug" /s
 robocopy "$(ProjectDir)intermediate" "$(ProjectDir)build/debug" /s
+robocopy "$(ProjectDir)resources" "$(ProjectDir)build/debug/resources" /s
 IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -185,6 +188,7 @@ IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
     <PostBuildEvent>
       <Command>robocopy "$(ProjectDir)bin" "$(ProjectDir)build/release" /s
 robocopy "$(ProjectDir)intermediate" "$(ProjectDir)build/release" /s
+robocopy "$(ProjectDir)resources" "$(ProjectDir)build/release/resources" /s
 IF %ERRORLEVEL% LEQ 8 EXIT 0</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

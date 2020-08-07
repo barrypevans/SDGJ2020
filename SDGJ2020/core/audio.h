@@ -32,7 +32,7 @@ private:
 	
 
 
-#define CLIP_DEF(val, type) "sounds/"#val"."#type,
+#define CLIP_DEF(val, type) "resources/sounds/"#val"."#type,
 	const char* GameClipStrings[GameClip::kNumClips] = {
 		#include "clip-defs.h"
 	};
