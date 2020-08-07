@@ -3,6 +3,10 @@
 #include "Assert.h"
 #include "glm/glm.hpp"
 
+#include "asset-manager.h"
+#include "window.h"
+#include "audio.h"
+
 void Game::Init()
 {
 	m_isRunning = true;
@@ -43,9 +47,11 @@ void Game::RequestShutDown()
 
 void Game::InitSystems()
 {
+	g_pAssetManager = new AssetManager();
 	g_pWindow = new Window(this);
 	g_pAudio = new Audio();
 
+	g_pAssetManager->Init();
 	g_pWindow->Init();
 	g_pAudio->Init();
 }

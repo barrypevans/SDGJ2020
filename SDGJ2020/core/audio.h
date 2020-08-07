@@ -3,7 +3,6 @@
 #include <fmod/fmod.hpp>
 #include <fmod/fmod_errors.h>
 
-class Game;
 #include "game.h"
 
 class Audio : public ISystem

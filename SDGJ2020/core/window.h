@@ -4,7 +4,6 @@
 #include <sdl/SDL.h>
 #undef main
 
-class Game;
 #include "game.h"
 
 class Window : public ISystem

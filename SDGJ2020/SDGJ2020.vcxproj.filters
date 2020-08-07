@@ -48,5 +48,8 @@
     <ClInclude Include="core\asset-manager.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="external\dirent.h">
+      <Filter>external</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

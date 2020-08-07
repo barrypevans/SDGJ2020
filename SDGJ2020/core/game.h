@@ -1,10 +1,6 @@
 #pragma once
 #include "ISystem.h"
 
-class Window;
-class Audio;
-#include "window.h"
-#include "audio.h"
 
 class Game : public ISystem
 {
