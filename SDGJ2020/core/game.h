@@ -17,10 +17,6 @@ public:
 	bool IsRunning();
 	void RequestShutDown();
 
-	// Define All game systems here
-	Window* m_pWindow;
-	Audio* m_pAudio;
-
 private:
 	void InitSystems();
 

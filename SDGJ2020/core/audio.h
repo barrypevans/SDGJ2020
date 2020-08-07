@@ -38,3 +38,5 @@ private:
 	};
 #undef CLIP_DEF
 };
+
+static Audio* g_pAudio;

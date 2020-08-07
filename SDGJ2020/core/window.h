@@ -25,3 +25,4 @@ private:
 	Game* m_pGame;
 	SDL_GLContext m_glContext;
 };
+static Window* g_pWindow;

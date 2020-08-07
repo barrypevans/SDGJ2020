@@ -9,25 +9,25 @@ void Game::Init()
 	InitSystems();
 	printf("Game Initialized!\n");
 
-	m_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
+	g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
 }
 
 void Game::CleanUp()
 {
-	if (m_pWindow)
+	if (g_pWindow)
 	{
-		m_pWindow->CleanUp();
-		delete m_pWindow;
+		g_pWindow->CleanUp();
+		delete g_pWindow;
 	}
 }
 
 void Game::Update()
 {
 
-	if (m_pWindow)
+	if (g_pWindow)
 	{
-		m_pWindow->PollEvents();
-		m_pWindow->Update();
+		g_pWindow->PollEvents();
+		g_pWindow->Update();
 	}
 }
 
@@ -43,9 +43,9 @@ void Game::RequestShutDown()
 
 void Game::InitSystems()
 {
-	m_pWindow = new Window(this);
-	m_pWindow->Init();
+	g_pWindow = new Window(this);
+	g_pAudio = new Audio();
 
-	m_pAudio = new Audio();
-	m_pAudio->Init();
+	g_pWindow->Init();
+	g_pAudio->Init();
 }
