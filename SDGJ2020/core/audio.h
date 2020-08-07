@@ -2,7 +2,6 @@
 #include "ISystem.h"
 #include <fmod/fmod.hpp>
 #include <fmod/fmod_errors.h>
-#undef main
 
 class Game;
 #include "game.h"
@@ -11,10 +10,12 @@ class Audio : public ISystem
 {
 
 public:
+#define CLIP_DEF(val, type) k##val,
 	enum GameClip {
-		kTest,
-		kClipCap // For iteration, don't remove
+#include "clip-defs.h"
+		kNumClips // For iteration, don't remove
 	};
+#undef CLIP_DEF
 
 	virtual void Init() override;
 	virtual void CleanUp() override;
@@ -28,8 +29,12 @@ private:
 	FMOD::Sound* clips[1];
 	void PrepareClips();
 	FMOD::Sound* LoadClip(Audio::GameClip clip);
+	
 
-	const char* GameClipStrings[1] = {
-		"sounds/Test.mp3"
+
+#define CLIP_DEF(val, type) "sounds/"#val"."#type,
+	const char* GameClipStrings[GameClip::kNumClips] = {
+		#include "clip-defs.h"
 	};
+#undef CLIP_DEF
 };

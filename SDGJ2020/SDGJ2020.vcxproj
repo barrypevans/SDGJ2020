@@ -27,13 +27,11 @@
   <ItemGroup>
     <ClInclude Include="core\assert.h" />
     <ClInclude Include="core\audio.h" />
+    <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\game.h" />
     <ClInclude Include="core\ISystem.h" />
     <ClInclude Include="core\window.h" />
     <ClInclude Include="external\stb_image.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\include\fmod\fmod.cs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -39,8 +39,8 @@
     <ClInclude Include="core\audio.h">
       <Filter>core</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\include\fmod\fmod.cs" />
+    <ClInclude Include="core\clip-defs.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
