@@ -22,9 +22,9 @@ void Game::Init()
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
-	
+
+	Audio::g_pAudio->Play(Audio::GameClip::kMetReference, .1f, 10);
 	Metronome::g_pMetronome->Start(120);
-	//Audio::g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
 	InitCoreEntities();
 }
 
