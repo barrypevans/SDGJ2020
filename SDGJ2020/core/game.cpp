@@ -65,11 +65,6 @@ void Game::Update()
 
 	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
 
-	if (Input::g_pInput->getLeftKeyPress())
-	{
-		printf("down key pressed");
-	}
-
 
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
