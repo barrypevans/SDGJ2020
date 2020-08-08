@@ -6,6 +6,7 @@
 #include "asset-manager.h"
 #include "window.h"
 #include "audio.h"
+#include "metronome.h"
 
 void Game::Init()
 {
@@ -13,8 +14,9 @@ void Game::Init()
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
-
-	g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
+	
+	g_pMetronome->Start(120);
+	g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
 	Entity* entity = CreateEntity();
 }
 
@@ -23,6 +25,7 @@ void Game::CleanUp()
 	g_pAudio->CleanUp();
 	g_pWindow->CleanUp();
 	g_pAssetManager->CleanUp();
+	g_pMetronome->CleanUp();
 
 	delete g_pAudio;
 	delete g_pWindow;
@@ -36,6 +39,8 @@ void Game::Update()
 		g_pWindow->PollEvents();
 		g_pWindow->Update();
 	}
+
+	g_pMetronome->Update();
 }
 
 bool Game::IsRunning()
@@ -66,8 +71,10 @@ void Game::InitSystems()
 	g_pAssetManager = new AssetManager();
 	g_pWindow = new Window(this);
 	g_pAudio = new Audio();
+	g_pMetronome = new Metronome();
 
 	g_pAssetManager->Init();
 	g_pWindow->Init();
 	g_pAudio->Init();
+	g_pMetronome->Init();
 }

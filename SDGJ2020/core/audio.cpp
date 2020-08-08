@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "assert.h"
+#include "metronome.h"
 
 void Audio::Init() 
 {
@@ -45,6 +46,7 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
     }
 }
 
+
 void Audio::PrepareClips() 
 {
     for (int clip = (GameClip)0; clip != GameClip::kNumClips; clip++) 
@@ -65,6 +67,5 @@ FMOD::Sound* Audio::LoadClip(GameClip clip)
 void Audio::CleanUp() 
 {
     system->release();
-    delete[]clips;
 }
 

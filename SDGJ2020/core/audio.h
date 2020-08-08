@@ -21,11 +21,11 @@ public:
 	virtual void Update() override;
 
 	void Play(GameClip clip, float volume = 1, int loopCount= 0);
-
+	
 private:
 
 	FMOD::System* system;
-	FMOD::Sound* clips[1];
+	FMOD::Sound* clips[GameClip::kNumClips];
 	void PrepareClips();
 	FMOD::Sound* LoadClip(Audio::GameClip clip);
 	
