@@ -1,7 +1,7 @@
 #pragma once
 #include "ISystem.h"
-
-
+#include "entity.h"
+#include <vector>
 class Game : public ISystem
 {
 public:
@@ -13,8 +13,14 @@ public:
 	bool IsRunning();
 	void RequestShutDown();
 
+	Entity* CreateEntity();
+	void DestroyEntity(Entity*& entity);
+
 private:
 	void InitSystems();
 
 	bool m_isRunning;
+	std::vector<Entity*> m_entityList;
 };
+
+static Game* g_pGame;

@@ -28,6 +28,9 @@
     <ClCompile Include="core\texture.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\entity.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -61,6 +64,9 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\texture.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\entity.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>

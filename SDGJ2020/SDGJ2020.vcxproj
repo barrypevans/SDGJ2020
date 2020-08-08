@@ -22,6 +22,7 @@
     <ClCompile Include="core\asset-manager.cpp" />
     <ClCompile Include="core\audio.cpp" />
     <ClCompile Include="core\binary-asset.cpp" />
+    <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\game.cpp" />
     <ClCompile Include="core\texture.cpp" />
     <ClCompile Include="core\window.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="core\audio.h" />
     <ClInclude Include="core\binary-asset.h" />
     <ClInclude Include="core\clip-defs.h" />
+    <ClInclude Include="core\entity.h" />
     <ClInclude Include="core\game.h" />
     <ClInclude Include="core\ISystem.h" />
     <ClInclude Include="core\texture.h" />
@@ -41,9 +43,6 @@
     <ClInclude Include="external\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\external-projects\box2d-proj\src\box2d.vcxproj">
-      <Project>{abb5dc6e-8a39-3f71-a1d4-ea32f181bfa9}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\external-projects\glm-proj\glm\glm_static.vcxproj">
       <Project>{4d728db1-46e9-3288-8c78-3e13b31c493e}</Project>
     </ProjectReference>

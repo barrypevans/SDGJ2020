@@ -9,11 +9,13 @@
 
 void Game::Init()
 {
+	g_pGame = this;
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
 
 	g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
+	Entity* entity = CreateEntity();
 }
 
 void Game::CleanUp()
@@ -45,6 +47,19 @@ void Game::RequestShutDown()
 {
 	m_isRunning = false;
 }
+
+Entity* Game::CreateEntity()
+{
+	Entity* entity = new Entity();
+	m_entityList.push_back(entity);
+	return entity;
+}
+void Game::DestroyEntity(Entity*& entity)
+{
+	delete entity;
+	entity = nullptr;
+}
+
 
 void Game::InitSystems()
 {

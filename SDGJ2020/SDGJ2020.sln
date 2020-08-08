@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDGJ2020", "SDGJ2020.vcxproj", "{CD1FFA11-D796-41E4-9D84-0457BC2B42C8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "box2d", "..\external-projects\box2d-proj\src\box2d.vcxproj", "{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glm_static", "..\external-projects\glm-proj\glm\glm_static.vcxproj", "{4D728DB1-46E9-3288-8C78-3E13B31C493E}"
 EndProject
 Global
@@ -37,18 +35,6 @@ Global
 		{CD1FFA11-D796-41E4-9D84-0457BC2B42C8}.RelWithDebInfo|x64.Build.0 = Release|x64
 		{CD1FFA11-D796-41E4-9D84-0457BC2B42C8}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
 		{CD1FFA11-D796-41E4-9D84-0457BC2B42C8}.RelWithDebInfo|x86.Build.0 = Release|Win32
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.Debug|x64.ActiveCfg = Debug|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.Debug|x64.Build.0 = Debug|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.Debug|x86.ActiveCfg = Debug|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.MinSizeRel|x86.ActiveCfg = MinSizeRel|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.Release|x64.ActiveCfg = Release|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.Release|x64.Build.0 = Release|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.Release|x86.ActiveCfg = Release|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
-		{ABB5DC6E-8A39-3F71-A1D4-EA32F181BFA9}.RelWithDebInfo|x86.ActiveCfg = RelWithDebInfo|x64
 		{4D728DB1-46E9-3288-8C78-3E13B31C493E}.Debug|x64.ActiveCfg = Debug|x64
 		{4D728DB1-46E9-3288-8C78-3E13B31C493E}.Debug|x64.Build.0 = Debug|x64
 		{4D728DB1-46E9-3288-8C78-3E13B31C493E}.Debug|x86.ActiveCfg = Debug|x64
