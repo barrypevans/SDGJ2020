@@ -24,6 +24,7 @@
     <ClCompile Include="core\binary-asset.cpp" />
     <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\game.cpp" />
+    <ClCompile Include="core\Input.cpp" />
     <ClCompile Include="core\texture.cpp" />
     <ClCompile Include="core\window.cpp" />
     <ClCompile Include="main.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\entity.h" />
     <ClInclude Include="core\game.h" />
+    <ClInclude Include="core\Input.h" />
     <ClInclude Include="core\ISystem.h" />
     <ClInclude Include="core\texture.h" />
     <ClInclude Include="core\window.h" />
