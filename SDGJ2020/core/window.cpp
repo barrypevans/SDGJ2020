@@ -20,7 +20,7 @@ void Window::Init()
 		"Error Initializing SDL: %s", SDL_GetError());
 
 	// Init Sdl Window
-	m_pSdlWindow = SDL_CreateWindow("Hello SDGJ 2020!", 100, 100, 640, 480,  SDL_WINDOW_OPENGL);
+	m_pSdlWindow = SDL_CreateWindow("Hello SDGJ 2020!", 100, 100, 960, 540,  SDL_WINDOW_OPENGL);
 	ASSERT(m_pSdlWindow != nullptr, 
 		"Error Creating SDL Window: %s", SDL_GetError());
 
