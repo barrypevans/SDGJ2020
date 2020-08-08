@@ -7,6 +7,8 @@
 #include "window.h"
 #include "audio.h"
 #include "renderable.h"
+#include "renderer.h"
+
 
 void Game::Init()
 {
@@ -15,33 +17,37 @@ void Game::Init()
 	InitSystems();
 	printf("Game Initialized!\n");
 
-	g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
+	Audio::g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
 	Entity* entity = CreateEntity();
 	entity->AddComponent<Renderable>();
 }
 
 void Game::CleanUp()
 {
-	g_pAudio->CleanUp();
-	g_pWindow->CleanUp();
-	g_pAssetManager->CleanUp();
+	Audio::g_pAudio->CleanUp();
+	Window::g_pWindow->CleanUp();
+	AssetManager::g_pAssetManager->CleanUp();
 
-	delete g_pAudio;
-	delete g_pWindow;
-	delete g_pAssetManager;
+	delete  Audio::g_pAudio;
+	delete  Window::g_pWindow;
+	delete  AssetManager::g_pAssetManager;
 }
 
 void Game::Update()
 {
-	// update all entities
-	for (int i = 0; i < m_entityList.size(); ++i)
-		if (m_entityList[i])
-			m_entityList[i]->Update();
+	Renderer::g_pRenderer->ClearRenderQueue();
 
-	if (g_pWindow)
+	// update all entities
+	//for (int i = 0; i < m_entityList.size(); ++i)
+	//	if (m_entityList[i])
+	m_entityList[0]->Update();
+
+	Renderer::g_pRenderer->RenderAllInQueue();
+
+	if (Window::g_pWindow)
 	{
-		g_pWindow->PollEvents();
-		g_pWindow->Update();
+		Window::g_pWindow->PollEvents();
+		Window::g_pWindow->Update();
 	}
 }
 
@@ -70,11 +76,13 @@ void Game::DestroyEntity(Entity*& entity)
 
 void Game::InitSystems()
 {
-	g_pAssetManager = new AssetManager();
-	g_pWindow = new Window(this);
-	g_pAudio = new Audio();
-
-	g_pAssetManager->Init();
-	g_pWindow->Init();
-	g_pAudio->Init();
+	AssetManager::g_pAssetManager = new AssetManager();
+	Window::g_pWindow = new Window(this);
+	Audio::g_pAudio = new Audio();
+	Renderer::g_pRenderer = new Renderer();
+	
+	AssetManager::g_pAssetManager->Init();
+	Window::g_pWindow->Init();
+	Audio::g_pAudio->Init();
+	Renderer::g_pRenderer->Init();
 }

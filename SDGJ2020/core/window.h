@@ -18,10 +18,11 @@ public:
 
 	void PollEvents();
 
+	static Window* g_pWindow;
+
 private:
 
 	SDL_Window* m_pSdlWindow;
 	Game* m_pGame;
 	SDL_GLContext m_glContext;
 };
-static Window* g_pWindow;

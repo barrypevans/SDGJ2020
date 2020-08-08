@@ -4,6 +4,7 @@
 #include "renderable.h"
 #include <GL/glew.h>
 
+Renderer* Renderer::g_pRenderer;
 
 void Renderer::Init()
 {
@@ -29,8 +30,6 @@ void Renderer::Update()
 {
 
 }
-
-
 
 void Renderer::JoinRenderQueue(Renderable* renderable)
 {

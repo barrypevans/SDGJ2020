@@ -1,7 +1,8 @@
 #include "renderable.h"
 #include <stdio.h>
+#include "renderer.h"
 
 void Renderable::Update()
 {
-	printf("Render!\n");
+	Renderer::g_pRenderer->JoinRenderQueue(this);
 }

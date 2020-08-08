@@ -3,15 +3,13 @@
 #include "assert.h"
 #include "Input.h"
 
+Window* Window::g_pWindow;
+
 void Window::Init()
 {
-	// Initialize Glew (used for easily loading Opengl extensions)
-	GLenum err = glewInit();
-	ASSERT(GLEW_OK != err, "Error: %s\n", glewGetErrorString(err));
-
 	// Setup GL Version
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
 	// Init Sdl
@@ -26,6 +24,13 @@ void Window::Init()
 	// Create GL Context
 	m_glContext = SDL_GL_CreateContext(m_pSdlWindow);
 	ASSERT(nullptr != m_glContext, "Error Creating SDL GL Context: %s", SDL_GetError());
+	
+	SDL_GL_SetSwapInterval(1);
+
+	// Initialize Glew (used for easily loading Opengl extensions)
+	glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	ASSERT(GLEW_OK == err, "Error: %s\n", glewGetErrorString(err));
 }
 
 void Window::Update()

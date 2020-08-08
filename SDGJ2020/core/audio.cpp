@@ -3,6 +3,8 @@
 #include <iostream>
 #include "assert.h"
 
+Audio* Audio::g_pAudio;
+
 void Audio::Init() 
 {
     FMOD_RESULT result;
@@ -65,6 +67,5 @@ FMOD::Sound* Audio::LoadClip(GameClip clip)
 void Audio::CleanUp() 
 {
     system->release();
-    delete[]clips;
 }
 
