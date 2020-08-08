@@ -53,7 +53,7 @@ void Game::Update()
 
 
 	pBerryEntity->m_rotation += 0.1;
-	pBerryEntity->m_scale += glm::vec2(0.01, 0.01);;
+	pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
 
 
 
