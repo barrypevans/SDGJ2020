@@ -50,6 +50,14 @@ void Game::Update()
 		if (m_entityList[i])
 			m_entityList[i]->Update();
 
+
+
+	pBerryEntity->m_rotation += 0.1;
+	pBerryEntity->m_scale += glm::vec2(0.01, 0.01);;
+
+
+
+
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
 	Window::g_pWindow->SwapBuffers();
@@ -100,7 +108,14 @@ void Game::InitCoreEntities()
 	danceRenderable->SetTexture("art/dance-floor.png");
 	pDanceFloorEntity->m_scale *= 15;
 
-	Entity* pCharacterEntity = CreateEntity();
+	pCharacterEntity = CreateEntity();
 	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
 	charRenderable->SetTexture("art/sprite_01.png");
+
+	pBerryEntity = CreateEntity();
+	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
+	berryRenderable->SetTexture("art/berry.png");
+	pBerryEntity->m_position = glm::vec2(2, 1);
+	pBerryEntity->m_scale *= 2;
+
 }
