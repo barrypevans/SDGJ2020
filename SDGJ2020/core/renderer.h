@@ -4,6 +4,8 @@
 #include "renderable.h"
 #include <glm/glm.hpp>
 #include <vector>
+#include "binary-asset.h"
+
 
 class Renderer : public ISystem
 {
@@ -19,6 +21,9 @@ public:
 	void RenderAllInQueue();
 
 	static Renderer* g_pRenderer;
+
+	BinaryAsset* vertexShaderSourceFile;
+	BinaryAsset* fragmentShaderSourceFile;
 private:
 	std::vector<Renderable*> renderables;
 

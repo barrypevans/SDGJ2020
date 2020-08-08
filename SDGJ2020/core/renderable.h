@@ -11,6 +11,11 @@ public:
 	virtual void Init() override;
 	Texture* m_texture;
 	bool isUI;
+	bool overrideShader;
+	std::string vertexShaderPath;
+	std::string fragmentShaderPath;
 	int m_layerOrder;
+
+	void OverrideShader(std::string f, std::string v = "shaders/quad.vs");
 };
 

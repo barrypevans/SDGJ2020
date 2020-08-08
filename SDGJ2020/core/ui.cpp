@@ -5,13 +5,15 @@ UI* UI::g_pUI;
 void UI::Init()
 {
 	pHypebar = Game::g_pGame->CreateEntity();
-	auto hyperbarRenderable = pHypebar->AddComponent<Renderable>();
-	hyperbarRenderable->isUI = true;
-	hyperbarRenderable->SetTexture("art/HypeBar2.png");
+	auto hypebarRenderable = pHypebar->AddComponent<Renderable>();
+	hypebarRenderable->isUI = true;
+	hypebarRenderable->SetTexture("art/HypeBar2.png");
+	hypebarRenderable->m_layerOrder = 100;
 
-	pHypebar->m_position = glm::vec2(0, 0);
-	pHypebar->m_scale = glm::vec2(1,1);
-	hyperbarRenderable->m_layerOrder = 1;
+
+	pHypebar->m_position = glm::vec2(0, 3);
+	pHypebar->m_scale = glm::vec2(5,5);
+	hypebarRenderable->m_layerOrder = 1;
 }
 
 void UI::CleanUp()

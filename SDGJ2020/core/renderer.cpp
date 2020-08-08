@@ -4,7 +4,6 @@
 #include "renderable.h"
 #include <GL/glew.h>
 #include "asset-manager.h"
-#include "binary-asset.h"
 #include "assert.h"
 #include "camera.h"
 #include <algorithm>
@@ -14,6 +13,9 @@ Renderer* Renderer::g_pRenderer;
 void Renderer::Init()
 {
 	printf("Renderer Initialized!\n");
+
+	vertexShaderSourceFile = AssetManager::g_pAssetManager->GetAsset<BinaryAsset>("shaders/quad.vs");
+	fragmentShaderSourceFile = AssetManager::g_pAssetManager->GetAsset<BinaryAsset>("shaders/quad.fs");
 	
 	SetupQuad();
 
@@ -55,7 +57,6 @@ void Renderer::SetupQuad()
 
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-	BinaryAsset* vertexShaderSourceFile = AssetManager::g_pAssetManager->GetAsset<BinaryAsset>("shaders/quad.vs");
 	ASSERT(vertexShaderSourceFile, "ERROR: Failed to load vertex shader!");
 	const char* vertexShaderSource = vertexShaderSourceFile->m_pContents;
 	
@@ -70,7 +71,7 @@ void Renderer::SetupQuad()
 		printf("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n %s\n", infoLog);
 	}
 
-	BinaryAsset* fragmentShaderSourceFile = AssetManager::g_pAssetManager->GetAsset<BinaryAsset>("shaders/quad.fs");
+	
 	ASSERT(fragmentShaderSourceFile, "ERROR: Failed to load fragment shader!");
 	const char* fragmentShaderSource = fragmentShaderSourceFile->m_pContents;
 	

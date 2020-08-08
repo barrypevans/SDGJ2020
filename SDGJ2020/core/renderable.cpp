@@ -17,3 +17,10 @@ void Renderable::Init()
 {
 	m_layerOrder = 0;
 }
+
+void Renderable::OverrideShader(std::string f, std::string v)
+{
+	vertexShaderPath = v;
+	fragmentShaderPath = f;
+}
+
