@@ -120,11 +120,13 @@ void Game::InitCoreEntities()
 	Entity* pDanceFloorEntity = CreateEntity();
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor.png");
-	pDanceFloorEntity->m_scale *= 15;
+	pDanceFloorEntity->m_scale *= 10;
 
 	pCharacterEntity = CreateEntity();
 	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
 	charRenderable->SetTexture("art/sprite_01.png");
+	// make the character's width half of the tile size
+	pCharacterEntity->m_scale *= .5f;
 
 	pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();

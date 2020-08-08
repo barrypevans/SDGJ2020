@@ -6,7 +6,7 @@ Camera* Camera::g_pCamera;
 
 void Camera::Init()
 {
-	m_width = 10;
+	m_width = 15;
 	m_position = glm::vec3(0,1,0);
 }
 
