@@ -3,6 +3,7 @@
 Entity::Entity()
 {
 	m_scale = glm::vec2(1.0f, 1.0f);
+	m_rotation = 0;
 }
 
 void Entity::Update()

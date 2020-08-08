@@ -20,10 +20,7 @@ void Game::Init()
 	
 	Metronome::g_pMetronome->Start(120);
 	//Audio::g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
-	
-	Entity* entity = CreateEntity();
-	auto renderable = entity->AddComponent<Renderable>();
-	renderable->SetTexture("art/sprite_01.png");
+	InitCoreEntities();
 }
 
 void Game::CleanUp()
@@ -53,7 +50,15 @@ void Game::Update()
 	// update all entities
 	for (int i = 0; i < m_entityList.size(); ++i)
 		if (m_entityList[i])
-			m_entityList[0]->Update();
+			m_entityList[i]->Update();
+
+
+
+	pBerryEntity->m_rotation += 0.1;
+	pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
+
+
+
 
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
@@ -99,4 +104,23 @@ void Game::InitSystems()
 	Renderer::g_pRenderer->Init();
 	Camera::g_pCamera->Init();
 	Metronome::g_pMetronome->Init();
+}
+
+void Game::InitCoreEntities()
+{
+	Entity* pDanceFloorEntity = CreateEntity();
+	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
+	danceRenderable->SetTexture("art/dance-floor.png");
+	pDanceFloorEntity->m_scale *= 15;
+
+	pCharacterEntity = CreateEntity();
+	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
+	charRenderable->SetTexture("art/sprite_01.png");
+
+	pBerryEntity = CreateEntity();
+	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
+	berryRenderable->SetTexture("art/berry.png");
+	pBerryEntity->m_position = glm::vec2(2, 1);
+	pBerryEntity->m_scale *= 2;
+
 }

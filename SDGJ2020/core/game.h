@@ -18,9 +18,13 @@ public:
 
 private:
 	void InitSystems();
+	void InitCoreEntities();
 
 	bool m_isRunning;
 	std::vector<Entity*> m_entityList;
+
+	Entity* pBerryEntity;
+	Entity* pCharacterEntity;
 };
 
 static Game* g_pGame;
