@@ -31,6 +31,7 @@
     <ClCompile Include="core\renderer.cpp" />
     <ClCompile Include="core\metronome.cpp" />
     <ClCompile Include="core\texture.cpp" />
+    <ClCompile Include="core\time.cpp" />
     <ClCompile Include="core\window.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -49,6 +50,7 @@
     <ClInclude Include="core\renderable.h" />
     <ClInclude Include="core\renderer.h" />
     <ClInclude Include="core\texture.h" />
+    <ClInclude Include="core\time.h" />
     <ClInclude Include="core\window.h" />
     <ClInclude Include="core\metronome.h" />
     <ClInclude Include="external\dirent.h" />

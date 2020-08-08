@@ -25,6 +25,7 @@ private:
 
 	Entity* pBerryEntity;
 	Entity* pCharacterEntity;
+
+	static Game* g_pGame;
 };
 
-static Game* g_pGame;
