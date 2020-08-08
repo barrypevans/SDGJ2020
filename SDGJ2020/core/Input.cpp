@@ -10,6 +10,11 @@ Input::Input() {
 	setRightKey(false);
 	setUpKey(false);
 	setDownKey(false);
+
+	setLeftKeyPrev(false);
+	setRightKeyPrev(false);
+	setUpKeyPrev(false);
+	setDownKeyPrev(false);
 }
 
 
