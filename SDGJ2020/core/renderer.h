@@ -3,7 +3,7 @@
 #include <sdl/SDL.h>
 #include "renderable.h"
 #include <glm/glm.hpp>
-
+#include <vector>
 
 class Renderer : public ISystem
 {
