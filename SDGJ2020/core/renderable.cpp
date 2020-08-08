@@ -15,5 +15,13 @@ void Renderable::Update()
 
 void Renderable::Init()
 {
-
+	m_layerOrder = 0;
+	shouldOverrideShader = false;
 }
+
+void Renderable::OverrideShader(std::string f, std::string v)
+{
+	shouldOverrideShader = true;
+	m_overrideShader = new Shader(f, v);
+}
+
