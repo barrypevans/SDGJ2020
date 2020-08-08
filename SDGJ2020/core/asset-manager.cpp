@@ -1,5 +1,11 @@
 #include "asset-manager.h"
 #include "../external/dirent.h"
+#include <fstream>
+#include "texture.h"
+#include "binary-asset.h"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "../external/stb_image.h"
 
 void AssetManager::Init()
 {
@@ -14,10 +20,10 @@ void AssetManager::CleanUp()
 
 Hashcode AssetManager::FnvHash(const char* inputString)
 {
-	const unsigned int length = strlen(inputString);
+	const unsigned int length = static_cast<unsigned int>(strlen(inputString));
 	Hashcode hash = kFnvOffsetBasis;
 
-	for (int i = 0; i < length; ++i)
+	for (unsigned int i = 0; i < length; ++i)
 	{
 		hash ^= inputString[i];
 		hash *= kFnvPrime;
@@ -61,17 +67,48 @@ void AssetManager::LoadAssets()
 			extension == "png" |
 			extension == "tga")
 		{
-			// load image
+			LoadImageAsset(path);
 		}
 		else if(extension == "txt" |
 				extension == "vs"  |
 				extension == "ps")
 		{
-			// load text file
+			LoadTextAsset(path);
 		}
 		else 
 		{
-			// unknown type, load as generic binary file
+			LoadBinAsset(path);
 		}
 	}
 }
+
+void AssetManager::LoadImageAsset(std::string assetPath)
+{
+	int x, y, n;
+	unsigned char *data = stbi_load(assetPath.c_str(), &x, &y, &n, 4);
+	Texture* pTexture = new Texture(data, x, y, n);
+	Hashcode hash = FnvHash(assetPath.c_str());
+	m_resourceMap.insert(std::pair<Hashcode, void*>(hash, pTexture));
+	stbi_image_free(data);
+}
+
+void AssetManager::LoadTextAsset(std::string assetPath)
+{
+	LoadBinAsset(assetPath, true);
+}
+
+void AssetManager::LoadBinAsset(std::string assetPath, bool isText)
+{
+	std::ifstream t(assetPath);
+	t.seekg(0, std::ios::end);
+	size_t size = t.tellg();
+	std::string buffer(size, 0);
+	t.seekg(0);
+	t.read(&buffer[0], size);
+
+	BinaryAsset* pTextAsset = new BinaryAsset(buffer.c_str(), buffer.size(), isText);
+	Hashcode hash = FnvHash(assetPath.c_str());
+	m_resourceMap.insert(std::pair<Hashcode, void*>(hash, pTextAsset));
+}
+
+

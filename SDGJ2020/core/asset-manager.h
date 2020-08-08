@@ -37,6 +37,10 @@ private:
 
 	void LoadAssets();
 
+	void LoadImageAsset(std::string assetPath);
+	void LoadTextAsset(std::string assetPath);
+	void LoadBinAsset(std::string assetPath, bool isText = false);
+
 	std::map<Hashcode, void*> m_resourceMap;
 	std::vector<std::string> m_assetManifest;
 };

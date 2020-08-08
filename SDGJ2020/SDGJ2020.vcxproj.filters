@@ -22,6 +22,12 @@
     <ClCompile Include="core\asset-manager.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\binary-asset.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\texture.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -50,6 +56,12 @@
     </ClInclude>
     <ClInclude Include="external\dirent.h">
       <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="core\binary-asset.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\texture.h">
+      <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
