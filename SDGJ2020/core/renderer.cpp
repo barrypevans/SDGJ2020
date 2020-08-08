@@ -7,6 +7,7 @@
 #include "binary-asset.h"
 #include "assert.h"
 #include "camera.h"
+#include <algorithm>
 #include "glm/gtc/matrix_transform.hpp"
 Renderer* Renderer::g_pRenderer;
 
@@ -35,6 +36,12 @@ void Renderer::JoinRenderQueue(Renderable* renderable)
 
 void Renderer::RenderAllInQueue()
 {
+	std::sort(renderables.begin(), renderables.end(), 
+		[](const Renderable* a, const Renderable* b)
+	{
+		return a->m_layerOrder < b->m_layerOrder;
+	});
+
 	//renders all in renderables
 	for (int i = 0; i < renderables.size(); ++i)
 		DrawRenderable(renderables[i]);

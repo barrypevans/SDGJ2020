@@ -15,5 +15,5 @@ void Renderable::Update()
 
 void Renderable::Init()
 {
-
+	m_layerOrder = 0;
 }

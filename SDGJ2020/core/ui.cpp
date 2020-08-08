@@ -11,7 +11,7 @@ void UI::Init()
 
 	pHypebar->m_position = glm::vec2(0, 0);
 	pHypebar->m_scale = glm::vec2(1,1);
-
+	hyperbarRenderable->m_layerOrder = 1;
 }
 
 void UI::CleanUp()

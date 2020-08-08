@@ -11,5 +11,6 @@ public:
 	virtual void Init() override;
 	Texture* m_texture;
 	bool isUI;
+	int m_layerOrder;
 };
 
