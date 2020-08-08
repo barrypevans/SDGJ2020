@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include <vector>
 #include "binary-asset.h"
-
+#include "shader.h"
 
 class Renderer : public ISystem
 {
@@ -47,10 +47,8 @@ private:
 		{glm::vec3(0.5,0.5,0), glm::vec2(1,1)},
 	};
 
+	Shader* m_defaultShader;
 	unsigned int VBO; //Vertex Buffer's ID
-	unsigned int vertexShader; //Vertex Shader's ID
-	unsigned int fragmentShader;
-	unsigned int shaderProgram;
 	unsigned int VAO;
 };
 

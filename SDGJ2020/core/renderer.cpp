@@ -13,10 +13,8 @@ Renderer* Renderer::g_pRenderer;
 void Renderer::Init()
 {
 	printf("Renderer Initialized!\n");
+	m_defaultShader = new Shader();
 
-	vertexShaderSourceFile = AssetManager::g_pAssetManager->GetAsset<BinaryAsset>("shaders/quad.vs");
-	fragmentShaderSourceFile = AssetManager::g_pAssetManager->GetAsset<BinaryAsset>("shaders/quad.fs");
-	
 	SetupQuad();
 
 }
@@ -55,52 +53,8 @@ void Renderer::SetupQuad()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO); //Starting using the buffer
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); //Add my verticies to the buffer
 
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-	ASSERT(vertexShaderSourceFile, "ERROR: Failed to load vertex shader!");
-	const char* vertexShaderSource = vertexShaderSourceFile->m_pContents;
+	m_defaultShader->BindShader();
 	
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glCompileShader(vertexShader);
-	int  success;
-	char infoLog[512];
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-		printf("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n %s\n", infoLog);
-	}
-
-	
-	ASSERT(fragmentShaderSourceFile, "ERROR: Failed to load fragment shader!");
-	const char* fragmentShaderSource = fragmentShaderSourceFile->m_pContents;
-	
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(fragmentShader);
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-		printf("ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n %s\n", infoLog);
-	}
-
-	shaderProgram = glCreateProgram();
-
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-	glLinkProgram(shaderProgram);
-	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-	if (!success) {
-		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-		printf(infoLog);
-	}
-
-	glUseProgram(shaderProgram);
-
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 
@@ -118,7 +72,15 @@ void Renderer::SetupQuad()
 
 void Renderer::DrawRenderable(Renderable* renderable)
 {
-	glUseProgram(shaderProgram);
+	Shader* shader = m_defaultShader;
+	if (renderable->shouldOverrideShader)
+	{
+		shader = renderable->m_overrideShader;
+	}
+
+	ASSERT(shader, "ERROR: SHADER IS NULL!!!!");
+
+	shader->BindShader();
 
 	// correct scale for aspect ratio
 	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
@@ -126,7 +88,7 @@ void Renderer::DrawRenderable(Renderable* renderable)
 	scale.y *= renderable->m_texture->m_aspect;
 
 	// upload camera matrix
-	GLuint location = glGetUniformLocation(shaderProgram, "_mvp");
+	GLuint location = glGetUniformLocation(shader->GetProgram(), "_mvp");
 	glm::mat4 proj = Camera::g_pCamera->GetOrthographicProjection();
 	glm::mat4 view = Camera::g_pCamera->GetCameraTransformation();
 	glm::mat4 model = glm::translate(glm::mat4(1.0f),

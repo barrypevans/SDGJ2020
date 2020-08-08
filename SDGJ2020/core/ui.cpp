@@ -14,6 +14,7 @@ void UI::Init()
 	pHypebar->m_position = glm::vec2(0, 3);
 	pHypebar->m_scale = glm::vec2(5,5);
 	hypebarRenderable->m_layerOrder = 1;
+	hypebarRenderable->OverrideShader("shaders/test.fs");
 }
 
 void UI::CleanUp()
