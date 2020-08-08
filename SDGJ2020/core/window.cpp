@@ -57,6 +57,7 @@ void Window::PollEvents()
 			m_pGame->RequestShutDown();
 
 		input.handleEvent(event);
+		input.pushPrevKey();
 	}
 }
 
