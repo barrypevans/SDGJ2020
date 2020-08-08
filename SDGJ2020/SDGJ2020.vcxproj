@@ -27,6 +27,7 @@
     <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\game.cpp" />
     <ClCompile Include="core\Input.cpp" />
+    <ClCompile Include="core\player-controller.cpp" />
     <ClCompile Include="core\renderable.cpp" />
     <ClCompile Include="core\renderer.cpp" />
     <ClCompile Include="core\metronome.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="core\game.h" />
     <ClInclude Include="core\Input.h" />
     <ClInclude Include="core\ISystem.h" />
+    <ClInclude Include="core\player-controller.h" />
     <ClInclude Include="core\renderable.h" />
     <ClInclude Include="core\renderer.h" />
     <ClInclude Include="core\texture.h" />
