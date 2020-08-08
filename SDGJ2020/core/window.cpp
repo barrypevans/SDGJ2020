@@ -48,7 +48,7 @@ void Window::PollEvents()
 			m_pGame->RequestShutDown();
 
 		input.handleEvent(event);
-		cout << input.getDownKeyPress();
+		cout << input.getDownKeyPress() << "\n";
 		input.pushPrevKey();
 	}
 }
