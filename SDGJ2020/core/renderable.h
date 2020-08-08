@@ -16,6 +16,9 @@ public:
 	Shader* m_overrideShader;
 	int m_layerOrder;
 
+	float userData1;
+	float userData2;
+
 	void OverrideShader(std::string f, std::string v = "shaders/quad.vs");
 };
 
