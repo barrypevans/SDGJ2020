@@ -22,12 +22,11 @@ public:
 private:
 	std::vector<Renderable*> renderables;
 
-	const glm::vec3 vertices[4] =
+	const glm::vec3 vertices[3] =
 	{
 		glm::vec3(-0.5,-0.5,0),
-		glm::vec3(0.5,-0.5,0),
-		glm::vec3(0.5,-0.5,0),
-		glm::vec3(0.5,0.5,0)
+		glm::vec3(0,0.5,0),
+		glm::vec3(0.5,-0.5,0)
 	};
 
 	const char* vertexShaderSource =
@@ -37,6 +36,21 @@ private:
 		"{\n"
 		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 		"}\0";
+
+	const char* fragmentShaderSource =
+		"#version 330 core\n"
+		"out vec4 FragColor;\n"
+		"void main()\n"
+		"{\n"
+		"	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+		"}\n";
+
+	unsigned int VBO; //Vertex Buffer's ID
+	unsigned int vertexShader; //Vertex Shader's ID
+	unsigned int fragmentShader;
+	unsigned int shaderProgram;
+	unsigned int VAO;
+
 
 
 };

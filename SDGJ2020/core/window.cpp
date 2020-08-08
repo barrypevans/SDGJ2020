@@ -12,7 +12,7 @@ void Window::Init()
 {
 	// Setup GL Version
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
 	// Init Sdl
@@ -53,8 +53,6 @@ void Window::PollEvents()
 			m_pGame->RequestShutDown();
 
 		input.handleEvent(event);
-		cout << input.getDownKeyPress() << "\n";
-		input.pushPrevKey();
 	}
 }
 
