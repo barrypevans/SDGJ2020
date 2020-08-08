@@ -18,16 +18,17 @@ void Game::Init()
 
 void Game::CleanUp()
 {
-	if (g_pWindow)
-	{
-		g_pWindow->CleanUp();
-		delete g_pWindow;
-	}
+	g_pAudio->CleanUp();
+	g_pWindow->CleanUp();
+	g_pAssetManager->CleanUp();
+
+	delete g_pAudio;
+	delete g_pWindow;
+	delete g_pAssetManager;
 }
 
 void Game::Update()
 {
-
 	if (g_pWindow)
 	{
 		g_pWindow->PollEvents();

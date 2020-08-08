@@ -15,7 +15,11 @@ void AssetManager::Init()
 
 void AssetManager::CleanUp()
 {
-
+	for (auto resource : m_resourceMap)
+	{
+		delete resource.second;
+	}
+	m_resourceMap.clear();
 }
 
 Hashcode AssetManager::FnvHash(const char* inputString)
