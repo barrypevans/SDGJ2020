@@ -16,6 +16,8 @@ public:
 	Entity* CreateEntity();
 	void DestroyEntity(Entity*& entity);
 
+	static Game* g_pGame;
+
 private:
 	void InitSystems();
 	void InitCoreEntities();
@@ -27,4 +29,3 @@ private:
 	Entity* pCharacterEntity;
 };
 
-static Game* g_pGame;

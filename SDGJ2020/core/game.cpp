@@ -10,6 +10,9 @@
 #include "renderer.h"
 #include "camera.h"
 #include "metronome.h"
+#include "time.h"
+
+Game* Game::g_pGame;
 
 void Game::Init()
 {
@@ -30,6 +33,7 @@ void Game::CleanUp()
 	AssetManager::g_pAssetManager->CleanUp();
 	Camera::g_pCamera->CleanUp();
 	Metronome::g_pMetronome->CleanUp();
+	Time::g_pTime->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -39,6 +43,8 @@ void Game::CleanUp()
 
 void Game::Update()
 {
+	Time::g_pTime->Update();
+
 	if (Window::g_pWindow)
 	{
 		Window::g_pWindow->PollEvents();
@@ -55,9 +61,10 @@ void Game::Update()
 
 
 	pBerryEntity->m_rotation += 0.1;
-	//pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
 
+	//pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
 	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
+
 
 
 
@@ -98,6 +105,7 @@ void Game::InitSystems()
 	Renderer::g_pRenderer = new Renderer();
 	Camera::g_pCamera = new Camera();
 	Metronome::g_pMetronome = new Metronome();
+	Time::g_pTime = new Time();
 
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
@@ -105,6 +113,7 @@ void Game::InitSystems()
 	Renderer::g_pRenderer->Init();
 	Camera::g_pCamera->Init();
 	Metronome::g_pMetronome->Init();
+	Time::g_pTime->Init();
 }
 
 void Game::InitCoreEntities()

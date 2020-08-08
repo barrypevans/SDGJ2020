@@ -52,6 +52,12 @@
     <ClCompile Include="core\camera.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\time.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\player-controller.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -107,6 +113,12 @@
     </ClInclude>
     <ClInclude Include="core\camera.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\time.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\player-controller.h">
+      <Filter>game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
