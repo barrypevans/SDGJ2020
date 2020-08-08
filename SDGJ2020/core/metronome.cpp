@@ -1,5 +1,7 @@
 #include "metronome.h"
 
+Metronome* Metronome::g_pMetronome;
+
 void Metronome::Init() 
 {
 	m_start = TimeSinceEpochMillisec();
@@ -20,7 +22,7 @@ void Metronome::Update()
 			m_tick -= m_activeOffset;
 			//Tick
 			Beat = true;
-			//g_pAudio->Play(Audio::GameClip::kMetDown, .5, 0);
+			//Audio::g_pAudio->Play(Audio::GameClip::kMetDown, .5, 0);
 		}
 		else
 			Beat = false;

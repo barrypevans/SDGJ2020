@@ -23,6 +23,7 @@ public:
 	/// Milliseconds to the closest beat
 	/// </summary>
 	uint64 ActiveBeatOffset();
+	static Metronome* g_pMetronome;
 
 private:
 	uint64 TimeSinceEpochMillisec();
@@ -31,4 +32,3 @@ private:
 	uint64 m_activeOffset;
 
 };
-static Metronome* g_pMetronome;

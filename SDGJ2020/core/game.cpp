@@ -18,8 +18,8 @@ void Game::Init()
 	InitSystems();
 	printf("Game Initialized!\n");
 	
-	g_pMetronome->Start(120);
-	g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
+	Metronome::g_pMetronome->Start(120);
+	//Audio::g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
 	
 	Entity* entity = CreateEntity();
 	auto renderable = entity->AddComponent<Renderable>();
@@ -32,7 +32,7 @@ void Game::CleanUp()
 	Window::g_pWindow->CleanUp();
 	AssetManager::g_pAssetManager->CleanUp();
 	Camera::g_pCamera->CleanUp();
-	g_pMetronome->CleanUp();
+	Metronome::g_pMetronome->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -58,7 +58,7 @@ void Game::Update()
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
 	Window::g_pWindow->SwapBuffers();
-	g_pMetronome->Update();
+	Metronome::g_pMetronome->Update();
 }
 
 bool Game::IsRunning()
@@ -91,12 +91,12 @@ void Game::InitSystems()
 	Audio::g_pAudio = new Audio();
 	Renderer::g_pRenderer = new Renderer();
 	Camera::g_pCamera = new Camera();
-	g_pMetronome = new Metronome();
+	Metronome::g_pMetronome = new Metronome();
 
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
 	Audio::g_pAudio->Init();
 	Renderer::g_pRenderer->Init();
 	Camera::g_pCamera->Init();
-	g_pMetronome->Init();
+	Metronome::g_pMetronome->Init();
 }
