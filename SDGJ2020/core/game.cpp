@@ -11,6 +11,7 @@
 #include "camera.h"
 #include "metronome.h"
 #include "time.h"
+#include "ui.h"
 
 Game* Game::g_pGame;
 
@@ -34,6 +35,7 @@ void Game::CleanUp()
 	Camera::g_pCamera->CleanUp();
 	Metronome::g_pMetronome->CleanUp();
 	Time::g_pTime->CleanUp();
+	UI::g_pUI->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -44,6 +46,7 @@ void Game::CleanUp()
 void Game::Update()
 {
 	Time::g_pTime->Update();
+	UI::g_pUI->Update();
 
 	if (Window::g_pWindow)
 	{
@@ -60,9 +63,7 @@ void Game::Update()
 
 
 
-	pBerryEntity->m_rotation += 0.1;
 
-	//pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
 	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
 
 
@@ -106,6 +107,7 @@ void Game::InitSystems()
 	Camera::g_pCamera = new Camera();
 	Metronome::g_pMetronome = new Metronome();
 	Time::g_pTime = new Time();
+	UI::g_pUI = new UI();
 
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
@@ -114,6 +116,7 @@ void Game::InitSystems()
 	Camera::g_pCamera->Init();
 	Metronome::g_pMetronome->Init();
 	Time::g_pTime->Init();
+	UI::g_pUI->Init();
 }
 
 void Game::InitCoreEntities()
