@@ -6,6 +6,7 @@
 #include "asset-manager.h"
 #include "window.h"
 #include "audio.h"
+#include "renderable.h"
 
 void Game::Init()
 {
@@ -16,6 +17,7 @@ void Game::Init()
 
 	g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
 	Entity* entity = CreateEntity();
+	entity->AddComponent<Renderable>();
 }
 
 void Game::CleanUp()
@@ -31,6 +33,11 @@ void Game::CleanUp()
 
 void Game::Update()
 {
+	// update all entities
+	for (int i = 0; i < m_entityList.size(); ++i)
+		if (m_entityList[i])
+			m_entityList[i]->Update();
+
 	if (g_pWindow)
 	{
 		g_pWindow->PollEvents();
