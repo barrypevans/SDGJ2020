@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "assert.h"
 #include "Input.h"
+#include "metronome.h"
 //VVVThis was debug code. Remove 
 #include <iostream>
 using namespace std;
@@ -57,8 +58,14 @@ void Window::PollEvents()
 			m_pGame->RequestShutDown();
 
 		input.handleEvent(event);
-		input.pushPrevKey();
+		if (input.getDownKeyPress()) // Sample beat matching, ok to drop
+		{
+			bool win = (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100;
+			//printf(win ? "beat " : "wrong ");
+			Audio::g_pAudio->Play(win?Audio::GameClip::kMetUp : Audio::GameClip::kMetDown,.1f);
+		}
 	}
+	input.pushPrevKey();
 }
 
 float Window::GetAspect()

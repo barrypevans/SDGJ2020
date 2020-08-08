@@ -20,6 +20,7 @@ void Metronome::Update()
 		if (m_tick >= m_activeOffset)
 		{
 			m_tick -= m_activeOffset;
+			m_tick %= m_activeOffset;
 			//Tick
 			Beat = true;
 			//Audio::g_pAudio->Play(Audio::GameClip::kMetDown, .5, 0);
@@ -37,7 +38,7 @@ void Metronome::CleanUp()
 
 void Metronome::Start(float bpm)
 {
-	m_start = clock();
+	m_start = TimeSinceEpochMillisec();
 	m_activeOffset = 60000.0f / bpm;
 	m_lastFrame = TimeSinceEpochMillisec();
 }
@@ -49,7 +50,7 @@ void Metronome::Stop()
 
 uint64 Metronome::ActiveBeatOffset()
 {
-	if(m_activeOffset)
+	if(m_activeOffset == (uint64)0)
 		return 0;
 	uint64_t difference = (TimeSinceEpochMillisec() - m_start) % m_activeOffset;
 	if (difference < (m_activeOffset / 2))
