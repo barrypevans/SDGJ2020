@@ -15,6 +15,7 @@ public:
 	virtual void Init() override;
 	virtual void CleanUp() override;
 	virtual void Update() override;
+	void SwapBuffers();
 
 	void PollEvents();
 

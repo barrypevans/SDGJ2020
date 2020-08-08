@@ -35,20 +35,22 @@ void Game::CleanUp()
 
 void Game::Update()
 {
-	Renderer::g_pRenderer->ClearRenderQueue();
-
-	// update all entities
-	//for (int i = 0; i < m_entityList.size(); ++i)
-	//	if (m_entityList[i])
-	m_entityList[0]->Update();
-
-	Renderer::g_pRenderer->RenderAllInQueue();
-
 	if (Window::g_pWindow)
 	{
 		Window::g_pWindow->PollEvents();
 		Window::g_pWindow->Update();
 	}
+
+	Renderer::g_pRenderer->ClearRenderQueue();
+
+	// update all entities
+	for (int i = 0; i < m_entityList.size(); ++i)
+		if (m_entityList[i])
+			m_entityList[0]->Update();
+
+	Renderer::g_pRenderer->RenderAllInQueue();
+	
+	Window::g_pWindow->SwapBuffers();
 }
 
 bool Game::IsRunning()
