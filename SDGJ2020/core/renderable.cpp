@@ -3,5 +3,5 @@
 
 void Renderable::Update()
 {
-	//printf("Render!\n");
+	printf("Render!\n");
 }
