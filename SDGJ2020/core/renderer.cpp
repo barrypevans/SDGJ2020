@@ -123,7 +123,11 @@ void Renderer::DrawRenderable(Renderable* renderable)
 	model *= glm::rotate(glm::mat4(1.0f), entity->m_rotation, glm::vec3(0, 0, 1));
 	model *= glm::scale(glm::mat4(1.0f), glm::vec3(entity->m_scale.x, entity->m_scale.y, 1));
 	
-	glm::mat4 MVP = proj * view * model;
+	glm::mat4 MVP = proj;
+	if (!renderable->isUI)
+		MVP = MVP * view;
+	MVP = MVP * model;
+	
 	glUniformMatrix4fv(location, 1, GL_FALSE, &MVP[0][0]);
 
 	if (renderable->m_texture)

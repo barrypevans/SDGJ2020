@@ -10,5 +10,6 @@ public:
 	virtual void Update() override;
 	virtual void Init() override;
 	Texture* m_texture;
+	bool isUI;
 };
 

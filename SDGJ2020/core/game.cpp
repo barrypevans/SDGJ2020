@@ -61,7 +61,10 @@ void Game::Update()
 
 
 	pBerryEntity->m_rotation += 0.1;
-	pBerryEntity->m_scale += glm::vec2(0.01, 0.01) * Time::g_pTime->GetDeltaTime();
+
+	//pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
+	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
+
 
 
 
@@ -126,6 +129,7 @@ void Game::InitCoreEntities()
 
 	pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
+	berryRenderable->isUI = true;
 	berryRenderable->SetTexture("art/berry.png");
 	pBerryEntity->m_position = glm::vec2(2, 1);
 	pBerryEntity->m_scale *= 2;
