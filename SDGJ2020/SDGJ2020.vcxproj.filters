@@ -37,6 +37,9 @@
     <ClCompile Include="core\renderable.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\renderer.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -79,6 +82,9 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\renderable.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\renderer.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
