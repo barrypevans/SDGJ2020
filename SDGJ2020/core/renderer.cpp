@@ -112,16 +112,20 @@ void Renderer::DrawRenderable(Renderable* renderable)
 {
 	glUseProgram(shaderProgram);
 
+	// correct scale for aspect ratio
+	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
+	glm::vec2 scale = entity->m_scale;
+	scale.y *= renderable->m_texture->m_aspect;
+
 	// upload camera matrix
 	GLuint location = glGetUniformLocation(shaderProgram, "_mvp");
 	glm::mat4 proj = Camera::g_pCamera->GetOrthographicProjection();
 	glm::mat4 view = Camera::g_pCamera->GetCameraTransformation();
-	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
 	glm::mat4 model = glm::translate(glm::mat4(1.0f),
 		glm::vec3(entity->m_position.x,
 			entity->m_position.y, 0));
 	model *= glm::rotate(glm::mat4(1.0f), entity->m_rotation, glm::vec3(0, 0, 1));
-	model *= glm::scale(glm::mat4(1.0f), glm::vec3(entity->m_scale.x, entity->m_scale.y, 1));
+	model *= glm::scale(glm::mat4(1.0f), glm::vec3(scale.x, scale.y, 1));
 	
 	glm::mat4 MVP = proj;
 	if (!renderable->isUI)
