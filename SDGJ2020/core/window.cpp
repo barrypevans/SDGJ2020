@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include "assert.h"
 #include "Input.h"
+//VVVThis was debug code. Remove 
+#include <iostream>
+using namespace std;
 
 void Window::Init()
 {
@@ -45,6 +48,7 @@ void Window::PollEvents()
 			m_pGame->RequestShutDown();
 
 		input.handleEvent(event);
+		cout << input.getDownKey();
 	}
 }
 
