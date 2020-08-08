@@ -1,15 +1,19 @@
 #pragma once
 #include <vector>
+class Component;
 #include "component.h"
+#include <glm/glm.hpp>
+
 class Entity
 {
 public:
-	Entity() {}
+	Entity();
 
 	template<class T>
 	T* AddComponent()
 	{
 		T* comp = new T();
+		dynamic_cast<Component*>(comp)->m_entity = this;
 		m_components.push_back(comp);
 		dynamic_cast<Component*>(comp)->Init();
 		return comp;
@@ -42,6 +46,10 @@ public:
 	virtual void Update();
 
 	~Entity();
+
+	glm::vec2 m_position;
+	glm::vec2 m_scale;
+
 private:
 	std::vector<Component*> m_components;
 };

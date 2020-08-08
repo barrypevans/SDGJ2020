@@ -38,7 +38,7 @@ void Window::Init()
 
 void Window::Update()
 {
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -58,6 +58,20 @@ void Window::PollEvents()
 
 		input.handleEvent(event);
 	}
+}
+
+float Window::GetAspect()
+{
+	int w, h;
+	SDL_GetWindowSize(m_pSdlWindow, &w, &h);
+	return static_cast<float>(h) / static_cast<float>(w);
+}
+
+glm::vec2 Window::GetDimensions()
+{
+	int w, h;
+	SDL_GetWindowSize(m_pSdlWindow, &w, &h);
+	return glm::vec2(w,h);
 }
 
 void Window::CleanUp()

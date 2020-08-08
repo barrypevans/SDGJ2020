@@ -22,6 +22,7 @@
     <ClCompile Include="core\asset-manager.cpp" />
     <ClCompile Include="core\audio.cpp" />
     <ClCompile Include="core\binary-asset.cpp" />
+    <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\component.cpp" />
     <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\game.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="core\asset-manager.h" />
     <ClInclude Include="core\audio.h" />
     <ClInclude Include="core\binary-asset.h" />
+    <ClInclude Include="core\camera.h" />
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\component.h" />
     <ClInclude Include="core\entity.h" />

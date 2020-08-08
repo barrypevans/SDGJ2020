@@ -22,36 +22,30 @@ public:
 private:
 	std::vector<Renderable*> renderables;
 
-	const glm::vec3 vertices[3] =
+	void SetupQuad();
+	void DrawRenderable(Renderable* renderable);
+
+	struct Vertex
 	{
-		glm::vec3(-0.5,-0.5,0),
-		glm::vec3(0,0.5,0),
-		glm::vec3(0.5,-0.5,0)
+		glm::vec3 position;
+		glm::vec2 uv;
 	};
 
-	const char* vertexShaderSource =
-		"#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}\0";
+	const Vertex vertices[6] =
+	{
+		{glm::vec3(-0.5,-0.5,0), glm::vec2(0,0)},
+		{glm::vec3(0.5,0.5,0), glm::vec2(1,1)},
+		{glm::vec3(0.5,-0.5,0), glm::vec2(1,0)},
 
-	const char* fragmentShaderSource =
-		"#version 330 core\n"
-		"out vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-		"}\n";
+		{glm::vec3(-0.5,-0.5,0), glm::vec2(0,0)},
+		{glm::vec3(-0.5,0.5,0), glm::vec2(0,1)},
+		{glm::vec3(0.5,0.5,0), glm::vec2(1,1)},
+	};
 
 	unsigned int VBO; //Vertex Buffer's ID
 	unsigned int vertexShader; //Vertex Shader's ID
 	unsigned int fragmentShader;
 	unsigned int shaderProgram;
 	unsigned int VAO;
-
-
-
 };
 

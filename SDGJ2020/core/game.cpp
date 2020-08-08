@@ -8,7 +8,7 @@
 #include "audio.h"
 #include "renderable.h"
 #include "renderer.h"
-
+#include "camera.h"
 
 void Game::Init()
 {
@@ -19,7 +19,8 @@ void Game::Init()
 
 	Audio::g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
 	Entity* entity = CreateEntity();
-	entity->AddComponent<Renderable>();
+	auto renderable = entity->AddComponent<Renderable>();
+	renderable->SetTexture("art/sprite_01.png");
 }
 
 void Game::CleanUp()
@@ -27,7 +28,9 @@ void Game::CleanUp()
 	Audio::g_pAudio->CleanUp();
 	Window::g_pWindow->CleanUp();
 	AssetManager::g_pAssetManager->CleanUp();
+	Camera::g_pCamera->CleanUp();
 
+	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
 	delete  Window::g_pWindow;
 	delete  AssetManager::g_pAssetManager;
@@ -78,13 +81,15 @@ void Game::DestroyEntity(Entity*& entity)
 
 void Game::InitSystems()
 {
-	AssetManager::g_pAssetManager = new AssetManager();
 	Window::g_pWindow = new Window(this);
+	AssetManager::g_pAssetManager = new AssetManager();
 	Audio::g_pAudio = new Audio();
 	Renderer::g_pRenderer = new Renderer();
-	
-	AssetManager::g_pAssetManager->Init();
+	Camera::g_pCamera = new Camera();
+
 	Window::g_pWindow->Init();
+	AssetManager::g_pAssetManager->Init();
 	Audio::g_pAudio->Init();
 	Renderer::g_pRenderer->Init();
+	Camera::g_pCamera->Init();
 }

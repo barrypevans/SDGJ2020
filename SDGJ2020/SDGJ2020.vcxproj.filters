@@ -32,8 +32,8 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="core\Input.cpp">
-	<Filter>core</Filter>
-	</ClCompile>
+      <Filter>core</Filter>
+    </ClCompile>
     <ClCompile Include="core\component.cpp">
       <Filter>core</Filter>
     </ClCompile>
@@ -41,6 +41,9 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="core\renderer.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\camera.cpp">
       <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -82,7 +85,7 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\Input.h">
-<Filter>core</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\component.h">
       <Filter>core</Filter>
@@ -91,6 +94,9 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\renderer.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\camera.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>

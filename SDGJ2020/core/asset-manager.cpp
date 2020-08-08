@@ -77,7 +77,7 @@ void AssetManager::LoadAssets()
 		}
 		else if(extension == "txt" |
 				extension == "vs"  |
-				extension == "ps")
+				extension == "fs")
 		{
 			LoadTextAsset(path);
 		}
@@ -90,10 +90,11 @@ void AssetManager::LoadAssets()
 
 void AssetManager::LoadImageAsset(std::string assetPath)
 {
+	stbi_set_flip_vertically_on_load(true);
 	int x, y, n;
 	unsigned char *data = stbi_load(assetPath.c_str(), &x, &y, &n, 4);
 	Texture* pTexture = new Texture(data, x, y, n);
-	Hashcode hash = FnvHash(assetPath.c_str());
+	Hashcode hash = FnvHash(assetPath.substr(12, assetPath.length() - 12).c_str());
 	m_resourceMap.insert(std::pair<Hashcode, void*>(hash, pTexture));
 	stbi_image_free(data);
 }
@@ -105,16 +106,21 @@ void AssetManager::LoadTextAsset(std::string assetPath)
 
 void AssetManager::LoadBinAsset(std::string assetPath, bool isText)
 {
-	std::ifstream t(assetPath);
+	std::ifstream t;
+	t.open(assetPath.c_str(), std::ios::binary | std::ios::in);
 	t.seekg(0, std::ios::end);
 	size_t size = t.tellg();
-	std::string buffer(size, 0);
-	t.seekg(0);
-	t.read(&buffer[0], size);
+	t.seekg(0, std::ios::beg);
+	char* buffer = (char*)malloc(size + 1);
+	t.read(buffer, size);
+	t.close();
+	buffer[size] = 0;
 
-	BinaryAsset* pTextAsset = new BinaryAsset(buffer.c_str(), buffer.size(), isText);
-	Hashcode hash = FnvHash(assetPath.c_str());
-	m_resourceMap.insert(std::pair<Hashcode, void*>(hash, pTextAsset));
+	BinaryAsset* pBinAsset = new BinaryAsset(buffer, size, isText);
+	Hashcode hash = FnvHash(assetPath.substr(12, assetPath.length() - 12).c_str());
+	m_resourceMap.insert(std::pair<Hashcode, void*>(hash, pBinAsset));
+	
+	free(buffer);
 }
 
 

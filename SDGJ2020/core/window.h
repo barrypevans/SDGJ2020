@@ -4,6 +4,7 @@
 #include <sdl/SDL.h>
 #undef main
 
+#include <glm/glm.hpp>
 #include "game.h"
 
 class Window : public ISystem
@@ -20,7 +21,9 @@ public:
 	void PollEvents();
 
 	static Window* g_pWindow;
-
+	
+	float GetAspect();
+	glm::vec2 GetDimensions();
 private:
 
 	SDL_Window* m_pSdlWindow;

@@ -6,18 +6,10 @@
 BinaryAsset::BinaryAsset(const char* contents, size_t size, bool isText) : m_size(size)
 {
 	ASSERT(contents, "Error: null contents provided to text asset.");
-	
-	// add one byte for null terminator
-	if (isText)
-		size += 1;
 
-	m_pContents = (char*)malloc(size + 1);
+	m_pContents = (char*)malloc(size+1);
 	ASSERT(m_pContents, "Error: Failed to allocate memory for text asset.");
-	memcpy(m_pContents, contents, size);
-	
-	// null terminate string
-	if (isText)
-		m_pContents[size] = 0;
+	memcpy(m_pContents, contents, size+1);
 }
 
 BinaryAsset::~BinaryAsset()
