@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+Input* Input::g_pInput;
 
 Input::Input() {
 	setLeftKey(false);

@@ -50,20 +50,18 @@ void Window::SwapBuffers()
 void Window::PollEvents()
 {
 	SDL_Event event;
-	Input input;
+	Input::g_pInput->pushPrevKey();
 	while (SDL_PollEvent(&event)) 
 	{
 		if (event.type == SDL_QUIT)
 			m_pGame->RequestShutDown();
-
-		input.handleEvent(event);
-		if (input.getDownKeyPress()) {
+		Input::g_pInput.handleEvent(event);
+		if (Input::g_pInput.getDownKeyPress()) {
 			cout << "Down is pressed\n";
 		}
-		if (input.getDownKeyRel()) {
+		if (Input::g_pInput.getDownKeyRel()) {
 			cout << "Down is Released\n";
 		}
-		input.pushPrevKey();
 	}
 }
 
