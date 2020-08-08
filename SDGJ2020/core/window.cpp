@@ -1,6 +1,7 @@
 #include "window.h"
 #include <stdio.h>
 #include "assert.h"
+#include "Input.h"
 
 void Window::Init()
 {
@@ -37,10 +38,13 @@ void Window::Update()
 void Window::PollEvents()
 {
 	SDL_Event event;
+	Input input;
 	while (SDL_PollEvent(&event)) 
 	{
 		if (event.type == SDL_QUIT)
 			m_pGame->RequestShutDown();
+
+		input.handleEvent(event);
 	}
 }
 
