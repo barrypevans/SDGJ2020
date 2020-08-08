@@ -62,10 +62,6 @@ void Game::Update()
 		if (m_entityList[i])
 			m_entityList[i]->Update();
 
-
-	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
-
-
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
 	Window::g_pWindow->SwapBuffers();
