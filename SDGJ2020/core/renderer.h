@@ -37,4 +37,4 @@ private:
 		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 		"}\0";
 };
-
+static Renderer* g_pRenderer;
