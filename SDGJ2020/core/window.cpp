@@ -50,13 +50,13 @@ void Window::SwapBuffers()
 void Window::PollEvents()
 {
 	SDL_Event event;
+	Input::g_pInput->pushPrevKey();
 	while (SDL_PollEvent(&event)) 
 	{
 		if (event.type == SDL_QUIT)
 			m_pGame->RequestShutDown();
 
 		Input::g_pInput->handleEvent(event);
-		Input::g_pInput->pushPrevKey();
 	}
 }
 
