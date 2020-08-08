@@ -104,6 +104,11 @@ void Renderer::DrawRenderable(Renderable* renderable)
 	
 	glUniformMatrix4fv(location, 1, GL_FALSE, &MVP[0][0]);
 
+	GLuint userdata1location = glGetUniformLocation(shader->GetProgram(), "userData1");
+	GLuint userdata2location = glGetUniformLocation(shader->GetProgram(), "userData2");
+	glUniform1fv(userdata1location, 1, &renderable->userData1);
+	glUniform1fv(userdata2location, 1, &renderable->userData2);
+
 	if (renderable->m_texture)
 	{
 		glActiveTexture(GL_TEXTURE0); 

@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "game.h"
 #include "renderable.h"
+#include "time.h"
 
 class UI : public ISystem
 {
@@ -15,5 +16,6 @@ public:
 
 	Entity* pHypebar;
 	float hypeBarPercent;
+	Renderable* hypebarRenderable;
 
 };
