@@ -12,6 +12,7 @@
 #include "metronome.h"
 #include "time.h"
 #include "Input.h"
+#include "ui.h"
 
 Game* Game::g_pGame;
 
@@ -35,6 +36,7 @@ void Game::CleanUp()
 	Camera::g_pCamera->CleanUp();
 	Metronome::g_pMetronome->CleanUp();
 	Time::g_pTime->CleanUp();
+	UI::g_pUI->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -45,6 +47,7 @@ void Game::CleanUp()
 void Game::Update()
 {
 	Time::g_pTime->Update();
+	UI::g_pUI->Update();
 
 	if (Window::g_pWindow)
 	{
@@ -60,10 +63,6 @@ void Game::Update()
 			m_entityList[i]->Update();
 
 
-
-	pBerryEntity->m_rotation += 0.1;
-
-	//pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
 	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
 
 	if (Input::g_pInput->getLeftKeyPress())
@@ -111,6 +110,8 @@ void Game::InitSystems()
 	Metronome::g_pMetronome = new Metronome();
 	Time::g_pTime = new Time();
 	Input::g_pInput = new Input();
+	UI::g_pUI = new UI();
+
 
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
@@ -120,6 +121,7 @@ void Game::InitSystems()
 	Metronome::g_pMetronome->Init();
 	Time::g_pTime->Init();
 	Input::g_pInput->Init();
+	UI::g_pUI->Init();
 }
 
 void Game::InitCoreEntities()
