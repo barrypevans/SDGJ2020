@@ -7,6 +7,9 @@
     <Filter Include="external">
       <UniqueIdentifier>{789224f4-5dba-4b2d-a176-b49e519f812e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{93d1836f-9b15-410a-9351-c89656e66e4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core\game.cpp">
