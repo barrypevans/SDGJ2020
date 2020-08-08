@@ -57,15 +57,15 @@ void Window::PollEvents()
 		if (event.type == SDL_QUIT)
 			m_pGame->RequestShutDown();
 		
-		input.handleEvent(event);
-		if (input.getDownKeyPress()) // Sample beat matching, ok to drop
+		Input::g_pInput->handleEvent(event);
+		if (Input::g_pInput->getDownKeyPress()) // Sample beat matching, ok to drop
 		{
 			bool win = (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100;
 			//printf(win ? "beat " : "wrong ");
 			Audio::g_pAudio->Play(win?Audio::GameClip::kMetUp : Audio::GameClip::kMetDown,.1f);
 		}
 	}
-	input.pushPrevKey();
+	Input::g_pInput->pushPrevKey();
 }
 
 float Window::GetAspect()
