@@ -6,6 +6,9 @@
 #include "asset-manager.h"
 #include "window.h"
 #include "audio.h"
+#include "renderable.h"
+#include "renderer.h"
+#include "camera.h"
 #include "metronome.h"
 
 void Game::Init()
@@ -17,29 +20,44 @@ void Game::Init()
 	
 	g_pMetronome->Start(120);
 	g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
+	
 	Entity* entity = CreateEntity();
+	auto renderable = entity->AddComponent<Renderable>();
+	renderable->SetTexture("art/sprite_01.png");
 }
 
 void Game::CleanUp()
 {
-	g_pAudio->CleanUp();
-	g_pWindow->CleanUp();
-	g_pAssetManager->CleanUp();
+	Audio::g_pAudio->CleanUp();
+	Window::g_pWindow->CleanUp();
+	AssetManager::g_pAssetManager->CleanUp();
+	Camera::g_pCamera->CleanUp();
 	g_pMetronome->CleanUp();
 
-	delete g_pAudio;
-	delete g_pWindow;
-	delete g_pAssetManager;
+	delete Camera::g_pCamera;
+	delete  Audio::g_pAudio;
+	delete  Window::g_pWindow;
+	delete  AssetManager::g_pAssetManager;
 }
 
 void Game::Update()
 {
-	if (g_pWindow)
+	if (Window::g_pWindow)
 	{
-		g_pWindow->PollEvents();
-		g_pWindow->Update();
+		Window::g_pWindow->PollEvents();
+		Window::g_pWindow->Update();
 	}
 
+	Renderer::g_pRenderer->ClearRenderQueue();
+
+	// update all entities
+	for (int i = 0; i < m_entityList.size(); ++i)
+		if (m_entityList[i])
+			m_entityList[0]->Update();
+
+	Renderer::g_pRenderer->RenderAllInQueue();
+	
+	Window::g_pWindow->SwapBuffers();
 	g_pMetronome->Update();
 }
 
@@ -68,13 +86,17 @@ void Game::DestroyEntity(Entity*& entity)
 
 void Game::InitSystems()
 {
-	g_pAssetManager = new AssetManager();
-	g_pWindow = new Window(this);
-	g_pAudio = new Audio();
+	Window::g_pWindow = new Window(this);
+	AssetManager::g_pAssetManager = new AssetManager();
+	Audio::g_pAudio = new Audio();
+	Renderer::g_pRenderer = new Renderer();
+	Camera::g_pCamera = new Camera();
 	g_pMetronome = new Metronome();
 
-	g_pAssetManager->Init();
-	g_pWindow->Init();
-	g_pAudio->Init();
+	Window::g_pWindow->Init();
+	AssetManager::g_pAssetManager->Init();
+	Audio::g_pAudio->Init();
+	Renderer::g_pRenderer->Init();
+	Camera::g_pCamera->Init();
 	g_pMetronome->Init();
 }

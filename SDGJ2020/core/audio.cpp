@@ -4,6 +4,8 @@
 #include "assert.h"
 #include "metronome.h"
 
+Audio* Audio::g_pAudio;
+
 void Audio::Init() 
 {
     FMOD_RESULT result;

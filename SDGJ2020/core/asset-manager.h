@@ -26,6 +26,8 @@ public:
 		return reinterpret_cast<AssetType*>(m_resourceMap[hash]);
 	}
 
+	static AssetManager* g_pAssetManager;
+
 private:
 
 	static const Hashcode kFnvOffsetBasis = 14695981039346656037;
@@ -44,5 +46,3 @@ private:
 	std::map<Hashcode, void*> m_resourceMap;
 	std::vector<std::string> m_assetManifest;
 };
-
-static AssetManager* g_pAssetManager;

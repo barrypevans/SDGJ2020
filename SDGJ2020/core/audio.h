@@ -21,7 +21,7 @@ public:
 	virtual void Update() override;
 
 	void Play(GameClip clip, float volume = 1, int loopCount= 0);
-	
+	static Audio* g_pAudio;
 private:
 
 	FMOD::System* system;
@@ -38,4 +38,3 @@ private:
 #undef CLIP_DEF
 };
 
-static Audio* g_pAudio;

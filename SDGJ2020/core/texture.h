@@ -1,4 +1,6 @@
 #pragma once
+#include <GL/glew.h>
+
 class Texture
 {
 public:
@@ -7,5 +9,8 @@ public:
 
 	unsigned int m_width, m_height, m_numChannels;
 	char* m_pData;
+	
+	float m_aspect;
+	GLuint m_textureId;
 };
 

@@ -1,13 +1,15 @@
 #include "window.h"
 #include <stdio.h>
 #include "assert.h"
+#include "Input.h"
+//VVVThis was debug code. Remove 
+#include <iostream>
+using namespace std;
+
+Window* Window::g_pWindow;
 
 void Window::Init()
 {
-	// Initialize Glew (used for easily loading Opengl extensions)
-	GLenum err = glewInit();
-	ASSERT(GLEW_OK != err, "Error: %s\n", glewGetErrorString(err));
-
 	// Setup GL Version
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
@@ -25,23 +27,51 @@ void Window::Init()
 	// Create GL Context
 	m_glContext = SDL_GL_CreateContext(m_pSdlWindow);
 	ASSERT(nullptr != m_glContext, "Error Creating SDL GL Context: %s", SDL_GetError());
+	
+	SDL_GL_SetSwapInterval(1);
+
+	// Initialize Glew (used for easily loading Opengl extensions)
+	glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	ASSERT(GLEW_OK == err, "Error: %s\n", glewGetErrorString(err));
 }
 
 void Window::Update()
 {
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Window::SwapBuffers()
+{
 	SDL_GL_SwapWindow(m_pSdlWindow);
 }
 
 void Window::PollEvents()
 {
 	SDL_Event event;
+	Input input;
 	while (SDL_PollEvent(&event)) 
 	{
 		if (event.type == SDL_QUIT)
 			m_pGame->RequestShutDown();
+
+		input.handleEvent(event);
 	}
+}
+
+float Window::GetAspect()
+{
+	int w, h;
+	SDL_GetWindowSize(m_pSdlWindow, &w, &h);
+	return static_cast<float>(h) / static_cast<float>(w);
+}
+
+glm::vec2 Window::GetDimensions()
+{
+	int w, h;
+	SDL_GetWindowSize(m_pSdlWindow, &w, &h);
+	return glm::vec2(w,h);
 }
 
 void Window::CleanUp()
