@@ -55,8 +55,13 @@ void Window::PollEvents()
 	{
 		if (event.type == SDL_QUIT)
 			m_pGame->RequestShutDown();
-
-		Input::g_pInput->handleEvent(event);
+		Input::g_pInput.handleEvent(event);
+		if (Input::g_pInput.getDownKeyPress()) {
+			cout << "Down is pressed\n";
+		}
+		if (Input::g_pInput.getDownKeyRel()) {
+			cout << "Down is Released\n";
+		}
 	}
 }
 

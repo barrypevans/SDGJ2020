@@ -16,6 +16,11 @@ Input::Input() {
 	setRightKeyPrev(false);
 	setUpKeyPrev(false);
 	setDownKeyPrev(false);
+
+	setUpKeyRelease(false);
+	setDownKeyRelease(false);
+	setLeftKeyRelease(false);
+	setRightKeyRelease(false);
 }
 
 
@@ -34,10 +39,10 @@ void Input::handleEvent(SDL_Event& event)
 	}
 	else if (event.type == SDL_KEYUP && event.key.repeat == 0) {
 		switch (event.key.keysym.sym) {
-		case SDLK_UP: setUpKey(false); break;
-		case SDLK_DOWN: setDownKey(false); break;
-		case SDLK_LEFT: setLeftKey(false); break;
-		case SDLK_RIGHT: setRightKey(false); break;
+		case SDLK_UP: setUpKey(false); setUpKeyRelease(true); break;
+		case SDLK_DOWN: setDownKey(false); setDownKeyRelease(true); break;
+		case SDLK_LEFT: setLeftKey(false); setLeftKeyRelease(true); break;
+		case SDLK_RIGHT: setRightKey(false); setRightKeyRelease(true); break;
 		}
 	}
 }
