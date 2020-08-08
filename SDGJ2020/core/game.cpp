@@ -9,6 +9,7 @@
 #include "renderable.h"
 #include "renderer.h"
 #include "camera.h"
+#include "metronome.h"
 
 void Game::Init()
 {
@@ -16,9 +17,9 @@ void Game::Init()
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
-
-	Audio::g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
-
+	
+	Metronome::g_pMetronome->Start(120);
+	//Audio::g_pAudio->Play(Audio::GameClip::kMetReference, .5f, 10);
 	InitCoreEntities();
 }
 
@@ -28,6 +29,7 @@ void Game::CleanUp()
 	Window::g_pWindow->CleanUp();
 	AssetManager::g_pAssetManager->CleanUp();
 	Camera::g_pCamera->CleanUp();
+	Metronome::g_pMetronome->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -62,6 +64,7 @@ void Game::Update()
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
 	Window::g_pWindow->SwapBuffers();
+	Metronome::g_pMetronome->Update();
 }
 
 bool Game::IsRunning()
@@ -94,12 +97,14 @@ void Game::InitSystems()
 	Audio::g_pAudio = new Audio();
 	Renderer::g_pRenderer = new Renderer();
 	Camera::g_pCamera = new Camera();
+	Metronome::g_pMetronome = new Metronome();
 
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
 	Audio::g_pAudio->Init();
 	Renderer::g_pRenderer->Init();
 	Camera::g_pCamera->Init();
+	Metronome::g_pMetronome->Init();
 }
 
 void Game::InitCoreEntities()

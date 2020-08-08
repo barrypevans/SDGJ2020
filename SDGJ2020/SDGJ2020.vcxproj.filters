@@ -34,6 +34,9 @@
     <ClCompile Include="core\entity.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\metronome.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
     <ClCompile Include="core\Input.cpp">
       <Filter>core</Filter>
     </ClCompile>
@@ -85,6 +88,9 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\entity.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\metronome.h">
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\Input.h">

@@ -29,6 +29,7 @@
     <ClCompile Include="core\Input.cpp" />
     <ClCompile Include="core\renderable.cpp" />
     <ClCompile Include="core\renderer.cpp" />
+    <ClCompile Include="core\metronome.cpp" />
     <ClCompile Include="core\texture.cpp" />
     <ClCompile Include="core\window.cpp" />
     <ClCompile Include="main.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="core\renderer.h" />
     <ClInclude Include="core\texture.h" />
     <ClInclude Include="core\window.h" />
+    <ClInclude Include="core\metronome.h" />
     <ClInclude Include="external\dirent.h" />
     <ClInclude Include="external\stb_image.h" />
   </ItemGroup>

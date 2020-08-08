@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "assert.h"
+#include "metronome.h"
 
 Audio* Audio::g_pAudio;
 
@@ -46,6 +47,7 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
         channel->setLoopCount(loopCount);
     }
 }
+
 
 void Audio::PrepareClips() 
 {
