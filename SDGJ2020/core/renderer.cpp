@@ -117,10 +117,11 @@ void Renderer::DrawRenderable(Renderable* renderable)
 	glm::mat4 proj = Camera::g_pCamera->GetOrthographicProjection();
 	glm::mat4 view = Camera::g_pCamera->GetCameraTransformation();
 	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
-	glm::mat4 model = glm::scale(glm::mat4(1.0f),glm::vec3(entity->m_scale.x, entity->m_scale.y,1));
-	model *= glm::translate(glm::mat4(1.0f),
-						glm::vec3(entity->m_position.x,
-							entity->m_position.y,0));
+	glm::mat4 model = glm::translate(glm::mat4(1.0f),
+		glm::vec3(entity->m_position.x,
+			entity->m_position.y, 0));
+		
+	model *= glm::scale(glm::mat4(1.0f), glm::vec3(entity->m_scale.x, entity->m_scale.y, 1));
 	glm::mat4 MVP = proj * view * model;
 	glUniformMatrix4fv(location, 1, GL_FALSE, &MVP[0][0]);
 

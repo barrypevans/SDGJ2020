@@ -18,6 +18,7 @@ public:
 
 private:
 	void InitSystems();
+	void InitCoreEntities();
 
 	bool m_isRunning;
 	std::vector<Entity*> m_entityList;

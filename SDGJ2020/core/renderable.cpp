@@ -17,10 +17,6 @@ void Renderable::SetTexture(std::string texturePath)
 }
 void Renderable::Update()
 {
-	static float time = 0;
-	time += .01f;
-	Entity* entity = reinterpret_cast<Entity*>(m_entity);
-	entity->m_position.y = sin(time);
 	Renderer::g_pRenderer->JoinRenderQueue(this);
 }
 

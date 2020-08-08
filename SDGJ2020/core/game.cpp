@@ -18,9 +18,8 @@ void Game::Init()
 	printf("Game Initialized!\n");
 
 	Audio::g_pAudio->Play(Audio::GameClip::kTest, .5f, 10);
-	Entity* entity = CreateEntity();
-	auto renderable = entity->AddComponent<Renderable>();
-	renderable->SetTexture("art/sprite_01.png");
+
+	InitCoreEntities();
 }
 
 void Game::CleanUp()
@@ -49,7 +48,7 @@ void Game::Update()
 	// update all entities
 	for (int i = 0; i < m_entityList.size(); ++i)
 		if (m_entityList[i])
-			m_entityList[0]->Update();
+			m_entityList[i]->Update();
 
 	Renderer::g_pRenderer->RenderAllInQueue();
 	
@@ -92,4 +91,16 @@ void Game::InitSystems()
 	Audio::g_pAudio->Init();
 	Renderer::g_pRenderer->Init();
 	Camera::g_pCamera->Init();
+}
+
+void Game::InitCoreEntities()
+{
+	Entity* pDanceFloorEntity = CreateEntity();
+	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
+	danceRenderable->SetTexture("art/dance-floor.png");
+	pDanceFloorEntity->m_scale *= 15;
+
+	Entity* pCharacterEntity = CreateEntity();
+	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
+	charRenderable->SetTexture("art/sprite_01.png");
 }
