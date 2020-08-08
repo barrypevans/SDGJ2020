@@ -60,6 +60,9 @@ void Window::PollEvents()
 		if (input.getDownKeyPress()) {
 			cout << "Down is pressed\n";
 		}
+		if (input.getDownKeyRel()) {
+			cout << "Down is Released\n";
+		}
 		input.pushPrevKey();
 	}
 }
