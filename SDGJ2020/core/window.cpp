@@ -3,9 +3,7 @@
 #include "assert.h"
 #include "Input.h"
 #include "metronome.h"
-//VVVThis was debug code. Remove 
-#include <iostream>
-using namespace std;
+
 
 Window* Window::g_pWindow;
 
@@ -65,7 +63,6 @@ void Window::PollEvents()
 			Audio::g_pAudio->Play(win?Audio::GameClip::kMetUp : Audio::GameClip::kMetDown,.1f);
 		}
 	}
-	Input::g_pInput->pushPrevKey();
 }
 
 float Window::GetAspect()
