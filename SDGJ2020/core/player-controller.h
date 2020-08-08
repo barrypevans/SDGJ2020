@@ -10,7 +10,5 @@ class PlayerController : public Component
 	int playerPosX;
 	int playerPosY;
 
-	double coordX[10][10];
-	double coordY[10][10];
 
 };
