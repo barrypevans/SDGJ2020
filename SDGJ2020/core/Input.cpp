@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+Input::Input() {}
+
 void Input::handleEvent(SDL_Event& event)
 {
 	//Key has been pressed
