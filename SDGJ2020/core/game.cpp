@@ -13,6 +13,7 @@
 #include "time.h"
 #include "Input.h"
 #include "ui.h"
+#include "player-controller.h"
 
 Game* Game::g_pGame;
 
@@ -125,6 +126,7 @@ void Game::InitCoreEntities()
 	pCharacterEntity = CreateEntity();
 	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
 	charRenderable->SetTexture("art/sprite_01.png");
+	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale *= .5f;
 
