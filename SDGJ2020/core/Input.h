@@ -1,5 +1,8 @@
+#pragma once
 #include <sdl/SDL.h>
-class Input
+#include "ISystem.h"
+
+class Input : public ISystem
 {
 	bool leftKey[2];
 	bool rightKey[2];
@@ -9,6 +12,10 @@ class Input
 
 public:
 	Input();
+	
+	virtual void Init() override {};
+	virtual void CleanUp() override {};
+	
 	void pushPrevKey() {
 		this->leftKey[0] = this->leftKey[1];
 		this->rightKey[0] = this->rightKey[1];
@@ -42,6 +49,7 @@ public:
 	}
 
 	void handleEvent(SDL_Event& event);
+	static Input* g_pInput;
 
 private:
 	void setLeftKey(bool key) {
@@ -68,7 +76,5 @@ private:
 	void setDownKeyPrev(bool key) {
 		this->downKey[0] = key;
 	};
-
 };
 
-static Input* g_pInput;

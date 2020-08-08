@@ -11,6 +11,7 @@
 #include "camera.h"
 #include "metronome.h"
 #include "time.h"
+#include "Input.h"
 
 Game* Game::g_pGame;
 
@@ -65,7 +66,10 @@ void Game::Update()
 	//pBerryEntity->m_scale += glm::vec2(0.01, 0.01);
 	Camera::g_pCamera->m_position += glm::vec2(0.01, 0.01);
 
-
+	if (Input::g_pInput->getLeftKeyPress())
+	{
+		printf("down key pressed");
+	}
 
 
 	Renderer::g_pRenderer->RenderAllInQueue();
@@ -106,6 +110,7 @@ void Game::InitSystems()
 	Camera::g_pCamera = new Camera();
 	Metronome::g_pMetronome = new Metronome();
 	Time::g_pTime = new Time();
+	Input::g_pInput = new Input();
 
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
@@ -114,6 +119,7 @@ void Game::InitSystems()
 	Camera::g_pCamera->Init();
 	Metronome::g_pMetronome->Init();
 	Time::g_pTime->Init();
+	Input::g_pInput->Init();
 }
 
 void Game::InitCoreEntities()
