@@ -9,6 +9,7 @@
 #include <algorithm>
 #include "glm/gtc/matrix_transform.hpp"
 #include "animatable.h"
+#include "renderable-digit.h"
 
 Renderer* Renderer::g_pRenderer;
 
@@ -60,14 +61,16 @@ void Renderer::SetupQuad()
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 6, vertices, GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
@@ -84,7 +87,8 @@ void Renderer::DrawRenderable(Renderable* renderable)
 
 	shader->BindShader();
 
-	Animatable* animatable =  dynamic_cast<Animatable*>(renderable);
+	Animatable* animatable = dynamic_cast<Animatable*>(renderable);
+	RenderableDigit* renderableDigit = dynamic_cast<RenderableDigit*>(renderable);
 	
 	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
 	glm::vec2 scale = entity->m_scale;
@@ -92,13 +96,13 @@ void Renderer::DrawRenderable(Renderable* renderable)
 	{
 		scale.y *= (float)renderable->m_texture->m_height/
 			((float)renderable->m_texture->m_width / static_cast<float>(animatable->GetActiveAnimation()->m_numFrames));
-		
 	}
 	else
 	{
 		// correct scale for aspect ratio
 		scale.y *= renderable->m_texture->m_aspect;
 	}
+
 	// upload camera matrix
 	GLuint location = glGetUniformLocation(shader->GetProgram(), "_mvp");
 	glm::mat4 proj = Camera::g_pCamera->GetOrthographicProjection();

@@ -19,10 +19,14 @@
 #include "Entity_Controller.h"
 #include "beatCounter.h"
 #include "../game/dance-floor-visual-controller.h"
+#include <time.h>
 Game* Game::g_pGame;
 
 void Game::Init()
 {
+	//seed random numbers
+	srand((unsigned)time(NULL));
+
 	g_pGame = this;
 	m_isRunning = true;
 	InitSystems();
@@ -53,6 +57,7 @@ void Game::Update()
 {
 	Time::g_pTime->Update();
 	UI::g_pUI->Update();
+	Camera::g_pCamera->Update();
 
 	if (Window::g_pWindow)
 	{
@@ -126,6 +131,13 @@ void Game::InitSystems()
 
 void Game::InitCoreEntities()
 {
+	Entity* pBackDrop = CreateEntity();
+	auto pBackDropRenderable = pBackDrop->AddComponent<Renderable>();
+	pBackDropRenderable->SetTexture("art/backdrop.png");
+	pBackDrop->m_scale *= 11;
+	pBackDrop->m_position = glm::vec2(0,.5);
+	pBackDropRenderable->m_layerOrder = -10;
+
 	Entity* pDanceFloorEntity = CreateEntity();
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor.png");

@@ -80,6 +80,12 @@
       <Filter>game</Filter>
     </ClCompile>
     <ClCompile Include="core\CharacterCollision.cpp">
+	<Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\number-renderer.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\renderable-digit.cpp">
       <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,6 +173,12 @@
       <Filter>game</Filter>
     </ClInclude>
     <ClInclude Include="core\CharacterCollision.h">
+	<Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\number-renderer.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\renderable-digit.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
