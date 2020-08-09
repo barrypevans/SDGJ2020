@@ -70,7 +70,7 @@ public:
 	void addNPC(int x, int y, int key);
 	bool setNPCCoords(int key, int x, int y);
 	bool calculateNext();
-	bool compareStruct(posCoords a, posCoords b);
+	bool compareStruct(posCoords a);
 	
 
 	static CharacterCollision* g_pChracterCollision;

@@ -80,7 +80,7 @@ void Entity_Controller::Update()
 			beatCount++;
 			if (enemyType == King) {
 				if (beatCount > 3) {
-					printf("\n\nSetting Key %d\n\n", key);
+					//printf("\n\nSetting Key %d\n\n", key);
 					switch (rand() % 4) {
 					case 0:
 						if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); }
@@ -105,7 +105,7 @@ void Entity_Controller::Update()
 			else if (enemyType == Knight) {
 				if (knightQueue) {
 					if (knightQueueDirection) {
-						printf("Setting Key %d", key);
+						//printf("Setting Key %d", key);
 						switch (rand() % 2) {
 						case 0:
 							if (entityPosY != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY + 1)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveUp(entity); }
@@ -119,7 +119,7 @@ void Entity_Controller::Update()
 						knightQueueEnd++;
 					}
 					else {
-						printf("Setting Key %d", key);
+						//printf("Setting Key %d", key);
 						switch (rand() % 2) {
 						case 0:
 							if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); }
@@ -138,7 +138,7 @@ void Entity_Controller::Update()
 					}
 				}
 				else if (beatCount > 1) {
-					printf("Setting Key %d", key);
+					//printf("Setting Key %d", key);
 					switch (rand() % 4) {
 						case 0:
 							if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); knightQueueDirection = false; }
@@ -162,7 +162,7 @@ void Entity_Controller::Update()
 			}
 			else if (enemyType == Bishop) {
 				if (beatCount > 2) {
-					printf("Setting Key %d", key);
+					//printf("Setting Key %d", key);
 					switch (rand() % 4) {
 					case 0:
 						if (entityPosX != 9 && entityPosY != 9 && CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY + 1) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveRight(entity); moveUp(entity); }
