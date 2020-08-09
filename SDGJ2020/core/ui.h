@@ -15,23 +15,19 @@ public:
 	virtual void Update() override;
 
 	float hypeBarPercent;
+	float targetHypeBarPercent;
 
+	int hypeCount = 0;
+	int maxHypeCount = 10;
+	void CorrectMove();
+	void ClearMoveCount();
 
 	void InitBar(Entity** e, Renderable** r, std::string textureFilename);
 
 	Entity* pHypebar;
 	Renderable* hypebarRenderable;
 
-	Entity* pHypebar2;
-	Renderable* hypebarRenderable2;
-
-	Entity* pHypebar3;
-	Renderable* hypebarRenderable3;
-
-	Entity* pHypebar4;
-	Renderable* hypebarRenderable4;
-
-	Entity* pHypebar5;
-	Renderable* hypebarRenderable5;
+	Entity* pHypebarGlow;
+	Renderable* hypebarGlowRenderable;
 
 };

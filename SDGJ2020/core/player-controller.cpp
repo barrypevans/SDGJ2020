@@ -4,6 +4,7 @@
 #include "metronome.h"
 #include <iostream>
 #include "time.h"
+#include "ui.h"
 using namespace std;
 
 
@@ -34,30 +35,59 @@ void PlayerController::Update()
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount==0 && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
 				moveDown(entity);
+				UI::g_pUI->CorrectMove();
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount == 1 && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
 				moveLeft(entity);
+				UI::g_pUI->CorrectMove();
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount == 2 && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
 				moveUp(entity);
+				UI::g_pUI->CorrectMove();
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount == 3 && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
 				moveRight(entity);
+				UI::g_pUI->CorrectMove();
 		}
 		
 	}
 	else {
-		if (Input::g_pInput->getRightKeyPress() && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
-			moveRight(entity);
+
+		if (Input::g_pInput->getRightKeyPress()) {
+			if (playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+			{
+				moveRight(entity);
+				UI::g_pUI->CorrectMove();
+			}
+			else
+				UI::g_pUI->ClearMoveCount();
 		}
-		if (Input::g_pInput->getLeftKeyPress() && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
-			moveLeft(entity);
+		if (Input::g_pInput->getLeftKeyPress()) {
+			if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+			{
+				moveLeft(entity);
+				UI::g_pUI->CorrectMove();
+			}
+			else
+				UI::g_pUI->ClearMoveCount();
 		}
-		if (Input::g_pInput->getUpKeyPress() && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
-			moveUp(entity);
+		if (Input::g_pInput->getUpKeyPress()) {
+			if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+			{
+				moveUp(entity);
+				UI::g_pUI->CorrectMove();
+			}
+			else
+				UI::g_pUI->ClearMoveCount();
 		}
-		if (Input::g_pInput->getDownKeyPress() && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
-			moveDown(entity);
+		if (Input::g_pInput->getDownKeyPress()) {
+			if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+			{
+				moveDown(entity);
+				UI::g_pUI->CorrectMove();
+			}
+			else
+				UI::g_pUI->ClearMoveCount();
 		}
 	}
 	entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f*Time::g_pTime->GetDeltaTime());
