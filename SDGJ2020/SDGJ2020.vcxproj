@@ -26,6 +26,7 @@
     <ClCompile Include="core\beatCounter.cpp" />
     <ClCompile Include="core\binary-asset.cpp" />
     <ClCompile Include="core\camera.cpp" />
+    <ClCompile Include="core\CharacterCollision.cpp" />
     <ClCompile Include="core\component.cpp" />
     <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\Entity_Controller.cpp" />
@@ -53,6 +54,7 @@
     <ClInclude Include="core\beatCounter.h" />
     <ClInclude Include="core\binary-asset.h" />
     <ClInclude Include="core\camera.h" />
+    <ClInclude Include="core\CharacterCollision.h" />
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\component.h" />
     <ClInclude Include="core\entity.h" />

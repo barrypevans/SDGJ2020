@@ -2,9 +2,14 @@
 #include "Input.h"
 #include "entity.h"
 #include "metronome.h"
-#include <iostream>
 #include "time.h"
-using namespace std;
+#include "CharacterCollision.h"
+
+PlayerController* PlayerController :: g_pPlayerController;
+int npcPositionX;
+int npcPositionY;
+int playerPosX;
+int playerPosY;
 
 
 void PlayerController::Init()
@@ -47,20 +52,23 @@ void PlayerController::Update()
 		
 	}
 	else {
-		if (Input::g_pInput->getRightKeyPress() && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getRightKeyPress() && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
 			moveRight(entity);
 		}
-		if (Input::g_pInput->getLeftKeyPress() && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getLeftKeyPress() && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
 			moveLeft(entity);
 		}
-		if (Input::g_pInput->getUpKeyPress() && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getUpKeyPress() && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
 			moveUp(entity);
 		}
-		if (Input::g_pInput->getDownKeyPress() && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getDownKeyPress() && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
 			moveDown(entity);
 		}
 	}
 	entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f*Time::g_pTime->GetDeltaTime());
+	CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+	CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
+
 	
 	// move player
 	

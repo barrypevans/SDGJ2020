@@ -12,6 +12,7 @@
 #include "metronome.h"
 #include "time.h"
 #include "Input.h"
+#include "CharacterCollision.h"
 #include "ui.h"
 #include "player-controller.h"
 #include "animatable.h"
@@ -106,6 +107,9 @@ void Game::InitSystems()
 	Time::g_pTime = new Time();
 	Input::g_pInput = new Input();
 	UI::g_pUI = new UI();
+	CharacterCollision::g_pChracterCollision = new CharacterCollision();
+
+
 
 
 	Window::g_pWindow->Init();
@@ -117,6 +121,7 @@ void Game::InitSystems()
 	Time::g_pTime->Init();
 	Input::g_pInput->Init();
 	UI::g_pUI->Init();
+	CharacterCollision::g_pChracterCollision->Init();
 }
 
 void Game::InitCoreEntities()
