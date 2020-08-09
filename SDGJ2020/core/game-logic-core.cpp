@@ -23,6 +23,7 @@ void GameLogic::Init()
 	m_maxEnemies = 4;
 	int m_beat = 0;
 	m_score = 0;
+
 }
 
 void GameLogic::CleanUp()
@@ -32,7 +33,6 @@ void GameLogic::CleanUp()
 
 void GameLogic::Update()
 {
-
 	if (Metronome::g_pMetronome->Beat)
 	{
 		m_beat++;
@@ -85,7 +85,7 @@ void GameLogic::DealDamage()
 
 void GameLogic::CorrectMove()
 {
-	
+	m_score += kCorrectMoveScore;
 	Camera::g_pCamera->DoShake();
 	if (m_hypeCount >= m_maxHypeCount)
 	{
@@ -96,13 +96,11 @@ void GameLogic::CorrectMove()
 		m_hypeCount++;
 		UI::g_pUI->CorrectMove();
 	}
-	
-
-
 }
 
 void GameLogic::TriggerHype()
 {
+	m_score += kHypeMoveScore;
 	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
 	m_hypeCount = 0;
 	Camera::g_pCamera->DoShake();

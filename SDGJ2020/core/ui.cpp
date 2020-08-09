@@ -3,6 +3,7 @@
 #include "time.h"
 #include "audio.h"
 #include "game-logic-core.h"
+#include "camera.h"
 UI* UI::g_pUI;
 
 
@@ -19,6 +20,10 @@ void UI::Init()
 	pHypebarGlow->m_scale = glm::vec2(3.5, 3.5);
 	hypebarGlowRenderable->m_layerOrder = 9;
 
+	m_pScoreRendererEntity = Game::g_pGame->CreateEntity();
+	m_pScoreRendererEntity->m_position = glm::vec2(-Camera::g_pCamera->GetWidth() + 2.0f, Camera::g_pCamera->GetHeight() - 2.0f) * 0.5f ;
+	m_pScoreRenderer = m_pScoreRendererEntity->AddComponent<NumberRenderer>();
+	
 }
 
 
@@ -60,6 +65,8 @@ void UI::Update()
 	hypeBarPercent += barMoveSpeed;
 
 	hypebarRenderable->userData1 = hypeBarPercent;
+
+	m_pScoreRenderer->SetNumber(GameLogic::g_pGameLogic->m_score);
 }
 
 void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)

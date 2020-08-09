@@ -4,6 +4,7 @@
 #include "game.h"
 #include "renderable.h"
 #include "time.h"
+#include "number-renderer.h"
 
 class UI : public ISystem
 {
@@ -29,5 +30,8 @@ public:
 
 	Entity* pHypebarGlow;
 	Renderable* hypebarGlowRenderable;
+
+	Entity* m_pScoreRendererEntity;
+	NumberRenderer* m_pScoreRenderer;
 
 };

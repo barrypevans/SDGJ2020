@@ -44,3 +44,13 @@ void Camera::DoShake(float shake)
 {
 	m_shakeIntensity += shake;
 }
+
+float Camera::GetWidth()
+{
+	return m_width;
+}
+
+float Camera::GetHeight()
+{
+	return m_width * Window::g_pWindow->GetAspect();
+}
