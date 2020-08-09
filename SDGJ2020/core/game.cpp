@@ -121,6 +121,13 @@ void Game::InitSystems()
 
 void Game::InitCoreEntities()
 {
+	Entity* pBackDrop = CreateEntity();
+	auto pBackDropRenderable = pBackDrop->AddComponent<Renderable>();
+	pBackDropRenderable->SetTexture("art/backdrop.png");
+	pBackDrop->m_scale *= 12;
+	pBackDrop->m_position = glm::vec2(0,1);
+	pBackDropRenderable->m_layerOrder = -10;
+
 	Entity* pDanceFloorEntity = CreateEntity();
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor.png");

@@ -92,7 +92,7 @@ void AssetManager::LoadImageAsset(std::string assetPath)
 {
 	stbi_set_flip_vertically_on_load(true);
 	int x, y, n;
-	unsigned char *data = stbi_load(assetPath.c_str(), &x, &y, &n, 4);
+	unsigned char *data = stbi_load(assetPath.c_str(), &x, &y, &n, 0);
 	Texture* pTexture = new Texture(data, x, y, n);
 	Hashcode hash = FnvHash(assetPath.substr(12, assetPath.length() - 12).c_str());
 	m_resourceMap.insert(std::pair<Hashcode, void*>(hash, pTexture));
