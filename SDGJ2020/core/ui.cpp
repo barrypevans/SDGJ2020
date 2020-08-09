@@ -15,8 +15,8 @@ void UI::Init()
 	hypebarGlowRenderable->OverrideShader("shaders/growableGlow.fs");
 	hypebarGlowRenderable->isUI = true;
 	hypebarGlowRenderable->SetTexture("art/HypeBarGlow.png");
-	pHypebarGlow->m_position = glm::vec2(-4.5, -3.5);
-	pHypebarGlow->m_scale = glm::vec2(7, 7);
+	pHypebarGlow->m_position = glm::vec2(-4.5, -2.9);
+	pHypebarGlow->m_scale = glm::vec2(3.5, 3.5);
 	hypebarGlowRenderable->m_layerOrder = 9;
 
 }
@@ -29,6 +29,7 @@ void UI::CleanUp()
 
 float time;
 float barMoveSpeed;
+float hypeTime;
 void UI::Update()
 {
 	time += Time::g_pTime->GetDeltaTime();
@@ -39,12 +40,34 @@ void UI::Update()
 	//else if (t < 0)
 	//	t = 0;
 
-	hypebarGlowRenderable->userData1 = (sin(time * 5) + 1) / 2;
+	if (maxHypeCount == hypeCount)
+	{
+			hypeTime += Time::g_pTime->GetDeltaTime() * 3;
+		if (hypeTime > 1)
+			hypeTime = 1;
+	}
+	else
+	{
+			hypeTime -= Time::g_pTime->GetDeltaTime() * 3;
+		if (hypeTime < 0)
+			hypeTime = 0;
+	}
+
+
+	hypebarGlowRenderable->userData1 = hypeTime * ((sin(time * 4.0f * 3.15159f) + 1) / 2);
 
 	barMoveSpeed = glm::mix(barMoveSpeed, (targetHypeBarPercent - hypeBarPercent) * 0.5f, 0.2f);
 	hypeBarPercent += barMoveSpeed;
 
 	hypebarRenderable->userData1 = hypeBarPercent;
+}
+
+bool UI::IsHypeBarFull()
+{
+	if (hypeCount == maxHypeCount)
+		return true;
+	else
+		return false;
 }
 
 void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
@@ -54,8 +77,8 @@ void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
 	(*r)->isUI = true;
 	(*r)->SetTexture("art/" + textureFilename);
 
-	(*e)->m_position = glm::vec2(-4.5, -3.5);
-	(*e)->m_scale = glm::vec2(5, 5);
+	(*e)->m_position = glm::vec2(-4.5, -2.9);
+	(*e)->m_scale = glm::vec2(2.5, 2.5);
 	(*r)->m_layerOrder = 10;
 	(*r)->OverrideShader("shaders/stepBarUI.fs");
 }
