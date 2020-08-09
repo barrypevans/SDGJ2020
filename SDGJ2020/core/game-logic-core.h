@@ -11,7 +11,7 @@ public:
 	virtual void Update() override;
 
 	virtual void SpawnEnemy(int enemyType);
-
+	virtual void DealDamage();
 	virtual void TriggerHype();
 
 	Entity* pCharacterEntity;

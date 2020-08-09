@@ -59,8 +59,17 @@ void GameLogic::SpawnEnemy(int enemyType)
 	m_activeEnemies.push_back(pNPCEntity);
 }
 
+void GameLogic::DealDamage()
+{
+	/*for (int i = 0; i < m_activeEnemies.size(); ++i)
+	{
+		m_activeEnemies[i].
+	}*/
+}
+
 void GameLogic::TriggerHype()
 {
 	UI::g_pUI->CorrectMove();
 	Camera::g_pCamera->DoShake();
+	DealDamage();
 }
