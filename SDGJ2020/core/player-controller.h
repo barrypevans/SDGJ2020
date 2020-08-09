@@ -11,6 +11,7 @@ class PlayerController : public Component
 	int playerPosX;
 	int playerPosY;
 	bool oneButtonMode;
+	int beatCount;
 
 	glm::vec2 targetPos = glm::vec2(0,0);
 
