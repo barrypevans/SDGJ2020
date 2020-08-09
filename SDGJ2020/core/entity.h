@@ -23,8 +23,8 @@ public:
 	T* GetComponent()
 	{
 		for (int i = 0; i < m_components.size(); ++i)
-			if (typeid(m_components[i]) == typeid(T*))
-				return m_components[i];
+			if (dynamic_cast<T*>(m_components[i]) != nullptr)
+				return (T*)m_components[i];
 		return nullptr;
 	}
 

@@ -17,7 +17,7 @@
 #include "animatable.h"
 #include "Entity_Controller.h"
 #include "beatCounter.h"
-
+#include "../game/dance-floor-visual-controller.h"
 Game* Game::g_pGame;
 
 void Game::Init()
@@ -124,6 +124,8 @@ void Game::InitCoreEntities()
 	Entity* pDanceFloorEntity = CreateEntity();
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor.png");
+	danceRenderable->OverrideShader("shaders/board.fs");
+	pDanceFloorEntity->AddComponent<DanceFloorVisualController>();
 	pDanceFloorEntity->m_scale *= 10;
 
 	pCharacterEntity = CreateEntity();
