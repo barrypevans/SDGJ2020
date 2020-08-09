@@ -27,6 +27,6 @@ private:
 
 	Entity* pBerryEntity;
 	Entity* pBerryBarryEntity;
-	Entity* pCharacterEntity;
+	
 };
 

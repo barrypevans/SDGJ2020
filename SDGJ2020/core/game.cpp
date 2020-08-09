@@ -20,6 +20,7 @@
 #include "beatCounter.h"
 #include "../game/dance-floor-visual-controller.h"
 #include <time.h>
+#include "game-logic-core.h"
 Game* Game::g_pGame;
 
 void Game::Init()
@@ -43,6 +44,7 @@ void Game::CleanUp()
 	Window::g_pWindow->CleanUp();
 	AssetManager::g_pAssetManager->CleanUp();
 	Camera::g_pCamera->CleanUp();
+	GameLogic::g_pGameLogic->CleanUp();
 	Metronome::g_pMetronome->CleanUp();
 	Time::g_pTime->CleanUp();
 	UI::g_pUI->CleanUp();
@@ -69,6 +71,7 @@ void Game::Update()
 	}
 
 	Renderer::g_pRenderer->ClearRenderQueue();
+	GameLogic::g_pGameLogic->Update();
 
 	// update all entities
 	for (int i = 0; i < m_entityList.size(); ++i)
@@ -110,6 +113,7 @@ void Game::InitSystems()
 	Audio::g_pAudio = new Audio();
 	Renderer::g_pRenderer = new Renderer();
 	Camera::g_pCamera = new Camera();
+	GameLogic::g_pGameLogic = new GameLogic();
 	Metronome::g_pMetronome = new Metronome();
 	Time::g_pTime = new Time();
 	Input::g_pInput = new Input();
@@ -128,6 +132,7 @@ void Game::InitSystems()
 	Time::g_pTime->Init();
 	Input::g_pInput->Init();
 	UI::g_pUI->Init();
+	GameLogic::g_pGameLogic->Init();
 	CharacterCollision::g_pChracterCollision->Init();
 }
 
@@ -144,43 +149,9 @@ void Game::InitCoreEntities()
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor.png");
 	danceRenderable->OverrideShader("shaders/board.fs");
+	danceRenderable->m_layerOrder = -9;
 	pDanceFloorEntity->AddComponent<DanceFloorVisualController>();
 	pDanceFloorEntity->m_scale *= 10;
-
-	pCharacterEntity = CreateEntity();
-	auto charRenderable = pCharacterEntity->AddComponent<Animatable>();
-	charRenderable->AddAnimation("idle", new Animation("art/player_idle.png", 20));
-	charRenderable->SetActiveAnimation("idle");
-	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
-	// make the character's width half of the tile size
-	pCharacterEntity->m_scale *= .5f;
-
-	CharacterCollision::g_pChracterCollision->enemyTypeA = 0;
-	Entity* pNPCEntity = CreateEntity();
-	auto NPCRenderable = pNPCEntity->AddComponent<Renderable>();
-	NPCRenderable->SetTexture("art/Badguy_Flat.png");
-	Entity_Controller* entityController = pNPCEntity->AddComponent<Entity_Controller>();
-	pNPCEntity->m_position = glm::vec2(2, 1);
-	pNPCEntity->m_scale *= .5f;
-
-
-	CharacterCollision::g_pChracterCollision->enemyTypeB = 1;
-	Entity* pNPCEntityB = CreateEntity();
-	auto NPCRenderableB = pNPCEntityB->AddComponent<Renderable>();
-	NPCRenderableB->SetTexture("art/Badguy_Flat.png");
-	Entity_Controller* entityControllerB = pNPCEntityB->AddComponent<Entity_Controller>();
-	pNPCEntityB->m_position = glm::vec2(2, 1);
-	pNPCEntityB->m_scale *= .5f;
-
-	CharacterCollision::g_pChracterCollision->enemyTypeC = 2;
-	Entity* pNPCEntityC = CreateEntity();
-	auto NPCRenderableC = pNPCEntityC->AddComponent<Renderable>();
-	NPCRenderableC->SetTexture("art/Badguy_Flat.png");
-	Entity_Controller* entityControllerC = pNPCEntityC->AddComponent<Entity_Controller>();
-	pNPCEntityC->m_position = glm::vec2(2, 1);
-	pNPCEntityC->m_scale *= .5f;
-
-
 
 
 	Entity* pBeatCounter_B = CreateEntity();
