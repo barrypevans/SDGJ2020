@@ -32,7 +32,7 @@ void Game::Init()
 	InitSystems();
 	printf("Game Initialized!\n");
 
-	Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .1f, 10);
+	Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .1f, 100);
 	Metronome::g_pMetronome->Start(120);
 	InitCoreEntities();
 }

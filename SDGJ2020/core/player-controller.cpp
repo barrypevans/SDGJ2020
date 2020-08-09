@@ -39,19 +39,19 @@ void PlayerController::Update()
 		if (beatCount > 3) {
 				beatCount = 0;
 		}
-		if (Input::g_pInput->getAnyPress() && beatCount==0 && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getAnyPress() && beatCount==0 && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveDown(entity);
 				UI::g_pUI->CorrectMove();
 		}
-		if (Input::g_pInput->getAnyPress() && beatCount == 1 && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getAnyPress() && beatCount == 1 && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveLeft(entity);
 				UI::g_pUI->CorrectMove();
 		}
-		if (Input::g_pInput->getAnyPress() && beatCount == 2 && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getAnyPress() && beatCount == 2 && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveUp(entity);
 				UI::g_pUI->CorrectMove();
 		}
-		if (Input::g_pInput->getAnyPress() && beatCount == 3 && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
+		if (Input::g_pInput->getAnyPress() && beatCount == 3 && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveRight(entity);
 				UI::g_pUI->CorrectMove();
 		}
@@ -60,7 +60,7 @@ void PlayerController::Update()
 	else {
 
 			if (Input::g_pInput->getRightKeyPress()) {
-				if (playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				if (playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					CharacterCollision::g_pChracterCollision->testCollision();
 					moveRight(entity);
@@ -71,7 +71,7 @@ void PlayerController::Update()
 					UI::g_pUI->ClearMoveCount();
 			}
 			if (Input::g_pInput->getLeftKeyPress()) {
-				if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					CharacterCollision::g_pChracterCollision->testCollision();
 					moveLeft(entity);
@@ -82,7 +82,7 @@ void PlayerController::Update()
 					UI::g_pUI->ClearMoveCount();
 			}
 			if (Input::g_pInput->getUpKeyPress()) {
-				if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					CharacterCollision::g_pChracterCollision->testCollision();
 					moveUp(entity);
@@ -93,7 +93,7 @@ void PlayerController::Update()
 					UI::g_pUI->ClearMoveCount();
 			}
 			if (Input::g_pInput->getDownKeyPress()) {
-				if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					CharacterCollision::g_pChracterCollision->testCollision();
 					moveDown(entity);
