@@ -12,6 +12,7 @@ public:
 
 	bool IsRunning();
 	void RequestShutDown();
+	int entityId;
 
 	Entity* CreateEntity();
 	void DestroyEntity(Entity* entity);

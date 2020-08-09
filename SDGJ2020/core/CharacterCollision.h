@@ -27,6 +27,14 @@ public:
 	int npcPosBX;
 	int npcPosBY;
 
+	struct posCoords {
+		int x;
+		int y;
+		int key;
+	};
+	struct posCoords arr[10];
+	int arrSize = 0;
+
 	int npcPosCX;
 	int npcPosCY;
 
@@ -58,6 +66,12 @@ public:
 
 		return collide;
 	}
+
+	void addNPC(int x, int y, int key);
+	bool setNPCCoords(int key, int x, int y);
+	bool calculateNext();
+	bool compareStruct(posCoords a, posCoords b);
+	
 
 	static CharacterCollision* g_pChracterCollision;
 

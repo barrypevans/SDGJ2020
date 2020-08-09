@@ -27,6 +27,7 @@ void Game::Init()
 {
 	//seed random numbers
 	srand((unsigned)time(NULL));
+	entityId = 0;
 
 	g_pGame = this;
 	m_isRunning = true;
@@ -99,6 +100,8 @@ Entity* Game::CreateEntity()
 {
 	Entity* entity = new Entity();
 	m_entityList.push_back(entity);
+	entityId++;
+	entity->UID = entityId;
 	return entity;
 }
 void Game::DestroyEntity(Entity* entity)
