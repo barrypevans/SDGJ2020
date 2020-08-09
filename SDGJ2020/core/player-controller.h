@@ -6,7 +6,7 @@ class PlayerController : public Component
 {
 	virtual void Init() override;
 	virtual void Update() override;
-	virtual void CleanUp() override;
+	virtual void CleanUp() override {};
 
 	int playerPosX;
 	int playerPosY;
