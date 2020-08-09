@@ -23,6 +23,7 @@ void Metronome::Update()
 			m_tick %= m_activeOffset;
 			//Tick
 			Beat = true;
+			printf("Tick ");
 			//Audio::g_pAudio->Play(Audio::GameClip::kMetDown, .5, 0);
 		}
 		else

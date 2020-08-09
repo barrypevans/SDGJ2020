@@ -17,6 +17,7 @@ public:
 	void Start(float bpm);
 	void Stop();
 
+	static const int kBeatThreshold = 100;
 	bool Beat;
 
 	/// <summary>

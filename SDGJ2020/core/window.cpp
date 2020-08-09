@@ -58,7 +58,7 @@ void Window::PollEvents()
 		Input::g_pInput->handleEvent(event);
 		if (Input::g_pInput->getDownKeyPress() || Input::g_pInput->getUpKeyPress() || Input::g_pInput->getLeftKeyPress() || Input::g_pInput->getRightKeyPress()) // Sample beat matching, ok to drop
 		{
-			bool win = (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100;
+			bool win = (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold;
 			//printf(win ? "beat " : "wrong ");
 			//Audio::g_pAudio->Play(win ? Audio::GameClip::kMetUp : Audio::GameClip::kMetDown, .1f);
 		}

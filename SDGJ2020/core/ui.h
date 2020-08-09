@@ -19,7 +19,7 @@ public:
 	float targetHypeBarPercent;
 
 	int hypeCount = 0;
-	int maxHypeCount = 10;
+	int maxHypeCount = 7;
 	void CorrectMove();
 	void ClearMoveCount();
 
