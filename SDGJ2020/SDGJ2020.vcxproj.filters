@@ -70,6 +70,9 @@
     <ClCompile Include="core\animation.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\Entity_Controller.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -142,6 +145,9 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\animation.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Entity_Controller.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>

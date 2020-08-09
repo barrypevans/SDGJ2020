@@ -27,12 +27,12 @@ public:
 	}
 
 	static AssetManager* g_pAssetManager;
-
+	static Hashcode FnvHash(const char* inputString);
 private:
 
 	static const Hashcode kFnvOffsetBasis = 14695981039346656037;
 	static const Hashcode kFnvPrime = 1099511628211;
-	static Hashcode FnvHash(const char* inputString);
+
 
 	void CreateFileManifest();
 	void CreateFileManifest_Recursive(std::string filePath);

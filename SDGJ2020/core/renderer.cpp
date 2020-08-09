@@ -84,11 +84,21 @@ void Renderer::DrawRenderable(Renderable* renderable)
 
 	shader->BindShader();
 
-	// correct scale for aspect ratio
+	Animatable* animatable =  dynamic_cast<Animatable*>(renderable);
+	
 	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
 	glm::vec2 scale = entity->m_scale;
-	scale.y *= renderable->m_texture->m_aspect;
-
+	if (animatable)
+	{
+		scale.y *= (float)renderable->m_texture->m_height/
+			((float)renderable->m_texture->m_width / static_cast<float>(animatable->GetActiveAnimation()->m_numFrames));
+		
+	}
+	else
+	{
+		// correct scale for aspect ratio
+		scale.y *= renderable->m_texture->m_aspect;
+	}
 	// upload camera matrix
 	GLuint location = glGetUniformLocation(shader->GetProgram(), "_mvp");
 	glm::mat4 proj = Camera::g_pCamera->GetOrthographicProjection();
@@ -106,12 +116,20 @@ void Renderer::DrawRenderable(Renderable* renderable)
 
 	glUniformMatrix4fv(location, 1, GL_FALSE, &MVP[0][0]);
 
-	Animatable* animatable = nullptr;
-	if ((animatable = dynamic_cast<Animatable*>(renderable)) != nullptr)
+	if (animatable)
 	{
-		GLuint animOffsetLocation = glGetUniformLocation(shader->GetProgram(), "animOffset");
-		glUniform1f(animOffsetLocation, animatable->GetAnimOffset());
+		GLuint animOffsetLocation = glGetUniformLocation(shader->GetProgram(), "curFrame");
+		glUniform1f(animOffsetLocation, animatable->GetCurrentFrame());
+
+		GLuint numFramesLocation = glGetUniformLocation(shader->GetProgram(), "numFrames");
+		glUniform1f(numFramesLocation,static_cast<float>(animatable->GetActiveAnimation()->m_numFrames));
 	}
+
+	GLuint userdata1location = glGetUniformLocation(shader->GetProgram(), "userData1");
+	GLuint userdata2location = glGetUniformLocation(shader->GetProgram(), "userData2");
+	glUniform1fv(userdata1location, 1, &renderable->userData1);
+	glUniform1fv(userdata2location, 1, &renderable->userData2);
+
 
 	if (renderable->m_texture)
 	{

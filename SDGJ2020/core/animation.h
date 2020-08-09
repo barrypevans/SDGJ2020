@@ -1,9 +1,10 @@
 #pragma once
 #include "texture.h"
+#include <string>
 class Animation
 {
 public:
-	Animation(Texture* texture, unsigned int numFrames) :m_texture(texture), m_numFrames(numFrames) {};
+	Animation(std::string texturePath, unsigned int numFrames);
 
 	Texture* m_texture;
 	unsigned int m_numFrames;
