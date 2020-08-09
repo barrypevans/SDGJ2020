@@ -137,8 +137,20 @@ void Renderer::DrawRenderable(Renderable* renderable)
 
 	if (renderable->m_texture)
 	{
+		GLint texUnitLoc = glGetUniformLocation(shader->GetProgram(), "colorTexture");
+		glProgramUniform1i(shader->GetProgram(), texUnitLoc, 0);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, renderable->m_texture->m_textureId);
+		glActiveTexture(0);
+	}
+
+	if (renderable->m_userTexture)
+	{
+		GLint texUnitLoc = glGetUniformLocation(shader->GetProgram(), "userTexture");
+		glProgramUniform1i(shader->GetProgram(), texUnitLoc, 1);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, renderable->m_userTexture->m_textureId);
+		glActiveTexture(0);
 	}
 
 	glBindVertexArray(VAO);
