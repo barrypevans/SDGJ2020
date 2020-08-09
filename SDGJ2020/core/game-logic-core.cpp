@@ -121,5 +121,6 @@ void GameLogic::ClearMoveCount()
 
 void GameLogic::FailedMove()
 {
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f);
 	ClearMoveCount();
 }
