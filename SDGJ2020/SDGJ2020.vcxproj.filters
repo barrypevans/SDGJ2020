@@ -91,6 +91,9 @@
     <ClCompile Include="core\game-logic-core.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\effects.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -185,6 +188,9 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\game-logic-core.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\effects.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
