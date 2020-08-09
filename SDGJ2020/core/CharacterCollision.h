@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include "game.h"
 #include "ui.h"
-
+#include "game-logic-core.h"
 class CharacterCollision : public ISystem
 {
 public:
@@ -39,35 +39,20 @@ public:
 	int enemyTypeC;
 
 	// Put your implementations in the cpp file!
-	bool isAdjecent(int pX, int pY, int nX, int nY) {
-		bool adjacent = false;
-		if ((pX + 1 == nX) && (pY == nY)) {
-			adjacent = true;
-		}
-		if ((pX == nX) && (pY+1 == nY)) {
-			adjacent = true;
-		}
-		if ((pX - 1 == nX) && (pY == nY)) {
-			adjacent = true;
-		}
-		if ((pX == nX) && (pY-1 == nY)) {
-			adjacent = true;
-		}
-		return adjacent;
-	}
+	bool isAdjecent(int pX, int pY, int nX, int nY);
 
 	bool testCollision() {
 		bool collide = false;
 		if ((npcPositionX == playerPosX) && (npcPositionY == playerPosY)) {
 			collide = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX,playerPosY,npcPositionX,npcPositionY)) {
+		if (GameLogic::g_pGameLogic->IsHypeBarFull() && isAdjecent(playerPosX,playerPosY,npcPositionX,npcPositionY)) {
 			this->npcDestroyed = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosBX, npcPosBY)) {
+		if (GameLogic::g_pGameLogic->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosBX, npcPosBY)) {
 			this->npcBDestroyed = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosCX, npcPosCY)) {
+		if (GameLogic::g_pGameLogic->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosCX, npcPosCY)) {
 			this->npcCDestroyed = true;
 		}
 

@@ -71,13 +71,14 @@ void Game::Update()
 	}
 
 	Renderer::g_pRenderer->ClearRenderQueue();
-	GameLogic::g_pGameLogic->Update();
+	
 
 	// update all entities
 	for (int i = 0; i < m_entityList.size(); ++i)
 		if (m_entityList[i])
 			m_entityList[i]->Update();
 
+	GameLogic::g_pGameLogic->Update();
 	Renderer::g_pRenderer->RenderAllInQueue();
 
 	Window::g_pWindow->SwapBuffers();
@@ -180,7 +181,6 @@ void Game::InitCoreEntities()
 
 	pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
-	berryRenderable->isUI = true;
 	berryRenderable->SetTexture("art/berry.png");
 	berryRenderable->m_layerOrder = 3;
 	pBerryEntity->m_position = glm::vec2(5.4, 1.6);
@@ -188,7 +188,6 @@ void Game::InitCoreEntities()
 
 	pBerryBarryEntity = CreateEntity();
 	auto pBerryBarryRenderable = pBerryBarryEntity->AddComponent<Renderable>();
-	pBerryBarryRenderable->isUI = true;
 	pBerryBarryRenderable->SetTexture("art/BerryBarry.png");
 	pBerryBarryRenderable->m_layerOrder = 2;
 	pBerryBarryEntity->m_position = glm::vec2(5, 2.3);
@@ -207,7 +206,7 @@ void Game::DestroyMarkedEntities()
 			if (m_entityList[i])
 				delete m_entityList[i];
 
-			m_entityList.erase(m_entityList.begin() + i, m_entityList.begin() + i);
+			m_entityList.erase(m_entityList.begin() + i, m_entityList.begin() + i+1);
 			i--;
 		}
 	}
