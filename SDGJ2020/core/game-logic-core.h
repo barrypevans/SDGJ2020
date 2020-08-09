@@ -12,12 +12,13 @@ public:
 
 	virtual void SpawnEnemy(int enemyType);
 
+	virtual void TriggerHype();
+
 	Entity* pCharacterEntity;
 
 	std::vector <Entity*> m_activeEnemies;
 	int m_maxEnemies;
-
 	int m_beat;
-
+	unsigned int m_score;
 	static GameLogic* g_pGameLogic;
 };

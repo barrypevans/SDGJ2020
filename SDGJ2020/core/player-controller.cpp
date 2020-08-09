@@ -4,6 +4,7 @@
 #include "metronome.h"
 #include "time.h"
 #include "CharacterCollision.h"
+#include "game-logic-core.h"
 
 PlayerController* PlayerController :: g_pPlayerController;
 int npcPositionX;
@@ -62,10 +63,9 @@ void PlayerController::Update()
 			if (Input::g_pInput->getRightKeyPress()) {
 				if (playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
 				{
-					CharacterCollision::g_pChracterCollision->testCollision();
+					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveRight(entity);
-					UI::g_pUI->CorrectMove();
-					Camera::g_pCamera->DoShake();
+					GameLogic::g_pGameLogic->TriggerHype();
 				}
 				else
 					UI::g_pUI->ClearMoveCount();
@@ -73,10 +73,9 @@ void PlayerController::Update()
 			if (Input::g_pInput->getLeftKeyPress()) {
 				if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
 				{
-					CharacterCollision::g_pChracterCollision->testCollision();
+					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveLeft(entity);
-					UI::g_pUI->CorrectMove();
-					Camera::g_pCamera->DoShake();
+					GameLogic::g_pGameLogic->TriggerHype();
 				}
 				else
 					UI::g_pUI->ClearMoveCount();
@@ -84,10 +83,9 @@ void PlayerController::Update()
 			if (Input::g_pInput->getUpKeyPress()) {
 				if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
 				{
-					CharacterCollision::g_pChracterCollision->testCollision();
+					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveUp(entity);
-					UI::g_pUI->CorrectMove();
-					Camera::g_pCamera->DoShake();
+					GameLogic::g_pGameLogic->TriggerHype();
 				}
 				else
 					UI::g_pUI->ClearMoveCount();
@@ -95,10 +93,9 @@ void PlayerController::Update()
 			if (Input::g_pInput->getDownKeyPress()) {
 				if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
 				{
-					CharacterCollision::g_pChracterCollision->testCollision();
+					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveDown(entity);
-					UI::g_pUI->CorrectMove();
-					Camera::g_pCamera->DoShake();
+					GameLogic::g_pGameLogic->TriggerHype();
 				}
 				else
 					UI::g_pUI->ClearMoveCount();
