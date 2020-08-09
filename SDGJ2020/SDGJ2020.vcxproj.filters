@@ -73,6 +73,9 @@
     <ClCompile Include="core\Entity_Controller.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="core\beatCounter.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -148,6 +151,10 @@
       <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="core\Entity_Controller.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="beatCounter.h" />
+    <ClInclude Include="core\beatCounter.h">
       <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>

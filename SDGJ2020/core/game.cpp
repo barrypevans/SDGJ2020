@@ -16,6 +16,7 @@
 #include "player-controller.h"
 #include "animatable.h"
 #include "Entity_Controller.h"
+#include "beatCounter.h"
 
 Game* Game::g_pGame;
 
@@ -139,6 +140,21 @@ void Game::InitCoreEntities()
 	Entity_Controller* entityController = pNPCEntity->AddComponent<Entity_Controller>();
 	pNPCEntity->m_position = glm::vec2(2, 1);
 	pNPCEntity->m_scale *= .5f;
+
+	Entity* pBeatCounter_B = CreateEntity();
+	auto beatRenderable_B = pBeatCounter_B->AddComponent<Renderable>();
+	beatRenderable_B->isUI=true;
+	beatRenderable_B->SetTexture("art/BeatCounet_B.png");
+	pBeatCounter_B->m_scale *= 3;
+	pBeatCounter_B->m_position = glm::vec2(5, -3);
+
+	Entity* pBeatCounter_A = CreateEntity();
+	auto beatRenderable = pBeatCounter_A->AddComponent<Renderable>();
+	beatRenderable->isUI=true;
+	beatRenderable->SetTexture("art/BeatCounter_A.png");
+	beatCounter* beatCountController = pBeatCounter_A->AddComponent<beatCounter>();
+	pBeatCounter_A->m_scale *= .75;
+	pBeatCounter_A->m_position = glm::vec2(3.93, -2.97);
 
 	pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();

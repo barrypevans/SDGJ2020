@@ -23,6 +23,7 @@
     <ClCompile Include="core\animation.cpp" />
     <ClCompile Include="core\asset-manager.cpp" />
     <ClCompile Include="core\audio.cpp" />
+    <ClCompile Include="core\beatCounter.cpp" />
     <ClCompile Include="core\binary-asset.cpp" />
     <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\component.cpp" />
@@ -44,9 +45,11 @@
   <ItemGroup>
     <ClInclude Include="core\animatable.h" />
     <ClInclude Include="core\animation.h" />
+    <ClInclude Include="beatCounter.h" />
     <ClInclude Include="core\assert.h" />
     <ClInclude Include="core\asset-manager.h" />
     <ClInclude Include="core\audio.h" />
+    <ClInclude Include="core\beatCounter.h" />
     <ClInclude Include="core\binary-asset.h" />
     <ClInclude Include="core\camera.h" />
     <ClInclude Include="core\clip-defs.h" />
