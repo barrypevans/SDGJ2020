@@ -14,6 +14,7 @@ public:
 	virtual void CleanUp() override;
 	virtual void Update() override;
 
+	virtual bool IsHypeBarFull();
 	float hypeBarPercent;
 	float targetHypeBarPercent;
 
