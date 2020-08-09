@@ -35,12 +35,12 @@ public:
 		entityPosX--;
 	}
 	void moveUp(Entity* entity) {
-		targetPos.y = targetPos.y + .23;
+		targetPos.y = targetPos.y + .25;
 		targetPos.x = targetPos.x + .50;
 		entityPosY++;
 	}
 	void moveDown(Entity* entity) {
-		targetPos.y = targetPos.y - .23;
+		targetPos.y = targetPos.y - .25;
 		targetPos.x = targetPos.x - .50;
 		entityPosY--;
 	}
