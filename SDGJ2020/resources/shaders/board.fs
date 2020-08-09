@@ -5,6 +5,7 @@ in vec2 uv;
 
 uniform float userData1;
 uniform sampler2D colorTexture;
+uniform sampler2D userTexture;
 
 vec3 rgb2hsv(vec3 c)
 {
@@ -28,8 +29,17 @@ vec3 hsv2rgb(vec3 c)
 void main()
 {
     vec4 outColor = texture(colorTexture, uv);
-    vec3 outColorHsv = rgb2hsv(outColor.rgb);
-    outColorHsv.x = outColorHsv.x + userData1*.25f;
-    outColorHsv.yz = outColorHsv.yz *.8;
-	FragColor = vec4(hsv2rgb(outColorHsv) , outColor.a);
+    float mask = texture(userTexture, uv).r;
+
+    if(mask > .5f)
+    {
+        vec3 outColorHsv = rgb2hsv(outColor.rgb);
+        outColorHsv.x = outColorHsv.x + userData1*.25f;
+        outColorHsv.yz = outColorHsv.yz *.8;
+	    FragColor = vec4(hsv2rgb(outColorHsv) , outColor.a);
+    }
+    else
+    {
+        FragColor = outColor;
+    }
 }

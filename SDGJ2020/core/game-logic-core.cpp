@@ -26,7 +26,6 @@ void GameLogic::Init()
 	m_maxEnemies = 4;
 	int m_beat = 0;
 	m_score = 0;
-
 }
 
 void GameLogic::CleanUp()

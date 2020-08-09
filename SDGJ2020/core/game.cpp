@@ -151,6 +151,7 @@ void Game::InitCoreEntities()
 	Entity* pDanceFloorEntity = CreateEntity();
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor-02.png");
+	danceRenderable->SetUserTexture("art/dance-floor-mask.png");
 	danceRenderable->OverrideShader("shaders/board.fs");
 	danceRenderable->m_layerOrder = -9;
 	pDanceFloorEntity->AddComponent<DanceFloorVisualController>();
@@ -190,7 +191,7 @@ void Game::InitCoreEntities()
 	pBeatCounter_A->m_scale *= .75;
 	pBeatCounter_A->m_position = glm::vec2(2.93, -2.97);
 
-	pBerryEntity = CreateEntity();
+	/*pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
 	berryRenderable->SetTexture("art/berry.png");
 	berryRenderable->m_layerOrder = 3;
@@ -202,7 +203,7 @@ void Game::InitCoreEntities()
 	pBerryBarryRenderable->SetTexture("art/BerryBarry.png");
 	pBerryBarryRenderable->m_layerOrder = 2;
 	pBerryBarryEntity->m_position = glm::vec2(5, 2.3);
-	pBerryBarryEntity->m_scale *= 1.3;
+	pBerryBarryEntity->m_scale *= 1.3;*/
 
 }
 

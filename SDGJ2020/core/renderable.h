@@ -9,11 +9,12 @@ class Renderable : public Component
 {
 public:
 	void SetTexture(std::string texturePath);
+	void SetUserTexture(std::string texturePath);
 	virtual void Update() override;
 	virtual void Init() override;
-	glm::vec2 GetPpuScale();
 
 	Texture* m_texture;
+	Texture* m_userTexture;
 	bool isUI;
 	bool shouldOverrideShader;
 	Shader* m_overrideShader;
