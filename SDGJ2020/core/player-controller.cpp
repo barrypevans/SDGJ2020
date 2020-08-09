@@ -31,6 +31,7 @@ void PlayerController::Init()
 void PlayerController::Update()
 {
 	Entity* entity = (Entity*)m_entity;
+	bool correctMovement = true;
 	// put movement code here
 	//get input
 	if (oneButtonMode) {
@@ -42,18 +43,26 @@ void PlayerController::Update()
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount==0 && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveDown(entity);
+				CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+				CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 				UI::g_pUI->CorrectMove();
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount == 1 && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveLeft(entity);
+				CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+				CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 				UI::g_pUI->CorrectMove();
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount == 2 && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveUp(entity);
+				CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+				CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 				UI::g_pUI->CorrectMove();
 		}
 		if (Input::g_pInput->getAnyPress() && beatCount == 3 && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold) {
 				moveRight(entity);
+				CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+				CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 				UI::g_pUI->CorrectMove();
 		}
 		
@@ -65,6 +74,8 @@ void PlayerController::Update()
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveRight(entity);
+					CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+					CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
@@ -77,6 +88,8 @@ void PlayerController::Update()
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveLeft(entity);
+					CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+					CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
@@ -89,6 +102,8 @@ void PlayerController::Update()
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveUp(entity);
+					CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+					CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
@@ -101,6 +116,8 @@ void PlayerController::Update()
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveDown(entity);
+					CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+					CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
 					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
