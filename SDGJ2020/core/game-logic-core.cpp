@@ -56,7 +56,7 @@ void GameLogic::SpawnEnemy(int enemyType)
 	auto NPCRenderable = pNPCEntity->AddComponent<Renderable>();
 	NPCRenderable->SetTexture("art/Badguy_Flat.png");
 	Entity_Controller* entityController = pNPCEntity->AddComponent<Entity_Controller>();
-	pNPCEntity->m_position = glm::vec2(2, 1);
+	entityController->setEntityPos(-3, 0);
 	pNPCEntity->m_scale *= .5f;
 	m_activeEnemies.push_back(pNPCEntity);
 }

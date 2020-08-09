@@ -30,6 +30,6 @@ void main()
     vec4 outColor = texture(colorTexture, uv);
     vec3 outColorHsv = rgb2hsv(outColor.rgb);
     outColorHsv.x = outColorHsv.x + userData1*.25f;
-    outColorHsv.y = outColorHsv.y *.8;
+    outColorHsv.yz = outColorHsv.yz *.8;
 	FragColor = vec4(hsv2rgb(outColorHsv) , outColor.a);
 }

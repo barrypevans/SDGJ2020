@@ -148,11 +148,20 @@ void Game::InitCoreEntities()
 
 	Entity* pDanceFloorEntity = CreateEntity();
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
-	danceRenderable->SetTexture("art/dance-floor.png");
+	danceRenderable->SetTexture("art/dance-floor-02.png");
 	danceRenderable->OverrideShader("shaders/board.fs");
 	danceRenderable->m_layerOrder = -9;
 	pDanceFloorEntity->AddComponent<DanceFloorVisualController>();
 	pDanceFloorEntity->m_scale *= 10;
+	pDanceFloorEntity->m_position.y = -.28f;
+
+	/*Entity* pDanceFloorEntityold = CreateEntity();
+	auto danceRenderableold = pDanceFloorEntityold->AddComponent<Renderable>();
+	danceRenderableold->SetTexture("art/dance-floor.png");
+	//danceRenderable->OverrideShader("shaders/board.fs");
+	danceRenderableold->m_layerOrder = -8;
+	//pDanceFloorEntity->AddComponent<DanceFloorVisualController>();
+	pDanceFloorEntityold->m_scale *= 10;*/
 
 
 	Entity* pBeatCounter_B = CreateEntity();
