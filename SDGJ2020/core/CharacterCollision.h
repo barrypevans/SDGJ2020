@@ -39,22 +39,7 @@ public:
 	int enemyTypeC;
 
 	// Put your implementations in the cpp file!
-	bool isAdjecent(int pX, int pY, int nX, int nY) {
-		bool adjacent = false;
-		if ((pX + 1 == nX) && (pY == nY)) {
-			adjacent = true;
-		}
-		if ((pX == nX) && (pY+1 == nY)) {
-			adjacent = true;
-		}
-		if ((pX - 1 == nX) && (pY == nY)) {
-			adjacent = true;
-		}
-		if ((pX == nX) && (pY-1 == nY)) {
-			adjacent = true;
-		}
-		return adjacent;
-	}
+	bool isAdjecent(int pX, int pY, int nX, int nY);
 
 	bool testCollision() {
 		bool collide = false;

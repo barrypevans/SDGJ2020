@@ -85,15 +85,20 @@ void GameLogic::DealDamage()
 
 void GameLogic::CorrectMove()
 {
-	m_hypeCount++;
 	
-	UI::g_pUI->CorrectMove();
 	Camera::g_pCamera->DoShake();
-
 	if (m_hypeCount >= m_maxHypeCount)
 	{
 		TriggerHype();
 	}
+	else
+	{
+		m_hypeCount++;
+		UI::g_pUI->CorrectMove();
+	}
+	
+
+
 }
 
 void GameLogic::TriggerHype()

@@ -19,12 +19,13 @@ public:
 	virtual void Init() override;
 	virtual void CleanUp() override;
 	virtual void Update() override;
+	void StopMusic();
 
 	void Play(GameClip clip, float volume = 1, int loopCount= 0);
 	static Audio* g_pAudio;
 
 private:
-
+	FMOD::Channel* musicChannel;
 	FMOD::System* system;
 	FMOD::Sound* clips[GameClip::kNumClips];
 	void PrepareClips();
