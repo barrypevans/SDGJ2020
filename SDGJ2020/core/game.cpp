@@ -14,6 +14,7 @@
 #include "Input.h"
 #include "ui.h"
 #include "player-controller.h"
+#include "animatable.h"
 
 Game* Game::g_pGame;
 
@@ -124,8 +125,8 @@ void Game::InitCoreEntities()
 	pDanceFloorEntity->m_scale *= 10;
 
 	pCharacterEntity = CreateEntity();
-	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
-	charRenderable->SetTexture("art/sprite_01.png");
+	auto charRenderable = pCharacterEntity->AddComponent<Animatable>();
+	charRenderable->SetTexture("art/player_idle.png");
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale *= .5f;

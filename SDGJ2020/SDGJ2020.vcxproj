@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="core\animatable.cpp" />
+    <ClCompile Include="core\animation.cpp" />
     <ClCompile Include="core\asset-manager.cpp" />
     <ClCompile Include="core\audio.cpp" />
     <ClCompile Include="core\binary-asset.cpp" />
@@ -39,6 +41,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\animatable.h" />
+    <ClInclude Include="core\animation.h" />
     <ClInclude Include="core\assert.h" />
     <ClInclude Include="core\asset-manager.h" />
     <ClInclude Include="core\audio.h" />
