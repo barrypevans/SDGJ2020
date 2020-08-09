@@ -211,8 +211,6 @@ void Game::InitCoreEntities()
 	pBerryBarryEntity->m_position = glm::vec2(5, 2.3);
 	pBerryBarryEntity->m_scale *= 1.3;*/
 
-	Effects::g_pEffects->GlowTilesAt(0, 0);
-
 }
 
 void Game::DestroyMarkedEntities()

@@ -29,7 +29,8 @@ public:
 private:
 	uint64 TimeSinceEpochMillisec();
 
-	uint64 m_start, m_lastFrame, m_tick;
-	uint64 m_activeOffset;
+	int m_currentBeat = 1;
+	uint64 m_start;
+	double m_activeOffset;
 
 };

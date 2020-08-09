@@ -54,7 +54,7 @@ glm::vec2 Grid2Isospace(int posX, int posY)
 
 	glm::vec2 pos;
 	pos.x = (x + y) / 2;
-	pos.y = (y / 2) - (x / 2);
+	pos.y = ((y / 2) - (x / 2))/2;
 	return pos;
 };
 
@@ -76,23 +76,12 @@ void Effects::GlowTilesAt(int x, int y)
 		glowTileRenderables[i]->userData2 = (float)rand() / RAND_MAX;
 	}
 
-
-	//glowTiles[0]->m_position = Grid2Isospace(0, 0);
-	//glowTiles[1]->m_position = Grid2Isospace(0, 1);
-	//glowTiles[2]->m_position = Grid2Isospace(99, 99);
-	//glowTiles[3]->m_position = Grid2Isospace(99, 99);
-	//glowTiles[4]->m_position = Grid2Isospace(99, 99);
-	//glowTiles[5]->m_position = Grid2Isospace(99, 99);
-	//glowTiles[6]->m_position = Grid2Isospace(99, 99);
-	//glowTiles[7]->m_position = Grid2Isospace(99, 99);
-
-
-	glowTiles[0]->m_position = offset + glm::vec2(0,0);
-	glowTiles[1]->m_position = offset + glm::vec2(0, 0);
-	glowTiles[2]->m_position = offset + glm::vec2(0, 0);
-	glowTiles[3]->m_position = offset + glm::vec2(0, 0);
-	glowTiles[4]->m_position = offset + glm::vec2(0, 0);
-	glowTiles[5]->m_position = offset + glm::vec2(0, 0);
-	glowTiles[6]->m_position = offset + glm::vec2(0, 0);
-	glowTiles[7]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[0]->m_position = offset + Grid2Isospace(x + 0,y + 1);
+	glowTiles[1]->m_position = offset + Grid2Isospace(x + 1,y + 1);
+	glowTiles[2]->m_position = offset + Grid2Isospace(x + 1,y + 0);
+	glowTiles[3]->m_position = offset + Grid2Isospace(x + 1,y + -1);
+	glowTiles[4]->m_position = offset + Grid2Isospace(x + 0,y + -1);
+	glowTiles[5]->m_position = offset + Grid2Isospace(x +-1,y + -1);
+	glowTiles[6]->m_position = offset + Grid2Isospace(x +-1,y + 0);
+	glowTiles[7]->m_position = offset + Grid2Isospace(x +-1,y + 1);
 }

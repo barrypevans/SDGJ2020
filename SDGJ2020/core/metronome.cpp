@@ -5,7 +5,6 @@ Metronome* Metronome::g_pMetronome;
 void Metronome::Init() 
 {
 	m_start = TimeSinceEpochMillisec();
-	m_tick = 0;
 	m_activeOffset = 0;
 	Beat = false;
 }
@@ -14,22 +13,19 @@ void Metronome::Update()
 	if (m_activeOffset != (uint64_t)0)
 	{
 		uint64_t currentFrame = TimeSinceEpochMillisec();
-		uint64_t frameDelta = currentFrame - m_lastFrame;
 
-		m_tick += frameDelta;
-		if (m_tick >= m_activeOffset)
+		if (currentFrame-m_start >= (m_currentBeat*m_activeOffset))
 		{
-			m_tick -= m_activeOffset;
-			m_tick %= m_activeOffset;
 			//Tick
 			Beat = true;
+			m_currentBeat++;
+
 			printf("Tick ");
 			//Audio::g_pAudio->Play(Audio::GameClip::kMetDown, .5, 0);
 		}
 		else
 			Beat = false;
 
-		m_lastFrame = currentFrame;
 	}
 }
 void Metronome::CleanUp() 
@@ -41,7 +37,6 @@ void Metronome::Start(float bpm)
 {
 	m_start = TimeSinceEpochMillisec();
 	m_activeOffset = 60000.0f / bpm;
-	m_lastFrame = TimeSinceEpochMillisec();
 }
 
 void Metronome::Stop()
@@ -51,12 +46,12 @@ void Metronome::Stop()
 
 uint64 Metronome::ActiveBeatOffset()
 {
-	if(m_activeOffset == (uint64)0)
+	if(m_activeOffset == 0)
 		return 0;
-	uint64_t difference = (TimeSinceEpochMillisec() - m_start) % m_activeOffset;
+	float difference = (m_currentBeat * m_activeOffset) - (TimeSinceEpochMillisec() - m_start);
 	if (difference < (m_activeOffset / 2))
-		return difference;
-	return m_activeOffset - difference;
+		return (uint64)difference;
+	return (uint64)(m_activeOffset - difference);
 }
 
 uint64 Metronome::TimeSinceEpochMillisec()
