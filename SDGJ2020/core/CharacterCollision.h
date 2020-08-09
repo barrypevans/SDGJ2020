@@ -4,18 +4,19 @@
 #include "ISystem.h"
 #include <glm/glm.hpp>
 #include "game.h"
+#include "ui.h"
 
 class CharacterCollision : public ISystem
 {
 public:
 
-	CharacterCollision();
 
 	CharacterCollision(Game* pGame) : m_pGame(pGame) {}
 
 	// Inherited via ISystem
 	virtual void Init() override {};
 	virtual void CleanUp() override;
+	CharacterCollision();
 	virtual void Update() override;
 	
 	int playerPosX;
@@ -28,6 +29,10 @@ public:
 		if ((npcPositionX == playerPosX) && (npcPositionY == playerPosY)) {
 			collide = true;
 		}
+		if (UI::g_pUI->IsHypeBarFull()) {
+			
+		}
+
 		return collide;
 	}
 
