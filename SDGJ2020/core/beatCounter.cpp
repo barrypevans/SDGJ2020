@@ -17,7 +17,7 @@ void beatCounter::Update()
 	if (Metronome::g_pMetronome->Beat) {
 		beatCount++;
 		if (beatCount > 3) {
-			entity->m_position.x = 3.93;
+			entity->m_position.x = 2.93;
 			beatCount = 0;
 		}
 		else {
