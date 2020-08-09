@@ -71,17 +71,24 @@ void Effects::GlowTilesAt(int x, int y)
 		glowTileRenderables.push_back(glowTiles[i]->AddComponent<Renderable>());
 		glowTileRenderables[i]->OverrideShader("shaders/attackGlow.fs");
 		glowTileRenderables[i]->SetTexture("art/TileGlow.png");
-		glowTileRenderables[i]->m_layerOrder = 1000;
 
 		glowTileRenderables[i]->userData2 = (float)rand() / RAND_MAX;
 	}
 
 	glowTiles[0]->m_position = offset + Grid2Isospace(x + 0,y + 1);
+	glowTileRenderables[0]->m_layerOrder = 2;
 	glowTiles[1]->m_position = offset + Grid2Isospace(x + 1,y + 1);
+	glowTileRenderables[1]->m_layerOrder = 3;
 	glowTiles[2]->m_position = offset + Grid2Isospace(x + 1,y + 0);
+	glowTileRenderables[2]->m_layerOrder = 4;
 	glowTiles[3]->m_position = offset + Grid2Isospace(x + 1,y + -1);
+	glowTileRenderables[3]->m_layerOrder = 5;
 	glowTiles[4]->m_position = offset + Grid2Isospace(x + 0,y + -1);
+	glowTileRenderables[4]->m_layerOrder = 4;
 	glowTiles[5]->m_position = offset + Grid2Isospace(x +-1,y + -1);
+	glowTileRenderables[5]->m_layerOrder = 3;
 	glowTiles[6]->m_position = offset + Grid2Isospace(x +-1,y + 0);
+	glowTileRenderables[6]->m_layerOrder = 2;
 	glowTiles[7]->m_position = offset + Grid2Isospace(x +-1,y + 1);
+	glowTileRenderables[7]->m_layerOrder = 1;
 }
