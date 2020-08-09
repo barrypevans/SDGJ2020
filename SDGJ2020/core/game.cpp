@@ -178,7 +178,7 @@ void Game::InitCoreEntities()
 	beatRenderable_B->isUI = true;
 	beatRenderable_B->SetTexture("art/BeatCounet_B.png");
 	pBeatCounter_B->m_scale *= 3;
-	pBeatCounter_B->m_position = glm::vec2(4, -3);
+	pBeatCounter_B->m_position = glm::vec2(3.8, -2.3);
 
 	/*
 	Entity* pBeatCounter_C = CreateEntity();
@@ -195,7 +195,7 @@ void Game::InitCoreEntities()
 	beatRenderable->SetTexture("art/BeatCounter_A.png");
 	beatCounter* beatCountController = pBeatCounter_A->AddComponent<beatCounter>();
 	pBeatCounter_A->m_scale *= .75;
-	pBeatCounter_A->m_position = glm::vec2(2.93, -2.97);
+	pBeatCounter_A->m_position = glm::vec2(2.73, -2.27);
 
 	/*pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
