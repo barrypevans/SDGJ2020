@@ -7,6 +7,8 @@ class Entity_Controller : public Component
 	virtual void Update() override;
 	virtual void CleanUp() override;
 
+	Entity* entity;
+
 	int entityPosX;
 	int entityPosY;
 	int beatCount;
@@ -51,6 +53,11 @@ public:
 	void setType(int type) {
 		this->enemyType;
 	}
+	void setEntityPos(int posX, int posY) {
+		this->entity->m_position.x = (posX + posY) / 2;
+		this->entity->m_position.y = (posY / 2) - (posX / 2);
+	};
+	void setEntityPosX(int posX);
 	static Entity_Controller* g_pEntity_Controller;
 };
 
