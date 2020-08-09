@@ -33,7 +33,12 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
     FMOD_RESULT result;
     FMOD::Channel* channel;
 
+    bool isMusic = clip == GameClip::kFunkTheme;
+
     result = system->playSound(clips[(int)clip], 0, false, &channel);
+    if (isMusic)
+        musicChannel = channel;
+
     if (result != FMOD_OK) {
         printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
         exit(-1);
@@ -41,13 +46,15 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
 
     if (volume != 1)
         channel->setVolume(volume);
-    if (loopCount>0) 
+    if (loopCount > 0)
     {
         channel->setMode(FMOD_LOOP_NORMAL);
         channel->setLoopCount(loopCount);
     }
 }
-
+void Audio::StopMusic() {
+    musicChannel->stop();
+}
 
 void Audio::PrepareClips() 
 {

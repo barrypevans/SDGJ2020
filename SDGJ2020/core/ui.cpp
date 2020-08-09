@@ -87,7 +87,7 @@ void UI::CorrectMove()
 {
 	if (hypeCount >= maxHypeCount) 
 	{
-		Audio::g_pAudio->Play((Audio::GameClip)(rand()%15 + 4), .1f);
+		Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
 		hypeCount = 0;
 		return;
 	}
