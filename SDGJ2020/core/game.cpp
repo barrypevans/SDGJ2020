@@ -21,12 +21,14 @@
 #include "../game/dance-floor-visual-controller.h"
 #include <time.h>
 #include "game-logic-core.h"
+#include "effects.h"
 Game* Game::g_pGame;
 
 void Game::Init()
 {
 	//seed random numbers
 	srand((unsigned)time(NULL));
+	entityId = 0;
 
 	g_pGame = this;
 	m_isRunning = true;
@@ -50,6 +52,7 @@ void Game::CleanUp()
 	Metronome::g_pMetronome->CleanUp();
 	Time::g_pTime->CleanUp();
 	UI::g_pUI->CleanUp();
+	Effects::g_pEffects->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -65,6 +68,7 @@ void Game::Update()
 	Time::g_pTime->Update();
 	UI::g_pUI->Update();
 	Camera::g_pCamera->Update();
+	Effects::g_pEffects->Update();
 
 	if (Window::g_pWindow)
 	{
@@ -101,6 +105,8 @@ Entity* Game::CreateEntity()
 {
 	Entity* entity = new Entity();
 	m_entityList.push_back(entity);
+	entityId++;
+	entity->UID = entityId;
 	return entity;
 }
 void Game::DestroyEntity(Entity* entity)
@@ -122,8 +128,7 @@ void Game::InitSystems()
 	Input::g_pInput = new Input();
 	UI::g_pUI = new UI();
 	CharacterCollision::g_pChracterCollision = new CharacterCollision();
-
-
+	Effects::g_pEffects = new Effects();
 
 
 	Window::g_pWindow->Init();
@@ -137,6 +142,7 @@ void Game::InitSystems()
 	UI::g_pUI->Init();
 	GameLogic::g_pGameLogic->Init();
 	CharacterCollision::g_pChracterCollision->Init();
+	Effects::g_pEffects->Init();
 }
 
 void Game::InitCoreEntities()

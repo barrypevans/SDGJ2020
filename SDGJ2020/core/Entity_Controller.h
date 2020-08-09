@@ -19,6 +19,7 @@ class Entity_Controller : public Component
 	bool knightQueue;
 	bool knightQueueDirection;
 	int knightQueueEnd;
+	int key;
 	
 
 	glm::vec2 targetPos = glm::vec2(0, 0);

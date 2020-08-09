@@ -9,6 +9,7 @@ class Entity
 public:
 	Entity();
 
+
 	template<class T>
 	T* AddComponent()
 	{
@@ -50,6 +51,7 @@ public:
 	glm::vec2 m_position;
 	glm::vec2 m_scale;
 	float m_rotation;
+	int UID;
 
 private:
 	std::vector<Component*> m_components;

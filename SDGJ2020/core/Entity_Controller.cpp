@@ -4,15 +4,13 @@
 #include "metronome.h"
 #include "time.h"
 #include "CharacterCollision.h"
-//
-#include <iostream>
-using namespace std;
-//
+
 Entity_Controller* Entity_Controller::g_pEntity_Controller;
 enum Type { King, Knight, Bishop };
 void Entity_Controller::Init()
 {
 	Entity* entity = (Entity*)m_entity;
+	key = entity->UID;
 	if (CharacterCollision::g_pChracterCollision->enemyTypeA != -1) {
 		enemyType = CharacterCollision::g_pChracterCollision->enemyTypeA;
 		CharacterCollision::g_pChracterCollision->enemyTypeA = -1;
@@ -41,6 +39,7 @@ void Entity_Controller::Init()
 	knightQueue = false;
 	knightQueueDirection = false;
 	knightQueueEnd = 0;
+	CharacterCollision::g_pChracterCollision->addNPC(entityPosX, entityPosY, key);
 	
 	
 }
@@ -81,15 +80,24 @@ void Entity_Controller::Update()
 			beatCount++;
 			if (enemyType == King) {
 				if (beatCount > 3) {
+					printf("\n\nSetting Key %d\n\n", key);
 					switch (rand() % 4) {
 					case 0:
-						if (entityPosX != 9) moveRight(entity); break;
+						if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY); }
+						break;
 					case 1:
-						if (entityPosX != 0) moveLeft(entity); break;
+						if (entityPosX != 0 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveLeft(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY); }
+						break;
 					case 2:
-						if (entityPosY != 9) moveUp(entity); break;
+						if (entityPosY != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY + 1)) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveUp(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY-1); }
+						break;
 					case 3:
-						if (entityPosY != 0) moveDown(entity); break;
+						if (entityPosY != 0 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY - 1)) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveDown(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY+1); }
+						break;
 					}
 					beatCount = 0;
 				}
@@ -97,20 +105,30 @@ void Entity_Controller::Update()
 			else if (enemyType == Knight) {
 				if (knightQueue) {
 					if (knightQueueDirection) {
+						printf("Setting Key %d", key);
 						switch (rand() % 2) {
 						case 0:
-							if (entityPosY != 9) moveUp(entity); break;
+							if (entityPosY != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY + 1)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveUp(entity); }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY - 1); }
+							break;
 						case 1:
-							if (entityPosY != 0) moveDown(entity); break;
+							if (entityPosY != 0 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY - 1)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveDown(entity); }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY + 1); }
+							break;
 						}
 						knightQueueEnd++;
 					}
 					else {
+						printf("Setting Key %d", key);
 						switch (rand() % 2) {
 						case 0:
-							if (entityPosX != 9) moveRight(entity); break;
+							if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY); }
+							break;
 						case 1:
-							if (entityPosX != 0) moveLeft(entity); break;
+							if (entityPosX != 0 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveLeft(entity); }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX+1, entityPosY); }
+							break;
 						}
 						knightQueueEnd++;
 					}
@@ -120,52 +138,58 @@ void Entity_Controller::Update()
 					}
 				}
 				else if (beatCount > 1) {
+					printf("Setting Key %d", key);
 					switch (rand() % 4) {
 						case 0:
-							if (entityPosX != 9) moveRight(entity); knightQueueDirection = false; break;
+							if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); knightQueueDirection = false; }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX-1, entityPosY); }
+							break;
 						case 1:
-							if (entityPosX != 0) moveLeft(entity); knightQueueDirection = false; break;
+							if (entityPosX != 0 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveLeft(entity); knightQueueDirection = false; }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX +1, entityPosY); }
+							break;
 						case 2:
-							if (entityPosY != 9) moveUp(entity); knightQueueDirection = true; break;
+							if (entityPosY != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY + 1)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveUp(entity); knightQueueDirection = true; }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY - 1); }
+							break;
 						case 3:
-							if (entityPosY != 0) moveDown(entity); knightQueueDirection = true; break;
+							if (entityPosY != 0 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY - 1)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveDown(entity); knightQueueDirection = true; }
+							else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY + 1); }
+							break;
 						}
 					beatCount = 0;
 				}
 			}
 			else if (enemyType == Bishop) {
 				if (beatCount > 2) {
+					printf("Setting Key %d", key);
 					switch (rand() % 4) {
 					case 0:
-						if (entityPosX != 9 && entityPosY !=9) moveRight(entity); moveUp(entity); break;
+						if (entityPosX != 9 && entityPosY != 9 && CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY + 1) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveRight(entity); moveUp(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX -1, entityPosY - 1); }
+						break;
 					case 1:
-						if (entityPosX != 0 && entityPosY!=0) moveLeft(entity); moveDown(entity); break;
+						if (entityPosX != 0 && entityPosY != 0 && CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY - 1) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveLeft(entity); moveDown(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX+1, entityPosY + 1); }
+						break;
 					case 2:
-						if (entityPosY != 9 && entityPosX !=0) moveLeft(entity); moveUp(entity); break;
+						if (entityPosY != 9 && entityPosX != 0 && CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX - 1, entityPosY + 1) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveLeft(entity); moveUp(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX+1, entityPosY - 1); }
+						break;
 					case 3:
-						if (entityPosY != 0 && entityPosX!=9) moveRight(entity); moveDown(entity); break;
+						if (entityPosY != 0 && entityPosX != 9 && CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY - 1) && CharacterCollision::g_pChracterCollision->calculateNext()) { moveRight(entity); moveDown(entity); }
+						else { CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX-1, entityPosY + 1); }
+						break;
 					}
 					beatCount = 0;
 				}
 			}
 		}
-		switch (enemyType) {
-		case 0:
+		
 			entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
-			CharacterCollision::g_pChracterCollision->npcPositionX = entityPosX;
-			CharacterCollision::g_pChracterCollision->npcPositionY = entityPosY;
-			break;
-		case 1:
-			entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
-			CharacterCollision::g_pChracterCollision->npcPosBX = entityPosX;
-			CharacterCollision::g_pChracterCollision->npcPosBY = entityPosY;
-			break;
-		case 2:
-			entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
-			CharacterCollision::g_pChracterCollision->npcPosBX = entityPosX;
-			CharacterCollision::g_pChracterCollision->npcPosBY = entityPosY;
-			break;
-		}
+			CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY);
+			//printf("\n\nEnemy %d at position X: %d Y: %d\n\n", key, entityPosX, entityPosY);
+		
 		
 	}
 	// move player

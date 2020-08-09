@@ -5,6 +5,7 @@
 #include "renderable.h"
 #include "time.h"
 #include "glm/glm.hpp"
+#include "game-logic-core.h"
 
 class Effects : public ISystem
 {
@@ -18,6 +19,6 @@ public:
 	std::vector<Entity*> glowTiles;
 	std::vector<Renderable*> glowTileRenderables;
 
-	void GlowTilesAt(glm::vec2 position);
+	void GlowTilesAt(int x, int y);
 
 };
