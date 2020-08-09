@@ -39,28 +39,28 @@ bool isAdjecent(int pX, int pY, int nX, int nY) {
 }
 void CharacterCollision::addNPC(int x, int y, int key) {
 	if (arrSize > 9) {
-		printf("Error: Array Capacity Reached");
+		//printf("Error: Array Capacity Reached");
 	}
 	else {
 		arr[arrSize].x = x;
 		arr[arrSize].y = y;
 		arr[arrSize].key = key;
 		arrSize++;
-		printf("\nAdded to Array index %d, key: %d, X: %d Y: %d\n", arrSize, key, x, y);
+		//printf("\nAdded to Array index %d, key: %d, X: %d Y: %d\n", arrSize, key, x, y);
 	}
 }
 bool CharacterCollision::setNPCCoords(int key, int x, int y) {
 	bool notFound = true;
 	int index = 0;
 	for (int index = 0; index < arrSize; index++) {
-		printf("\nchecking for Array index: %d key: arrKey: %d, %d, X: %d Y: %d\n", index, arr[index].key, key, x, y);
+		//printf("\nchecking for Array index: %d key: arrKey: %d, %d, X: %d Y: %d\n", index, arr[index].key, key, x, y);
 		if (arr[index].key == key) {
 			notFound = false;
 			break;
 		}
 	}
 	if (notFound) {
-		printf("Error: Entity Not Found in Array");
+		//printf("Error: Entity Not Found in Array");
 	}
 	else {
 		arr[index].x = x;
@@ -70,7 +70,7 @@ bool CharacterCollision::setNPCCoords(int key, int x, int y) {
 }
 bool CharacterCollision::compareStruct(posCoords a, posCoords b) {
 	bool equal = false;
-	printf("\nKeyA: %d, Key2: %d, Ax: %d, BX: %d, AY: %d, BY: %d\n", a.key, b.key, a.x, b.x, a.y, b.y);
+	//printf("\nKeyA: %d, Key2: %d, Ax: %d, BX: %d, AY: %d, BY: %d\n", a.key, b.key, a.x, b.x, a.y, b.y);
 	if (a.x == b.x && a.y == b.y) {
 		equal = true;
 	}
