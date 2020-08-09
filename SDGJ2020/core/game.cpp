@@ -178,7 +178,16 @@ void Game::InitCoreEntities()
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
 	berryRenderable->isUI = true;
 	berryRenderable->SetTexture("art/berry.png");
-	pBerryEntity->m_position = glm::vec2(2, 1);
-	pBerryEntity->m_scale *= 2;
+	berryRenderable->m_layerOrder = 3;
+	pBerryEntity->m_position = glm::vec2(5.4, 1.6);
+	pBerryEntity->m_scale *= 0.9;
+
+	pBerryBarryEntity = CreateEntity();
+	auto pBerryBarryRenderable = pBerryBarryEntity->AddComponent<Renderable>();
+	pBerryBarryRenderable->isUI = true;
+	pBerryBarryRenderable->SetTexture("art/BerryBarry.png");
+	pBerryBarryRenderable->m_layerOrder = 2;
+	pBerryBarryEntity->m_position = glm::vec2(5, 2.3);
+	pBerryBarryEntity->m_scale *= 1.3;
 
 }

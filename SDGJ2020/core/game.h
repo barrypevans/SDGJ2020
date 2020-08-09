@@ -26,6 +26,7 @@ private:
 	std::vector<Entity*> m_entityList;
 
 	Entity* pBerryEntity;
+	Entity* pBerryBarryEntity;
 	Entity* pCharacterEntity;
 };
 
