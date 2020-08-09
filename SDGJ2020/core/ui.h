@@ -14,14 +14,13 @@ public:
 	virtual void CleanUp() override;
 	virtual void Update() override;
 
-	virtual bool IsHypeBarFull();
+	
 	float hypeBarPercent;
 	float targetHypeBarPercent;
 
-	int hypeCount = 0;
-	int maxHypeCount = 7;
+	//int hypeCount = 0;
+	//int maxHypeCount = 7;
 	void CorrectMove();
-	void ClearMoveCount();
 
 	void InitBar(Entity** e, Renderable** r, std::string textureFilename);
 

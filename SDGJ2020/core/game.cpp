@@ -71,13 +71,14 @@ void Game::Update()
 	}
 
 	Renderer::g_pRenderer->ClearRenderQueue();
-	GameLogic::g_pGameLogic->Update();
+	
 
 	// update all entities
 	for (int i = 0; i < m_entityList.size(); ++i)
 		if (m_entityList[i])
 			m_entityList[i]->Update();
 
+	GameLogic::g_pGameLogic->Update();
 	Renderer::g_pRenderer->RenderAllInQueue();
 
 	Window::g_pWindow->SwapBuffers();
@@ -205,7 +206,7 @@ void Game::DestroyMarkedEntities()
 			if (m_entityList[i])
 				delete m_entityList[i];
 
-			m_entityList.erase(m_entityList.begin() + i, m_entityList.begin() + i);
+			m_entityList.erase(m_entityList.begin() + i, m_entityList.begin() + i+1);
 			i--;
 		}
 	}

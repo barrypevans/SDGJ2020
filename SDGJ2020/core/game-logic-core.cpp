@@ -32,17 +32,16 @@ void GameLogic::CleanUp()
 
 void GameLogic::Update()
 {
-	
+
 	if (Metronome::g_pMetronome->Beat)
 	{
 		m_beat++;
 
 		// spawn enemy every 4 bars
-		if (m_beat > 15)
+		if (m_beat % 16 == 0)
 		{
 			if (m_activeEnemies.size() < m_maxEnemies)
 				SpawnEnemy(0);
-			m_beat = 0;
 		}
 	}
 }
@@ -59,17 +58,70 @@ void GameLogic::SpawnEnemy(int enemyType)
 	m_activeEnemies.push_back(pNPCEntity);
 }
 
+static bool IsAdjecent(int pX, int pY, int nX, int nY) {
+
+	return (abs(pX - nX) <= 1) && (abs(pY - nY) <= 1);
+}
+
 void GameLogic::DealDamage()
 {
-	/*for (int i = 0; i < m_activeEnemies.size(); ++i)
+	for (int i = 0; i < m_activeEnemies.size(); ++i)
 	{
-		m_activeEnemies[i].
-	}*/
+		Entity* enemy = m_activeEnemies[i];
+		Entity_Controller* enemyController = enemy->GetComponent<Entity_Controller>();
+		PlayerController* playerController = pCharacterEntity->GetComponent<PlayerController>();
+
+		if (IsAdjecent(enemyController->getEntityPosX(), enemyController->getEntityPosY(),
+			playerController->getPlayerPosX(), playerController->getPlayerPosY()))
+		{
+			// remove enemy from active list
+			m_activeEnemies.erase(m_activeEnemies.begin() + i, m_activeEnemies.begin() + 1 + i);
+			--i;
+			// destroy enemy
+			Game::g_pGame->DestroyEntity(enemy);
+		}
+	}
+}
+
+void GameLogic::CorrectMove()
+{
+	
+	Camera::g_pCamera->DoShake();
+	if (m_hypeCount >= m_maxHypeCount)
+	{
+		TriggerHype();
+	}
+	else
+	{
+		m_hypeCount++;
+		UI::g_pUI->CorrectMove();
+	}
+	
+
+
 }
 
 void GameLogic::TriggerHype()
 {
-	UI::g_pUI->CorrectMove();
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
+	m_hypeCount = 0;
 	Camera::g_pCamera->DoShake();
 	DealDamage();
+}
+
+
+bool GameLogic::IsHypeBarFull()
+{
+	return (m_hypeCount == m_maxHypeCount);
+}
+
+void GameLogic::ClearMoveCount()
+{
+	m_hypeCount = 0;
+	UI::g_pUI->targetHypeBarPercent = 0;
+}
+
+void GameLogic::FailedMove()
+{
+	ClearMoveCount();
 }

@@ -43,10 +43,10 @@ public:
 		entityPosY--;
 	}
 	int getEntityPosX() {
-		return this->entityPosX;
+		return entityPosX;
 	}
 	int getEntityPosY() {
-		return this->entityPosY;
+		return entityPosY;
 	}
 	void setType(int type) {
 		this->enemyType;

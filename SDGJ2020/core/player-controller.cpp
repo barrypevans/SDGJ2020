@@ -65,40 +65,48 @@ void PlayerController::Update()
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveRight(entity);
-					GameLogic::g_pGameLogic->TriggerHype();
+					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
-					UI::g_pUI->ClearMoveCount();
+				{
+					GameLogic::g_pGameLogic->FailedMove();
+				}
 			}
 			if (Input::g_pInput->getLeftKeyPress()) {
 				if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveLeft(entity);
-					GameLogic::g_pGameLogic->TriggerHype();
+					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
-					UI::g_pUI->ClearMoveCount();
+				{
+					GameLogic::g_pGameLogic->FailedMove();
+				}
 			}
 			if (Input::g_pInput->getUpKeyPress()) {
 				if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveUp(entity);
-					GameLogic::g_pGameLogic->TriggerHype();
+					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
-					UI::g_pUI->ClearMoveCount();
+				{
+					GameLogic::g_pGameLogic->FailedMove();
+				}
 			}
 			if (Input::g_pInput->getDownKeyPress()) {
 				if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < Metronome::kBeatThreshold)
 				{
 					//CharacterCollision::g_pChracterCollision->testCollision();
 					moveDown(entity);
-					GameLogic::g_pGameLogic->TriggerHype();
+					GameLogic::g_pGameLogic->CorrectMove();
 				}
 				else
-					UI::g_pUI->ClearMoveCount();
+				{
+					GameLogic::g_pGameLogic->FailedMove();
+				}
 			}
 
 	}

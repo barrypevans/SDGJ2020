@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include "game.h"
 #include "ui.h"
-
+#include "game-logic-core.h"
 class CharacterCollision : public ISystem
 {
 public:
@@ -46,13 +46,13 @@ public:
 		if ((npcPositionX == playerPosX) && (npcPositionY == playerPosY)) {
 			collide = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX,playerPosY,npcPositionX,npcPositionY)) {
+		if (GameLogic::g_pGameLogic->IsHypeBarFull() && isAdjecent(playerPosX,playerPosY,npcPositionX,npcPositionY)) {
 			this->npcDestroyed = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosBX, npcPosBY)) {
+		if (GameLogic::g_pGameLogic->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosBX, npcPosBY)) {
 			this->npcBDestroyed = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosCX, npcPosCY)) {
+		if (GameLogic::g_pGameLogic->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosCX, npcPosCY)) {
 			this->npcCDestroyed = true;
 		}
 

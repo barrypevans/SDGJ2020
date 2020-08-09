@@ -2,7 +2,7 @@
 #include "glm/glm.hpp"
 #include "time.h"
 #include "audio.h"
-
+#include "game-logic-core.h"
 UI* UI::g_pUI;
 
 
@@ -40,7 +40,7 @@ void UI::Update()
 	//else if (t < 0)
 	//	t = 0;
 
-	if (maxHypeCount == hypeCount)
+	if (GameLogic::g_pGameLogic->m_maxHypeCount == GameLogic::g_pGameLogic->m_hypeCount)
 	{
 			hypeTime += Time::g_pTime->GetDeltaTime() * 3;
 		if (hypeTime > 1)
@@ -62,14 +62,6 @@ void UI::Update()
 	hypebarRenderable->userData1 = hypeBarPercent;
 }
 
-bool UI::IsHypeBarFull()
-{
-	if (hypeCount == maxHypeCount)
-		return true;
-	else
-		return false;
-}
-
 void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
 {
 	*e = Game::g_pGame->CreateEntity();
@@ -85,20 +77,9 @@ void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
 
 void UI::CorrectMove()
 {
-	if (hypeCount >= maxHypeCount) 
-	{
-		Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
-		hypeCount = 0;
-		return;
-	}
-
-	hypeCount++;
-	targetHypeBarPercent = (float)hypeCount / (float)maxHypeCount;
-	printf("%g\n", targetHypeBarPercent);
+	int hypeCount = GameLogic::g_pGameLogic->m_hypeCount;
+	targetHypeBarPercent = (float)hypeCount / (float)GameLogic::g_pGameLogic->m_maxHypeCount;
+	//printf("%g\n", targetHypeBarPercent);
 }
 
-void UI::ClearMoveCount()
-{
-	hypeCount = 0;
-	targetHypeBarPercent = 0;
-}
+

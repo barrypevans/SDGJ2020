@@ -28,20 +28,7 @@ void Entity_Controller::Init()
 	else {
 		enemyType = 1;
 	}
-	switch (enemyType) {
-	case 0:
-		entity->m_position.y = entity->m_position.y - .1 + .69;
-		entity->m_position.x = entity->m_position.x + 1.5;
-		break;
-	case 1:
-		entity->m_position.y = entity->m_position.y - .1 + .94;
-		entity->m_position.x = entity->m_position.x + 1;
-		break;
-	case 2:
-		entity->m_position.y = entity->m_position.y - .1 + .44;
-		entity->m_position.x = entity->m_position.x + 2;
-		break;
-	}
+
 	entityPosX = 6;
 	entityPosY = 3;
 	beatCount = 0;
