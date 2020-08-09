@@ -94,6 +94,9 @@
     <ClCompile Include="core\effects.cpp">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="game\player-anim-controller.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -192,6 +195,9 @@
     </ClInclude>
     <ClInclude Include="core\effects.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="game\player-anim-controller.h">
+      <Filter>game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

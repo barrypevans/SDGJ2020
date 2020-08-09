@@ -6,14 +6,17 @@
 #include "Entity_Controller.h"
 #include "metronome.h"
 #include "camera.h"
+#include "../game/player-anim-controller.h"
 GameLogic* GameLogic::g_pGameLogic;
 
 void GameLogic::Init()
 {
 	pCharacterEntity = Game::g_pGame->CreateEntity();
 	pCharacterEntity->m_position = glm::vec2(0, 0);
+	pCharacterEntity->AddComponent<PlayerAnimController>();
 	auto charRenderable = pCharacterEntity->AddComponent<Animatable>();
 	charRenderable->AddAnimation("idle", new Animation("art/player_idle.png", 20));
+	charRenderable->AddAnimation("pose", new Animation("art/pose_01.png", 1));
 	charRenderable->SetActiveAnimation("idle");
 
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
@@ -100,6 +103,7 @@ void GameLogic::CorrectMove()
 
 void GameLogic::TriggerHype()
 {
+	pCharacterEntity->GetComponent<PlayerAnimController>()->Pose();
 	m_score += kHypeMoveScore;
 	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
 	m_hypeCount = 0;

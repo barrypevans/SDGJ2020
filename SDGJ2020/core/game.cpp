@@ -142,8 +142,8 @@ void Game::InitCoreEntities()
 	Entity* pBackDrop = CreateEntity();
 	auto pBackDropRenderable = pBackDrop->AddComponent<Renderable>();
 	pBackDropRenderable->SetTexture("art/backdrop.png");
-	pBackDrop->m_scale *= 11;
-	pBackDrop->m_position = glm::vec2(0, .5);
+	pBackDrop->m_scale *= 10.65f;
+	pBackDrop->m_position = glm::vec2(-0.05, 0.5);
 	pBackDropRenderable->m_layerOrder = -10;
 
 	Entity* pDanceFloorEntity = CreateEntity();

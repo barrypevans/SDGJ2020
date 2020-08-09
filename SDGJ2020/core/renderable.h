@@ -3,6 +3,7 @@
 #include "texture.h"
 #include <string>
 #include "shader.h"
+#include "glm/glm.hpp"
 
 class Renderable : public Component
 {
@@ -10,6 +11,8 @@ public:
 	void SetTexture(std::string texturePath);
 	virtual void Update() override;
 	virtual void Init() override;
+	glm::vec2 GetPpuScale();
+
 	Texture* m_texture;
 	bool isUI;
 	bool shouldOverrideShader;
