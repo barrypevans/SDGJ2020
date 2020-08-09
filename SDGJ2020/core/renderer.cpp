@@ -9,6 +9,7 @@
 #include <algorithm>
 #include "glm/gtc/matrix_transform.hpp"
 #include "animatable.h"
+#include "renderable-digit.h"
 
 Renderer* Renderer::g_pRenderer;
 
@@ -86,7 +87,8 @@ void Renderer::DrawRenderable(Renderable* renderable)
 
 	shader->BindShader();
 
-	Animatable* animatable =  dynamic_cast<Animatable*>(renderable);
+	Animatable* animatable = dynamic_cast<Animatable*>(renderable);
+	RenderableDigit* renderableDigit = dynamic_cast<RenderableDigit*>(renderable);
 	
 	Entity* entity = reinterpret_cast<Entity*>(renderable->m_entity);
 	glm::vec2 scale = entity->m_scale;
@@ -94,13 +96,13 @@ void Renderer::DrawRenderable(Renderable* renderable)
 	{
 		scale.y *= (float)renderable->m_texture->m_height/
 			((float)renderable->m_texture->m_width / static_cast<float>(animatable->GetActiveAnimation()->m_numFrames));
-		
 	}
 	else
 	{
 		// correct scale for aspect ratio
 		scale.y *= renderable->m_texture->m_aspect;
 	}
+
 	// upload camera matrix
 	GLuint location = glGetUniformLocation(shader->GetProgram(), "_mvp");
 	glm::mat4 proj = Camera::g_pCamera->GetOrthographicProjection();
