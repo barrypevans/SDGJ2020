@@ -26,12 +26,15 @@
     <ClCompile Include="core\beatCounter.cpp" />
     <ClCompile Include="core\binary-asset.cpp" />
     <ClCompile Include="core\camera.cpp" />
+    <ClCompile Include="core\CharacterCollision.cpp" />
     <ClCompile Include="core\component.cpp" />
     <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\Entity_Controller.cpp" />
     <ClCompile Include="core\game.cpp" />
     <ClCompile Include="core\Input.cpp" />
+    <ClCompile Include="core\number-renderer.cpp" />
     <ClCompile Include="core\player-controller.cpp" />
+    <ClCompile Include="core\renderable-digit.cpp" />
     <ClCompile Include="core\renderable.cpp" />
     <ClCompile Include="core\renderer.cpp" />
     <ClCompile Include="core\metronome.cpp" />
@@ -53,6 +56,7 @@
     <ClInclude Include="core\beatCounter.h" />
     <ClInclude Include="core\binary-asset.h" />
     <ClInclude Include="core\camera.h" />
+    <ClInclude Include="core\CharacterCollision.h" />
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\component.h" />
     <ClInclude Include="core\entity.h" />
@@ -60,7 +64,9 @@
     <ClInclude Include="core\game.h" />
     <ClInclude Include="core\Input.h" />
     <ClInclude Include="core\ISystem.h" />
+    <ClInclude Include="core\number-renderer.h" />
     <ClInclude Include="core\player-controller.h" />
+    <ClInclude Include="core\renderable-digit.h" />
     <ClInclude Include="core\renderable.h" />
     <ClInclude Include="core\renderer.h" />
     <ClInclude Include="core\shader.h" />

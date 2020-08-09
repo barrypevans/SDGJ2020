@@ -6,12 +6,14 @@ class PlayerController : public Component
 {
 	virtual void Init() override;
 	virtual void Update() override;
-	virtual void CleanUp() override;
+	virtual void CleanUp() override {};
 
 	int playerPosX;
 	int playerPosY;
 	bool oneButtonMode;
 	int beatCount;
+	int npcPositionX;
+	int npcPositionY;
 
 	glm::vec2 targetPos = glm::vec2(0,0);
 
@@ -37,4 +39,11 @@ public:
 		targetPos.x = targetPos.x - .50;
 		playerPosY--;
 	}
+	int getPlayerPosX() {
+		return this->playerPosX;
+	}
+	int getPlayerPosY() {
+		return this->playerPosY;
+	}
+	static PlayerController* g_pPlayerController;
 };

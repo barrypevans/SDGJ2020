@@ -35,6 +35,12 @@ public:
 		targetPos.x = targetPos.x - .50;
 		entityPosY--;
 	}
-
+	int getEntityPosX() {
+		return this->entityPosX;
+	}
+	int getEntityPosY() {
+		return this->entityPosY;
+	}
+	static Entity_Controller* g_pEntity_Controller;
 };
 

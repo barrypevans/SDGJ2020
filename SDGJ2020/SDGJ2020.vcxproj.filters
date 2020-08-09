@@ -79,6 +79,15 @@
     <ClCompile Include="game\dance-floor-visual-controller.cpp">
       <Filter>game</Filter>
     </ClCompile>
+    <ClCompile Include="core\CharacterCollision.cpp">
+	<Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\number-renderer.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\renderable-digit.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\game.h">
@@ -162,6 +171,15 @@
     </ClInclude>
     <ClInclude Include="game\dance-floor-visual-controller.h">
       <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="core\CharacterCollision.h">
+	<Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\number-renderer.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\renderable-digit.h">
+      <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

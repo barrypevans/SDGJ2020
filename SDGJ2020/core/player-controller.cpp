@@ -2,10 +2,16 @@
 #include "Input.h"
 #include "entity.h"
 #include "metronome.h"
-#include <iostream>
 #include "time.h"
+#include "CharacterCollision.h"
+
+PlayerController* PlayerController :: g_pPlayerController;
+int npcPositionX;
+int npcPositionY;
+int playerPosX;
+int playerPosY;
 #include "ui.h"
-using namespace std;
+#include "camera.h"
 
 
 void PlayerController::Init()
@@ -52,51 +58,67 @@ void PlayerController::Update()
 		
 	}
 	else {
+		if (Input::g_pInput->getRightKeyPress() && playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
+			moveRight(entity);
+		}
+		if (Input::g_pInput->getLeftKeyPress() && playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
+			moveLeft(entity);
+		}
+		if (Input::g_pInput->getUpKeyPress() && playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
+			moveUp(entity);
+		}
+		if (Input::g_pInput->getDownKeyPress() && playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100 && !CharacterCollision::g_pChracterCollision->testCollision()) {
+			moveDown(entity);
 
-		if (Input::g_pInput->getRightKeyPress()) {
-			if (playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
-			{
-				moveRight(entity);
-				UI::g_pUI->CorrectMove();
+			if (Input::g_pInput->getRightKeyPress()) {
+				if (playerPosX != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				{
+					moveRight(entity);
+					UI::g_pUI->CorrectMove();
+					Camera::g_pCamera->DoShake();
+				}
+				else
+					UI::g_pUI->ClearMoveCount();
 			}
-			else
-				UI::g_pUI->ClearMoveCount();
-		}
-		if (Input::g_pInput->getLeftKeyPress()) {
-			if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
-			{
-				moveLeft(entity);
-				UI::g_pUI->CorrectMove();
+			if (Input::g_pInput->getLeftKeyPress()) {
+				if (playerPosX != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				{
+					moveLeft(entity);
+					UI::g_pUI->CorrectMove();
+					Camera::g_pCamera->DoShake();
+				}
+				else
+					UI::g_pUI->ClearMoveCount();
 			}
-			else
-				UI::g_pUI->ClearMoveCount();
-		}
-		if (Input::g_pInput->getUpKeyPress()) {
-			if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
-			{
-				moveUp(entity);
-				UI::g_pUI->CorrectMove();
+			if (Input::g_pInput->getUpKeyPress()) {
+				if (playerPosY != 9 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				{
+					moveUp(entity);
+					UI::g_pUI->CorrectMove();
+					Camera::g_pCamera->DoShake();
+				}
+				else
+					UI::g_pUI->ClearMoveCount();
 			}
-			else
-				UI::g_pUI->ClearMoveCount();
-		}
-		if (Input::g_pInput->getDownKeyPress()) {
-			if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
-			{
-				moveDown(entity);
-				UI::g_pUI->CorrectMove();
+			if (Input::g_pInput->getDownKeyPress()) {
+				if (playerPosY != 0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100)
+				{
+					moveDown(entity);
+					UI::g_pUI->CorrectMove();
+					Camera::g_pCamera->DoShake();
+				}
+				else
+					UI::g_pUI->ClearMoveCount();
 			}
-			else
-				UI::g_pUI->ClearMoveCount();
+
 		}
+		entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
+		CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
+		CharacterCollision::g_pChracterCollision->playerPosY = playerPosY;
+
+
+		// move player
 	}
-	entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f*Time::g_pTime->GetDeltaTime());
-	
-	// move player
 	
 }
 
-void PlayerController::CleanUp()
-{
-
-}
