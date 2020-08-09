@@ -1,6 +1,7 @@
 #include "ui.h"
 #include "glm/glm.hpp"
 #include "time.h"
+#include "audio.h"
 
 UI* UI::g_pUI;
 
@@ -61,8 +62,12 @@ void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
 
 void UI::CorrectMove()
 {
-	if (hypeCount >= maxHypeCount)
+	if (hypeCount >= maxHypeCount) 
+	{
+		Audio::g_pAudio->Play((Audio::GameClip)(rand()%15 + 4), .1f);
+		hypeCount = 0;
 		return;
+	}
 
 	hypeCount++;
 	targetHypeBarPercent = (float)hypeCount / (float)maxHypeCount;

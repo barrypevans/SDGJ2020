@@ -60,7 +60,7 @@ void Window::PollEvents()
 		{
 			bool win = (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100;
 			//printf(win ? "beat " : "wrong ");
-			Audio::g_pAudio->Play(win?Audio::GameClip::kMetUp : Audio::GameClip::kMetDown,.1f);
+			//Audio::g_pAudio->Play(win ? Audio::GameClip::kMetUp : Audio::GameClip::kMetDown, .1f);
 		}
 	}
 }
