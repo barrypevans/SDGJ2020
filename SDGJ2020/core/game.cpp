@@ -18,10 +18,14 @@
 #include "Entity_Controller.h"
 #include "beatCounter.h"
 #include "../game/dance-floor-visual-controller.h"
+#include <time.h>
 Game* Game::g_pGame;
 
 void Game::Init()
 {
+	//seed random numbers
+	srand((unsigned)time(NULL));
+
 	g_pGame = this;
 	m_isRunning = true;
 	InitSystems();
@@ -52,6 +56,7 @@ void Game::Update()
 {
 	Time::g_pTime->Update();
 	UI::g_pUI->Update();
+	Camera::g_pCamera->Update();
 
 	if (Window::g_pWindow)
 	{

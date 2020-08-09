@@ -5,6 +5,7 @@
 #include <iostream>
 #include "time.h"
 #include "ui.h"
+#include "camera.h"
 using namespace std;
 
 
@@ -58,6 +59,7 @@ void PlayerController::Update()
 			{
 				moveRight(entity);
 				UI::g_pUI->CorrectMove();
+				Camera::g_pCamera->DoShake();
 			}
 			else
 				UI::g_pUI->ClearMoveCount();
@@ -67,6 +69,7 @@ void PlayerController::Update()
 			{
 				moveLeft(entity);
 				UI::g_pUI->CorrectMove();
+				Camera::g_pCamera->DoShake();
 			}
 			else
 				UI::g_pUI->ClearMoveCount();
@@ -76,6 +79,7 @@ void PlayerController::Update()
 			{
 				moveUp(entity);
 				UI::g_pUI->CorrectMove();
+				Camera::g_pCamera->DoShake();
 			}
 			else
 				UI::g_pUI->ClearMoveCount();
@@ -85,10 +89,12 @@ void PlayerController::Update()
 			{
 				moveDown(entity);
 				UI::g_pUI->CorrectMove();
+				Camera::g_pCamera->DoShake();
 			}
 			else
 				UI::g_pUI->ClearMoveCount();
 		}
+
 	}
 	entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f*Time::g_pTime->GetDeltaTime());
 	
