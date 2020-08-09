@@ -28,6 +28,9 @@ public:
 		this->downKey[2] = false;
 
 	}
+	bool getAnyPress() {
+		return (this->getDownKeyPress() || this->getLeftKeyPress() || this->getRightKeyPress() || this->getUpKeyPress());
+	}
 	bool getLeftKeyPress() {
 		return (!this->leftKey[0] && this->leftKey[1]);
 	}

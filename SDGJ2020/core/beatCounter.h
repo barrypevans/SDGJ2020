@@ -7,5 +7,9 @@ class beatCounter : public Component
 	virtual void Update() override;
 	virtual void CleanUp() override;
 	int beatCount;
+public:
+	int getBeatCount() {
+		return this->beatCount;
+	}
 };
 

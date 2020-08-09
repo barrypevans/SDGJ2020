@@ -24,6 +24,7 @@ void Entity_Controller::Update()
 	Entity* entity = (Entity*)m_entity;
 	// put movement code here
 	//get input
+
 	
 	if (Metronome::g_pMetronome->Beat) {
 		beatCount++;

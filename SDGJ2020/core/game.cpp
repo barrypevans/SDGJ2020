@@ -147,6 +147,15 @@ void Game::InitCoreEntities()
 	pBeatCounter_B->m_scale *= 3;
 	pBeatCounter_B->m_position = glm::vec2(5, -3);
 
+	/*
+	Entity* pBeatCounter_C = CreateEntity();
+	auto beatRenderable_C = pBeatCounter_C->AddComponent<Renderable>();
+	beatRenderable_C->isUI = true;
+	beatRenderable_C->SetTexture("art/BeatCounter_C.png");
+	pBeatCounter_C->m_scale *= 3;
+	pBeatCounter_C->m_position = glm::vec2(5, -3.8);
+	*/
+
 	Entity* pBeatCounter_A = CreateEntity();
 	auto beatRenderable = pBeatCounter_A->AddComponent<Renderable>();
 	beatRenderable->isUI=true;
