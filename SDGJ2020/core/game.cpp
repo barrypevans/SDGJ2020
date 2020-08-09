@@ -14,9 +14,9 @@
 #include "Input.h"
 #include "ui.h"
 #include "player-controller.h"
+#include "animatable.h"
 #include "Entity_Controller.h"
 #include "beatCounter.h"
-
 
 Game* Game::g_pGame;
 
@@ -127,8 +127,9 @@ void Game::InitCoreEntities()
 	pDanceFloorEntity->m_scale *= 10;
 
 	pCharacterEntity = CreateEntity();
-	auto charRenderable = pCharacterEntity->AddComponent<Renderable>();
-	charRenderable->SetTexture("art/sprite_01.png");
+	auto charRenderable = pCharacterEntity->AddComponent<Animatable>();
+	charRenderable->AddAnimation("idle", new Animation("art/player_idle.png", 20));
+	charRenderable->SetActiveAnimation("idle");
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale *= .5f;
