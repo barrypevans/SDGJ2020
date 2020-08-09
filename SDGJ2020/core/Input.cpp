@@ -1,8 +1,6 @@
 #include "Input.h"
 #include <stdio.h>
-#include <string>
-#include <iostream>
-using namespace std;
+
 
 Input* Input::g_pInput;
 

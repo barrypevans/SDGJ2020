@@ -12,16 +12,21 @@
 #include "metronome.h"
 #include "time.h"
 #include "Input.h"
+#include "CharacterCollision.h"
 #include "ui.h"
 #include "player-controller.h"
 #include "animatable.h"
 #include "Entity_Controller.h"
 #include "beatCounter.h"
 #include "../game/dance-floor-visual-controller.h"
+#include <time.h>
 Game* Game::g_pGame;
 
 void Game::Init()
 {
+	//seed random numbers
+	srand((unsigned)time(NULL));
+
 	g_pGame = this;
 	m_isRunning = true;
 	InitSystems();
@@ -52,6 +57,7 @@ void Game::Update()
 {
 	Time::g_pTime->Update();
 	UI::g_pUI->Update();
+	Camera::g_pCamera->Update();
 
 	if (Window::g_pWindow)
 	{
@@ -106,6 +112,9 @@ void Game::InitSystems()
 	Time::g_pTime = new Time();
 	Input::g_pInput = new Input();
 	UI::g_pUI = new UI();
+	CharacterCollision::g_pChracterCollision = new CharacterCollision();
+
+
 
 
 	Window::g_pWindow->Init();
@@ -117,6 +126,7 @@ void Game::InitSystems()
 	Time::g_pTime->Init();
 	Input::g_pInput->Init();
 	UI::g_pUI->Init();
+	CharacterCollision::g_pChracterCollision->Init();
 }
 
 void Game::InitCoreEntities()
@@ -124,8 +134,8 @@ void Game::InitCoreEntities()
 	Entity* pBackDrop = CreateEntity();
 	auto pBackDropRenderable = pBackDrop->AddComponent<Renderable>();
 	pBackDropRenderable->SetTexture("art/backdrop.png");
-	pBackDrop->m_scale *= 12;
-	pBackDrop->m_position = glm::vec2(0,1);
+	pBackDrop->m_scale *= 11;
+	pBackDrop->m_position = glm::vec2(0,.5);
 	pBackDropRenderable->m_layerOrder = -10;
 
 	Entity* pDanceFloorEntity = CreateEntity();

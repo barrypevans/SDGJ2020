@@ -3,10 +3,12 @@
 #include "entity.h"
 #include "metronome.h"
 #include "time.h"
+#include "CharacterCollision.h"
 //
 #include <iostream>
 using namespace std;
 //
+Entity_Controller* Entity_Controller::g_pEntity_Controller;
 
 void Entity_Controller::Init()
 {
@@ -43,6 +45,8 @@ void Entity_Controller::Update()
 		}
 	}
 	entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
+	CharacterCollision::g_pChracterCollision->npcPositionX = entityPosX;
+	CharacterCollision::g_pChracterCollision->npcPositionY = entityPosY;
 
 	// move player
 }
