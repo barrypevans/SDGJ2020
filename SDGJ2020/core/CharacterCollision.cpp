@@ -11,6 +11,8 @@ CharacterCollision::CharacterCollision() {
 	playerPosY=0;
 	npcPositionX=0;
 	npcPositionY=0;
+	Entity* pNPCEntity = NULL;
+	Entity* pCharacterEntity = NULL;
 }
 void CharacterCollision::Update() {
 

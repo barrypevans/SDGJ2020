@@ -10,6 +10,13 @@ class Entity_Controller : public Component
 	int entityPosX;
 	int entityPosY;
 	int beatCount;
+	bool destroyedA;
+	bool destroyedB;
+	bool destroyedC;
+	int enemyType;
+	bool knightQueue;
+	bool knightQueueDirection;
+	int knightQueueEnd;
 	
 
 	glm::vec2 targetPos = glm::vec2(0, 0);
@@ -40,6 +47,9 @@ public:
 	}
 	int getEntityPosY() {
 		return this->entityPosY;
+	}
+	void setType(int type) {
+		this->enemyType;
 	}
 	static Entity_Controller* g_pEntity_Controller;
 };

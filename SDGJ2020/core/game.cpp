@@ -153,12 +153,33 @@ void Game::InitCoreEntities()
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale *= .5f;
 
+	CharacterCollision::g_pChracterCollision->enemyTypeA = 0;
 	Entity* pNPCEntity = CreateEntity();
 	auto NPCRenderable = pNPCEntity->AddComponent<Renderable>();
-	NPCRenderable->SetTexture("art/sprite_01.png");
+	NPCRenderable->SetTexture("art/Badguy_Flat.png");
 	Entity_Controller* entityController = pNPCEntity->AddComponent<Entity_Controller>();
 	pNPCEntity->m_position = glm::vec2(2, 1);
 	pNPCEntity->m_scale *= .5f;
+
+	
+	CharacterCollision::g_pChracterCollision->enemyTypeB = 1;
+	Entity* pNPCEntityB = CreateEntity();
+	auto NPCRenderableB = pNPCEntityB->AddComponent<Renderable>();
+	NPCRenderableB->SetTexture("art/Badguy_Flat.png");
+	Entity_Controller* entityControllerB = pNPCEntityB->AddComponent<Entity_Controller>();
+	pNPCEntityB->m_position = glm::vec2(2, 1);
+	pNPCEntityB->m_scale *= .5f;
+
+	CharacterCollision::g_pChracterCollision->enemyTypeC = 2;
+	Entity* pNPCEntityC = CreateEntity();
+	auto NPCRenderableC = pNPCEntityC->AddComponent<Renderable>();
+	NPCRenderableC->SetTexture("art/Badguy_Flat.png");
+	Entity_Controller* entityControllerC = pNPCEntityC->AddComponent<Entity_Controller>();
+	pNPCEntityC->m_position = glm::vec2(2, 1);
+	pNPCEntityC->m_scale *= .5f;
+
+	
+
 
 	Entity* pBeatCounter_B = CreateEntity();
 	auto beatRenderable_B = pBeatCounter_B->AddComponent<Renderable>();

@@ -24,13 +24,50 @@ public:
 	int npcPositionX;
 	int npcPositionY;
 
+	int npcPosBX;
+	int npcPosBY;
+
+	int npcPosCX;
+	int npcPosCY;
+
+	bool npcDestroyed = false;
+	bool npcBDestroyed = false;
+	bool npcCDestroyed = false;
+
+	int enemyTypeA;
+	int enemyTypeB;
+	int enemyTypeC;
+
+	bool isAdjecent(int pX, int pY, int nX, int nY) {
+		bool adjacent = false;
+		if ((pX + 1 == nX) && (pY == nY)) {
+			adjacent = true;
+		}
+		if ((pX == nX) && (pY+1 == nY)) {
+			adjacent = true;
+		}
+		if ((pX - 1 == nX) && (pY == nY)) {
+			adjacent = true;
+		}
+		if ((pX == nX) && (pY-1 == nY)) {
+			adjacent = true;
+		}
+		return adjacent;
+	}
+
 	bool testCollision() {
 		bool collide = false;
 		if ((npcPositionX == playerPosX) && (npcPositionY == playerPosY)) {
 			collide = true;
 		}
-		if (UI::g_pUI->IsHypeBarFull()) {
-			
+		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX,playerPosY,npcPositionX,npcPositionY)) {
+			this->npcDestroyed = true;
+		}
+		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosBX, npcPosBY)) {
+			this->npcBDestroyed = true;
+		}
+		if (UI::g_pUI->IsHypeBarFull() && isAdjecent(playerPosX, playerPosY, npcPosCX, npcPosCY)) {
+			this->npcCDestroyed = true;
 		}
 
 		return collide;
