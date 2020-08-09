@@ -55,6 +55,9 @@ void Game::CleanUp()
 
 void Game::Update()
 {
+	// delete entities that are marked for delete
+	DestroyMarkedEntities();
+
 	Time::g_pTime->Update();
 	UI::g_pUI->Update();
 	Camera::g_pCamera->Update();
@@ -73,7 +76,7 @@ void Game::Update()
 			m_entityList[i]->Update();
 
 	Renderer::g_pRenderer->RenderAllInQueue();
-	
+
 	Window::g_pWindow->SwapBuffers();
 	Metronome::g_pMetronome->Update();
 }
@@ -94,10 +97,9 @@ Entity* Game::CreateEntity()
 	m_entityList.push_back(entity);
 	return entity;
 }
-void Game::DestroyEntity(Entity*& entity)
+void Game::DestroyEntity(Entity* entity)
 {
-	delete entity;
-	entity = nullptr;
+	entity->m_markedForDestroy = true;
 }
 
 
@@ -135,7 +137,7 @@ void Game::InitCoreEntities()
 	auto pBackDropRenderable = pBackDrop->AddComponent<Renderable>();
 	pBackDropRenderable->SetTexture("art/backdrop.png");
 	pBackDrop->m_scale *= 11;
-	pBackDrop->m_position = glm::vec2(0,.5);
+	pBackDrop->m_position = glm::vec2(0, .5);
 	pBackDropRenderable->m_layerOrder = -10;
 
 	Entity* pDanceFloorEntity = CreateEntity();
@@ -161,7 +163,7 @@ void Game::InitCoreEntities()
 	pNPCEntity->m_position = glm::vec2(2, 1);
 	pNPCEntity->m_scale *= .5f;
 
-	
+
 	CharacterCollision::g_pChracterCollision->enemyTypeB = 1;
 	Entity* pNPCEntityB = CreateEntity();
 	auto NPCRenderableB = pNPCEntityB->AddComponent<Renderable>();
@@ -178,12 +180,12 @@ void Game::InitCoreEntities()
 	pNPCEntityC->m_position = glm::vec2(2, 1);
 	pNPCEntityC->m_scale *= .5f;
 
-	
+
 
 
 	Entity* pBeatCounter_B = CreateEntity();
 	auto beatRenderable_B = pBeatCounter_B->AddComponent<Renderable>();
-	beatRenderable_B->isUI=true;
+	beatRenderable_B->isUI = true;
 	beatRenderable_B->SetTexture("art/BeatCounet_B.png");
 	pBeatCounter_B->m_scale *= 3;
 	pBeatCounter_B->m_position = glm::vec2(4, -3);
@@ -199,7 +201,7 @@ void Game::InitCoreEntities()
 
 	Entity* pBeatCounter_A = CreateEntity();
 	auto beatRenderable = pBeatCounter_A->AddComponent<Renderable>();
-	beatRenderable->isUI=true;
+	beatRenderable->isUI = true;
 	beatRenderable->SetTexture("art/BeatCounter_A.png");
 	beatCounter* beatCountController = pBeatCounter_A->AddComponent<beatCounter>();
 	pBeatCounter_A->m_scale *= .75;
@@ -221,4 +223,21 @@ void Game::InitCoreEntities()
 	pBerryBarryEntity->m_position = glm::vec2(5, 2.3);
 	pBerryBarryEntity->m_scale *= 1.3;
 
+}
+
+void Game::DestroyMarkedEntities()
+{
+	// delete entities that are marked for delete
+	for (int i = 0; i < m_entityList.size(); ++i)
+	{
+		if (!m_entityList[i] ||
+			(m_entityList[i] && m_entityList[i]->m_markedForDestroy))
+		{
+			if (m_entityList[i])
+				delete m_entityList[i];
+
+			m_entityList.erase(m_entityList.begin() + i, m_entityList.begin() + i);
+			i--;
+		}
+	}
 }

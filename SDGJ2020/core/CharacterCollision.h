@@ -38,6 +38,7 @@ public:
 	int enemyTypeB;
 	int enemyTypeC;
 
+	// Put your implementations in the cpp file!
 	bool isAdjecent(int pX, int pY, int nX, int nY) {
 		bool adjacent = false;
 		if ((pX + 1 == nX) && (pY == nY)) {

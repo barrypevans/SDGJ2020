@@ -53,5 +53,8 @@ public:
 
 private:
 	std::vector<Component*> m_components;
+	bool m_markedForDestroy;
+
+	friend class Game;
 };
 

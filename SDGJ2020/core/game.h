@@ -14,14 +14,14 @@ public:
 	void RequestShutDown();
 
 	Entity* CreateEntity();
-	void DestroyEntity(Entity*& entity);
+	void DestroyEntity(Entity* entity);
 
 	static Game* g_pGame;
 
 private:
 	void InitSystems();
 	void InitCoreEntities();
-
+	void DestroyMarkedEntities();
 	bool m_isRunning;
 	std::vector<Entity*> m_entityList;
 
