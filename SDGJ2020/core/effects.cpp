@@ -49,12 +49,16 @@ void Effects::Update()
 
 glm::vec2 Grid2Isospace(int posX, int posY)
 {
+	float x = posX;
+	float y = posY;
+
 	glm::vec2 pos;
-	pos.x = (posX + posY) / 2;
-	pos.y = (posY / 2) - (posX / 2);
-	return pos - glm::vec2(4, 2.1);
+	pos.x = (x + y) / 2;
+	pos.y = (y / 2) - (x / 2);
+	return pos;
 };
 
+glm::vec2 offset = glm::vec2(-4.5, 0.05);
 void Effects::GlowTilesAt(int x, int y)
 {
 	glowingTime = 0;
@@ -73,22 +77,22 @@ void Effects::GlowTilesAt(int x, int y)
 	}
 
 
-	glowTiles[0]->m_position = Grid2Isospace(0, 0);
-	glowTiles[1]->m_position = Grid2Isospace(1, 0);
-	glowTiles[2]->m_position = Grid2Isospace(2, 0);
-	glowTiles[3]->m_position = Grid2Isospace(99, 99);
-	glowTiles[4]->m_position = Grid2Isospace(99, 99);
-	glowTiles[5]->m_position = Grid2Isospace(99, 99);
-	glowTiles[6]->m_position = Grid2Isospace(99, 99);
-	glowTiles[7]->m_position = Grid2Isospace(99, 99);
+	//glowTiles[0]->m_position = Grid2Isospace(0, 0);
+	//glowTiles[1]->m_position = Grid2Isospace(0, 1);
+	//glowTiles[2]->m_position = Grid2Isospace(99, 99);
+	//glowTiles[3]->m_position = Grid2Isospace(99, 99);
+	//glowTiles[4]->m_position = Grid2Isospace(99, 99);
+	//glowTiles[5]->m_position = Grid2Isospace(99, 99);
+	//glowTiles[6]->m_position = Grid2Isospace(99, 99);
+	//glowTiles[7]->m_position = Grid2Isospace(99, 99);
 
 
-	/*glowTiles[0]->m_position = position + glm::vec2(0.5f, 0.25f);
-	glowTiles[1]->m_position = position + glm::vec2(0, 0.5);
-	glowTiles[2]->m_position = position + glm::vec2(0.5f, -0.25f);
-	glowTiles[3]->m_position = position + glm::vec2(0, -0.5);
-	glowTiles[4]->m_position = position + glm::vec2(-0.5f, 0.25f);
-	glowTiles[5]->m_position = position + glm::vec2(-0.5f, -0.25f);
-	glowTiles[6]->m_position = position + glm::vec2(1, 0);
-	glowTiles[7]->m_position = position + glm::vec2(-1, 0);*/
+	glowTiles[0]->m_position = offset + glm::vec2(0,0);
+	glowTiles[1]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[2]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[3]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[4]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[5]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[6]->m_position = offset + glm::vec2(0, 0);
+	glowTiles[7]->m_position = offset + glm::vec2(0, 0);
 }

@@ -131,8 +131,6 @@ void Game::InitSystems()
 	Effects::g_pEffects = new Effects();
 
 
-
-
 	Window::g_pWindow->Init();
 	AssetManager::g_pAssetManager->Init();
 	Audio::g_pAudio->Init();
@@ -212,6 +210,8 @@ void Game::InitCoreEntities()
 	pBerryBarryRenderable->m_layerOrder = 2;
 	pBerryBarryEntity->m_position = glm::vec2(5, 2.3);
 	pBerryBarryEntity->m_scale *= 1.3;*/
+
+	Effects::g_pEffects->GlowTilesAt(0, 0);
 
 }
 
