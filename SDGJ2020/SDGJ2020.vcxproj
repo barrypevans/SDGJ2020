@@ -25,6 +25,7 @@
     <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\component.cpp" />
     <ClCompile Include="core\entity.cpp" />
+    <ClCompile Include="core\Entity_Controller.cpp" />
     <ClCompile Include="core\game.cpp" />
     <ClCompile Include="core\Input.cpp" />
     <ClCompile Include="core\player-controller.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\component.h" />
     <ClInclude Include="core\entity.h" />
+    <ClInclude Include="core\Entity_Controller.h" />
     <ClInclude Include="core\game.h" />
     <ClInclude Include="core\Input.h" />
     <ClInclude Include="core\ISystem.h" />

@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "metronome.h"
 #include <iostream>
+#include "time.h"
 using namespace std;
 
 
@@ -13,6 +14,8 @@ void PlayerController::Init()
 	//entity->m_position.x = entity->m_position.x + .5;
 	playerPosX = 6;
 	playerPosY = 3;
+	targetPos.x = entity->m_position.x;
+	targetPos.y = entity->m_position.y;
 	oneButtonMode = true;
 }
 
@@ -36,7 +39,7 @@ void PlayerController::Update()
 	if (Input::g_pInput->getDownKeyPress() && playerPosY!=0 && (float)Metronome::g_pMetronome->ActiveBeatOffset() < 100) {
 		moveDown(entity);
 	}
-	
+	entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f*Time::g_pTime->GetDeltaTime());
 	
 	// move player
 	

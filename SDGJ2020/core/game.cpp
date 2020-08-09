@@ -14,6 +14,8 @@
 #include "Input.h"
 #include "ui.h"
 #include "player-controller.h"
+#include "Entity_Controller.h"
+
 
 Game* Game::g_pGame;
 
@@ -129,6 +131,13 @@ void Game::InitCoreEntities()
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale *= .5f;
+
+	Entity* pNPCEntity = CreateEntity();
+	auto NPCRenderable = pNPCEntity->AddComponent<Renderable>();
+	NPCRenderable->SetTexture("art/sprite_01.png");
+	Entity_Controller* entityController = pNPCEntity->AddComponent<Entity_Controller>();
+	pNPCEntity->m_position = glm::vec2(2, 1);
+	pNPCEntity->m_scale *= .5f;
 
 	pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
