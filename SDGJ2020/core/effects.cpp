@@ -76,13 +76,12 @@ void Effects::GlowTilesAt(int x, int y)
 		glowTileRenderables[i]->userData2 = (float)rand() / RAND_MAX;
 	}
 
-
-	glowTiles[0]->m_position = offset + Grid2Isospace(0, 1);
-	glowTiles[1]->m_position = offset + Grid2Isospace(1, 1);
-	glowTiles[2]->m_position = offset + Grid2Isospace(1, 0);
-	glowTiles[3]->m_position = offset + Grid2Isospace(1, -1);
-	glowTiles[4]->m_position = offset + Grid2Isospace(0, -1);
-	glowTiles[5]->m_position = offset + Grid2Isospace(-1, -1);
-	glowTiles[6]->m_position = offset + Grid2Isospace(-1, 0);
-	glowTiles[7]->m_position = offset + Grid2Isospace(-1, 1);
+	glowTiles[0]->m_position = offset + Grid2Isospace(x + 0,y + 1);
+	glowTiles[1]->m_position = offset + Grid2Isospace(x + 1,y + 1);
+	glowTiles[2]->m_position = offset + Grid2Isospace(x + 1,y + 0);
+	glowTiles[3]->m_position = offset + Grid2Isospace(x + 1,y + -1);
+	glowTiles[4]->m_position = offset + Grid2Isospace(x + 0,y + -1);
+	glowTiles[5]->m_position = offset + Grid2Isospace(x +-1,y + -1);
+	glowTiles[6]->m_position = offset + Grid2Isospace(x +-1,y + 0);
+	glowTiles[7]->m_position = offset + Grid2Isospace(x +-1,y + 1);
 }
