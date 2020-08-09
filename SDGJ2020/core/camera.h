@@ -14,6 +14,9 @@ public:
 	
 	void DoShake(float shake = .06f);
 
+	float GetWidth();
+	float GetHeight();
+
 	glm::vec2 m_position;
 	glm::vec2 m_targetPosition;
 	glm::vec3 m_rotation;

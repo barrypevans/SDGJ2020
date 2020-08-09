@@ -31,6 +31,7 @@ void Entity_Controller::Init()
 
 	entityPosX = 6;
 	entityPosY = 3;
+
 	beatCount = 0;
 	targetPos.x = entity->m_position.x;
 	targetPos.y = entity->m_position.y;
@@ -43,6 +44,7 @@ void Entity_Controller::Init()
 	
 	
 }
+
 void Entity_Controller::Update()
 {
 	if (CharacterCollision::g_pChracterCollision->npcDestroyed && (enemyType==0)) {
@@ -70,7 +72,7 @@ void Entity_Controller::Update()
 		}
 	}
 	else {
-		Entity* entity = (Entity*)m_entity;
+		entity = (Entity*)m_entity;
 		// put movement code here
 		//get input
 		
@@ -169,6 +171,7 @@ void Entity_Controller::Update()
 	// move player
 	
 }
+
 void Entity_Controller::CleanUp()
 {
 

@@ -28,6 +28,7 @@
     <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\CharacterCollision.cpp" />
     <ClCompile Include="core\component.cpp" />
+    <ClCompile Include="core\effects.cpp" />
     <ClCompile Include="core\entity.cpp" />
     <ClCompile Include="core\Entity_Controller.cpp" />
     <ClCompile Include="core\game-logic-core.cpp" />
@@ -60,6 +61,7 @@
     <ClInclude Include="core\CharacterCollision.h" />
     <ClInclude Include="core\clip-defs.h" />
     <ClInclude Include="core\component.h" />
+    <ClInclude Include="core\effects.h" />
     <ClInclude Include="core\entity.h" />
     <ClInclude Include="core\Entity_Controller.h" />
     <ClInclude Include="core\game-logic-core.h" />

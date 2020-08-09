@@ -1,8 +1,11 @@
 #pragma once
-#include "renderable.h"
+#include "animatable.h"
 
-class RenderableDigit : public Renderable
+class RenderableDigit : public Animatable
 {
 public:
 	virtual void Update() override;
+	virtual void Init() override;
+
+	void SetDigit(int i);
 };

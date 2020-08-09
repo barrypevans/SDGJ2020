@@ -2,6 +2,7 @@
 #include "ISystem.h"
 #include "entity.h"
 #include <vector>
+#include "renderable-digit.h"
 class GameLogic : ISystem
 {
 public:
@@ -26,6 +27,10 @@ public:
 
 	int m_hypeCount;
 	int m_maxHypeCount = 7;
+
+	const int kCorrectMoveScore = 100;
+	const int kHypeMoveScore = 500;
+
 
 	static GameLogic* g_pGameLogic;
 };

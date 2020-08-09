@@ -14,7 +14,7 @@ public:
 	void SetActiveAnimation(std::string animName);
 	int GetCurrentFrame();
 	Animation* GetActiveAnimation() { return m_activeAnimation; }
-private:
+protected:
 	Animation* m_activeAnimation;
 	std::map<Hashcode, Animation*> m_anims;
 	int m_curFrame;
