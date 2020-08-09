@@ -14,8 +14,21 @@ public:
 	virtual void CleanUp() override;
 	virtual void Update() override;
 
-	Entity* pHypebar;
 	float hypeBarPercent;
+
+
+	void InitBar(Entity** e, Renderable** r, std::string textureFilename);
+
+	Entity* pHypebar;
 	Renderable* hypebarRenderable;
+
+	Entity* pHypebar2;
+	Renderable* hypebarRenderable2;
+
+	Entity* pHypebar3;
+	Renderable* hypebarRenderable3;
+
+	Entity* pHypebar4;
+	Renderable* hypebarRenderable4;
 
 };
