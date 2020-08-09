@@ -31,4 +31,7 @@ public:
 	Entity* pHypebar4;
 	Renderable* hypebarRenderable4;
 
+	Entity* pHypebar5;
+	Renderable* hypebarRenderable5;
+
 };
