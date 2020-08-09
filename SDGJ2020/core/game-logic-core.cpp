@@ -2,6 +2,9 @@
 #include "game.h"
 #include "player-controller.h"
 #include "animatable.h"
+#include "CharacterCollision.h"
+#include "Entity_Controller.h"
+#include "metronome.h"
 
 GameLogic* GameLogic::g_pGameLogic;
 
@@ -16,9 +19,38 @@ void GameLogic::Init()
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale = glm::vec2(.5f, .5f);
+
+	m_maxEnemies = 4;
+	int m_beat = 0;
 }
 
 void GameLogic::CleanUp()
 {
 
+}
+
+void GameLogic::Update()
+{
+	if (Metronome::g_pMetronome->Beat)
+	{
+		m_beat++;
+		if (m_beat > 15)
+		{
+			if (m_activeEnemies.size() < m_maxEnemies)
+				SpawnEnemy(0);
+			m_beat = 0;
+		}
+	}
+}
+
+void GameLogic::SpawnEnemy(int enemyType)
+{
+	CharacterCollision::g_pChracterCollision->enemyTypeA = enemyType;
+	Entity* pNPCEntity = Game::g_pGame->CreateEntity();
+	auto NPCRenderable = pNPCEntity->AddComponent<Renderable>();
+	NPCRenderable->SetTexture("art/Badguy_Flat.png");
+	Entity_Controller* entityController = pNPCEntity->AddComponent<Entity_Controller>();
+	pNPCEntity->m_position = glm::vec2(2, 1);
+	pNPCEntity->m_scale *= .5f;
+	m_activeEnemies.push_back(pNPCEntity);
 }
