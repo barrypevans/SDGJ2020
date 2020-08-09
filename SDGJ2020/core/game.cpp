@@ -21,6 +21,7 @@
 #include "../game/dance-floor-visual-controller.h"
 #include <time.h>
 #include "game-logic-core.h"
+#include "effects.h"
 Game* Game::g_pGame;
 
 void Game::Init()
@@ -51,6 +52,7 @@ void Game::CleanUp()
 	Metronome::g_pMetronome->CleanUp();
 	Time::g_pTime->CleanUp();
 	UI::g_pUI->CleanUp();
+	Effects::g_pEffects->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -66,6 +68,7 @@ void Game::Update()
 	Time::g_pTime->Update();
 	UI::g_pUI->Update();
 	Camera::g_pCamera->Update();
+	Effects::g_pEffects->Update();
 
 	if (Window::g_pWindow)
 	{
@@ -125,6 +128,7 @@ void Game::InitSystems()
 	Input::g_pInput = new Input();
 	UI::g_pUI = new UI();
 	CharacterCollision::g_pChracterCollision = new CharacterCollision();
+	Effects::g_pEffects = new Effects();
 
 
 
@@ -140,6 +144,7 @@ void Game::InitSystems()
 	UI::g_pUI->Init();
 	GameLogic::g_pGameLogic->Init();
 	CharacterCollision::g_pChracterCollision->Init();
+	Effects::g_pEffects->Init();
 }
 
 void Game::InitCoreEntities()

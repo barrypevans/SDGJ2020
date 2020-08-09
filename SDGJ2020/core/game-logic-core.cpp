@@ -7,6 +7,7 @@
 #include "metronome.h"
 #include "camera.h"
 #include "../game/player-anim-controller.h"
+#include "effects.h"
 GameLogic* GameLogic::g_pGameLogic;
 
 void GameLogic::Init()
@@ -67,6 +68,8 @@ static bool IsAdjecent(int pX, int pY, int nX, int nY) {
 
 void GameLogic::DealDamage()
 {
+	Effects::g_pEffects->GlowTilesAt(0, 0);
+
 	for (int i = 0; i < m_activeEnemies.size(); ++i)
 	{
 		Entity* enemy = m_activeEnemies[i];
