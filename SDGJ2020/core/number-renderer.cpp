@@ -1,8 +1,10 @@
 #include "number-renderer.h"
 #include "game.h"
-
+#include "time.h"
 void NumberRenderer::Init()
 {
+	targetValue = 0;
+	viewValue = 0;
 	for (int i = 0; i < 10; i++)
 	{
 		Entity* digitEntity = Game::g_pGame->CreateEntity();
@@ -14,14 +16,16 @@ void NumberRenderer::Init()
 	}
 }
 
-void NumberRenderer::SetNumber(int value)
+void NumberRenderer::Update()
 {
+	viewValue = glm::mix((float)viewValue, (float)targetValue, Time::g_pTime->GetDeltaTime()*10);
+
 	for (int i = 0; i < 10; i++)
 		m_digits[i]->SetDigit(-1);
 
 	char valString[10];
 	memset(valString, 0, 10);
-	sprintf_s(valString, "%d", value);
+	sprintf_s(valString, "%d", viewValue);
 
 	char* character = valString;
 	int index = 0;
@@ -31,4 +35,24 @@ void NumberRenderer::SetNumber(int value)
 		character++;
 		index++;
 	}
+
+
+	for (int i = 0; i < 10; i++)
+	{
+		Entity* digitEntity = (Entity*)m_digits[i]->m_entity;
+		digitEntity->m_scale = glm::mix(digitEntity->m_scale, glm::vec2(kDigitSize, kDigitSize), Time::g_pTime->GetDeltaTime()*5);
+	}
+}
+
+void NumberRenderer::SetNumber(int value)
+{
+	if (value != targetValue)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			Entity* digitEntity = (Entity*)m_digits[i]->m_entity;
+			digitEntity->m_scale = glm::vec2(kDigitSize, kDigitSize) * 1.3f;
+		}
+	}
+	targetValue = value;
 }
