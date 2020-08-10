@@ -71,11 +71,11 @@ void Game::Update()
 	}
 	if (m_isPaused && Input::g_pInput->getRightKeyPress())
 	{
-		StartGame(0);
+		StartGame(1);
 	}
 	else if (m_isPaused && Input::g_pInput->getLeftKeyPress())
 	{
-		StartGame(1);
+		StartGame(0);
 	}
 	
 	// delete entities that are marked for delete
