@@ -188,6 +188,7 @@ void Entity_Controller::Update()
 		
 			entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
 			CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX, entityPosY);
+			entity->GetComponent<Renderable>()->m_layerOrder = entityPosX - entityPosY + 16;
 			//printf("\n\nEnemy %d at position X: %d Y: %d\n\n", key, entityPosX, entityPosY);
 		
 		
