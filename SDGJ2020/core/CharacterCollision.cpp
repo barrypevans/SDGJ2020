@@ -74,7 +74,9 @@ bool CharacterCollision::compareStruct(posCoords a) {
 	//printf("\nKeyA: %d, Key2: %d, Ax: %d, BX: %d, AY: %d, BY: %d\n", a.key, b.key, a.x, b.x, a.y, b.y);
 
 	if (a.x == playerPosX && a.y == playerPosY) {
-		equal = true;
+		if (a.x != 6 && a.y != 4) {
+			equal = true;
+		}
 	}
 	return equal;
 }
