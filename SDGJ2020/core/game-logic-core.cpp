@@ -59,7 +59,7 @@ void GameLogic::SpawnEnemy(int enemyType)
 	entityController->setEntityPos(-3, 0);
 	pNPCEntity->m_scale *= .5f;
 	m_activeEnemies.push_back(pNPCEntity);
-	entityController->setType = rand() % 3;
+	//entityController->setType = rand() % 3;
 }
 
 static bool IsAdjecent(int pX, int pY, int nX, int nY) {
