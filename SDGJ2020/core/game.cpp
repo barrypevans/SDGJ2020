@@ -37,7 +37,7 @@ void Game::Init()
 
 	Audio::g_pAudio->Play(Audio::GameClip::kElectronicTheme, .15f, 100);
 	Metronome::g_pMetronome->Start(140);
-	//Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .2f, 100);
+	//Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .25f, 100);
 	//Metronome::g_pMetronome->Start(120);
 	InitCoreEntities();
 }
