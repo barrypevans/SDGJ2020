@@ -26,6 +26,7 @@ void PlayerController::Init()
 	targetPos.x = entity->m_position.x;
 	targetPos.y = entity->m_position.y;
 	oneButtonMode = false;
+	hasInit = false;
 }
 
 void PlayerController::Update()
@@ -34,6 +35,15 @@ void PlayerController::Update()
 	bool correctMovement = true;
 	// put movement code here
 	//get input
+	if (hasInit) {
+		entity->m_position.y = entity->m_position.y - .1;
+		playerPosX = 6;
+		playerPosY = 3;
+		targetPos.x = entity->m_position.x;
+		targetPos.y = entity->m_position.y;
+		hasInit = false;
+	}
+
 	if (oneButtonMode) {
 		if (Metronome::g_pMetronome->Beat) {
 			beatCount++;
