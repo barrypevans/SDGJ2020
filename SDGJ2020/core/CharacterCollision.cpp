@@ -74,7 +74,9 @@ bool CharacterCollision::compareStruct(posCoords a) {
 	//printf("\nKeyA: %d, Key2: %d, Ax: %d, BX: %d, AY: %d, BY: %d\n", a.key, b.key, a.x, b.x, a.y, b.y);
 
 	if (a.x == playerPosX && a.y == playerPosY) {
-		equal = true;
+		if (a.x != 6 && a.y != 4) {
+			equal = true;
+		}
 	}
 	return equal;
 }
@@ -93,7 +95,7 @@ bool CharacterCollision::calculateNext() {
 		if (compareStruct(arr[index])) {
 			noCollision = false;
 			Game::g_pGame->ResetGame();
-			//Audio::g_pAudio->Play((Audio::GameClip)(rand()%5 +21), .05f); // Lose
+			Audio::g_pAudio->Play((Audio::GameClip)(rand()%5 +19), .1f); // Lose
 			//Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
 			printf("\n\n\nDEATH!!!\n\n\n");
 			printf("\n\n\nDEATH!!!\n\n\n");
