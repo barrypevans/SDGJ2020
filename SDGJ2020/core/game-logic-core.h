@@ -27,7 +27,7 @@ public:
 	unsigned int m_score;
 
 	int m_hypeCount;
-	int m_maxHypeCount = 1000;
+	int m_maxHypeCount = 7;
 
 	const int kCorrectMoveScore = 100;
 	const int kHypeMoveScore = 500;
