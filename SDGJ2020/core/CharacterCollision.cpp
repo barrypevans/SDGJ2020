@@ -78,6 +78,14 @@ bool CharacterCollision::compareStruct(posCoords a) {
 	}
 	return equal;
 }
+void CharacterCollision::flush() {
+	for (int index = 0; index < arrSize; index++) {
+		arr[index].x = 0;
+		arr[index].y = 0;
+		arr[index].key = 0;
+	}
+	arrSize = 0;
+}
 bool CharacterCollision::calculateNext() {
 	bool noCollision = true;
 	for (int index = 0; index < arrSize; index++) {
