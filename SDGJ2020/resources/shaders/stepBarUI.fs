@@ -12,7 +12,9 @@ void main()
 	float StepColor = (TexColor.r - userData1) / (0.1);
 	//float StepColor = step(userData1, TexColor.r);
 
-	vec3 BackColor = vec3(1.0,  0.07, 0.33);
+	float miniT = (min(1,max(0,1-userData1)) - 0.1) / ( 0 - 0.1);
+	vec3 BackColor = mix(vec3(0.06,  0.56, 0.39), vec3(1.0,  0.07, 0.33), 1- min(1,max(0,miniT)));
+
 	vec3 FillColor = vec3(0.10, 0.01, 0.22);
 
 	vec3 LerpColor = mix(BackColor,FillColor,StepColor);
