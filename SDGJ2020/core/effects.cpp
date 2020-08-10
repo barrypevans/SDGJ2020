@@ -74,52 +74,76 @@ void Effects::GlowTilesAt(int x, int y)
 	Entity* currentTile;
 
 	//top
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + 0, y + 1);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (y != 9)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + 0, y + 1);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 	//top right
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + 1, y + 1);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (y != 9 && x != 9)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + 1, y + 1);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 	//right
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + 1, y + 0);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (x != 9)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + 1, y + 0);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 	//bottom right
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + 1, y + -1);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (y != 0 && x != 9)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + 1, y + -1);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 	//bottom
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + 0, y + -1);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (y != 0)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + 0, y + -1);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 	//bottom left
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + -1, y + -1);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (y != 0 && x != 0)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + -1, y + -1);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 	//left
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + -1, y + 0);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	if (x != 0)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + -1, y + 0);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
-	//left
-	currentTile = AddAttackGlowTile();
-	glowTiles.push_back(currentTile);
-	currentTile->m_position = offset + Grid2Isospace(x + -1, y + 1);
-	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	//top left
+	if (y != 9 && x != 0)
+	{
+		currentTile = AddAttackGlowTile();
+		glowTiles.push_back(currentTile);
+		currentTile->m_position = offset + Grid2Isospace(x + -1, y + 1);
+		currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+	}
 
 }
 
