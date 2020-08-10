@@ -60,6 +60,7 @@ void GameLogic::Reset()
 	playerController->playerPosY = 3;
 	playerController->targetPos = glm::vec2(0, 0);
 	pCharacterEntity->m_position = glm::vec2(0,0);
+	playerController->hasInit = true;
 	m_score = 0;
 	m_activeEnemies.clear();
 }
