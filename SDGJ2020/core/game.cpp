@@ -60,11 +60,11 @@ void Game::CleanUp()
 
 void Game::Update()
 {
-	if (m_doReset)
+	if (m_doReset && !m_isPaused)
 	{
 		ResetGame_Internal();
 	}
-	if (Input::g_pInput->getEscKey())
+	if (Input::g_pInput->getEscKey() && !m_isPaused)
 	{
 		ResetGame_Internal();
 	}

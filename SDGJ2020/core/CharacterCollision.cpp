@@ -109,6 +109,13 @@ bool CharacterCollision::calculateNext() {
 void CharacterCollision::Update() {
 
 }
+void CharacterCollision::Reset()
+{
+	playerPosX = 0;
+	playerPosY = 0;
+	npcPositionX = 0;
+	npcPositionY = 0;
+}
 void CharacterCollision::CleanUp() {
 
 }

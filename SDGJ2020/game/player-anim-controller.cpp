@@ -22,7 +22,10 @@ void PlayerAnimController::Update()
 
 void PlayerAnimController::Pose()
 {
-	((Entity*)m_entity)->GetComponent<Animatable>()->SetActiveAnimation("pose");
+	int poseIndex = rand() % 4;
+	char posName[128];
+	sprintf_s(posName, "pose_%d", poseIndex + 1);
+	((Entity*)m_entity)->GetComponent<Animatable>()->SetActiveAnimation(posName);
 	m_poseCoolDown = 1.0f;
 	m_posing = true;
 }
