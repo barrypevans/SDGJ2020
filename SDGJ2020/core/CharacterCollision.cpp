@@ -39,28 +39,27 @@ bool isAdjecent(int pX, int pY, int nX, int nY) {
 }
 void CharacterCollision::addNPC(int x, int y, int key) {
 	if (arrSize > 9) {
-		printf("Error: Array Capacity Reached");
+		//printf("Error: Array Capacity Reached");
 	}
 	else {
 		arr[arrSize].x = x;
 		arr[arrSize].y = y;
 		arr[arrSize].key = key;
 		arrSize++;
-		printf("\nAdded to Array index %d, key: %d, X: %d Y: %d\n", arrSize, key, x, y);
+		//printf("\nAdded to Array index %d, key: %d, X: %d Y: %d\n", arrSize, key, x, y);
 	}
 }
 bool CharacterCollision::setNPCCoords(int key, int x, int y) {
 	bool notFound = true;
 	int index = 0;
 	for (int index = 0; index < arrSize; index++) {
-		printf("\nchecking for Array index: %d key: arrKey: %d, %d, X: %d Y: %d\n", index, arr[index].key, key, x, y);
 		if (arr[index].key == key) {
 			notFound = false;
 			break;
 		}
 	}
 	if (notFound) {
-		printf("Error: Entity Not Found in Array");
+		//printf("Error: Entity Not Found in Array");
 	}
 	else {
 		arr[index].x = x;
@@ -68,31 +67,30 @@ bool CharacterCollision::setNPCCoords(int key, int x, int y) {
 	}
 	return true;
 }
-bool CharacterCollision::compareStruct(posCoords a, posCoords b) {
+bool CharacterCollision::compareStruct(posCoords a) {
 	bool equal = false;
-	printf("\nKeyA: %d, Key2: %d, Ax: %d, BX: %d, AY: %d, BY: %d\n", a.key, b.key, a.x, b.x, a.y, b.y);
-	if (a.x == b.x && a.y == b.y) {
+	//printf("\nKeyA: %d, Key2: %d, Ax: %d, BX: %d, AY: %d, BY: %d\n", a.key, b.key, a.x, b.x, a.y, b.y);
+
+	if (a.x == playerPosX && a.y == playerPosY) {
 		equal = true;
 	}
 	return equal;
 }
 bool CharacterCollision::calculateNext() {
 	bool noCollision = true;
-	/*if (arrSize == 1) {
-		return true;
-	}
-	if (arrSize == 2 && compareStruct(arr[0], arr[1])) {
-		return true;
-	}
 	for (int index = 0; index < arrSize; index++) {
-		for (int index2 = 0; index2 < arrSize; index2++) {
-			if (index!=index2 && compareStruct(arr[index], arr[index2])) {
-				noCollision = false;
-				printf("Collsion!!");
-				break;
-			}
+		//printf("\n\nEnemy %d at position X: %d Y: %d\n\n", arr[index].key, arr[index].x, arr[index].y);
+		if (compareStruct(arr[index])) {
+			noCollision = false;
+			//Audio::g_pAudio->Play((Audio::GameClip)(rand()%5 +21), .05f); // Lose
+			//Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
+			printf("\n\n\nDEATH!!!\n\n\n");
+			printf("\n\n\nDEATH!!!\n\n\n");
+			printf("\n\n\nDEATH!!!\n\n\n");
+			break;
 		}
-	}*/
+		
+	}
 	return noCollision;
 }
 

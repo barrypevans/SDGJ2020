@@ -7,6 +7,7 @@
 #include "metronome.h"
 #include "camera.h"
 #include "../game/player-anim-controller.h"
+#include "effects.h"
 GameLogic* GameLogic::g_pGameLogic;
 
 void GameLogic::Init()
@@ -69,6 +70,7 @@ void GameLogic::SpawnEnemy(int enemyType)
 	entityController->setEntityPos(-3, 0);
 	pNPCEntity->m_scale *= .5f;
 	m_activeEnemies.push_back(pNPCEntity);
+	entityController->setType(rand() % 3);
 }
 
 static bool IsAdjecent(int pX, int pY, int nX, int nY) {
@@ -78,6 +80,8 @@ static bool IsAdjecent(int pX, int pY, int nX, int nY) {
 
 void GameLogic::DealDamage()
 {
+	Effects::g_pEffects->GlowTilesAt(CharacterCollision::g_pChracterCollision->playerPosX, CharacterCollision::g_pChracterCollision->playerPosY);
+
 	for (int i = 0; i < m_activeEnemies.size(); ++i)
 	{
 		Entity* enemy = m_activeEnemies[i];
@@ -115,7 +119,7 @@ void GameLogic::TriggerHype()
 {
 	pCharacterEntity->GetComponent<PlayerAnimController>()->Pose();
 	m_score += kHypeMoveScore;
-	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f); // Hype
 	m_hypeCount = 0;
 	Camera::g_pCamera->DoShake();
 	DealDamage();
@@ -135,7 +139,7 @@ void GameLogic::ClearMoveCount()
 
 void GameLogic::FailedMove()
 {
-	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f);
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
 	ClearMoveCount();
 	Camera::g_pCamera->DoShake(.3f);
 }

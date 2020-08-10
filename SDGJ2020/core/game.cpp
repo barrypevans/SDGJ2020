@@ -21,6 +21,7 @@
 #include "../game/dance-floor-visual-controller.h"
 #include <time.h>
 #include "game-logic-core.h"
+#include "effects.h"
 Game* Game::g_pGame;
 
 void Game::Init()
@@ -35,6 +36,7 @@ void Game::Init()
 	InitSystems();
 	printf("Game Initialized!\n");
 
+
 	InitCoreEntities();
 }
 
@@ -48,6 +50,7 @@ void Game::CleanUp()
 	Metronome::g_pMetronome->CleanUp();
 	Time::g_pTime->CleanUp();
 	UI::g_pUI->CleanUp();
+	Effects::g_pEffects->CleanUp();
 
 	delete Camera::g_pCamera;
 	delete  Audio::g_pAudio;
@@ -71,14 +74,18 @@ void Game::Update()
 
 	Time::g_pTime->Update();
 
+	
+
+
 	if (!m_isPaused)
 	{
 		UI::g_pUI->Update();
+		Effects::g_pEffects->Update();
 	}
 
 	Camera::g_pCamera->Update();
 	Window::g_pWindow->PollEvents();
-	Window::g_pWindow->Update();
+
 	Renderer::g_pRenderer->ClearRenderQueue();
 
 	if (!m_isPaused)
@@ -178,6 +185,8 @@ void Game::InitSystems()
 	Input::g_pInput = new Input();
 	UI::g_pUI = new UI();
 	CharacterCollision::g_pChracterCollision = new CharacterCollision();
+	Effects::g_pEffects = new Effects();
+
 
 
 	Window::g_pWindow->Init();
@@ -191,6 +200,7 @@ void Game::InitSystems()
 	UI::g_pUI->Init();
 	GameLogic::g_pGameLogic->Init();
 	CharacterCollision::g_pChracterCollision->Init();
+	Effects::g_pEffects->Init();
 }
 
 void Game::InitCoreEntities()
@@ -229,7 +239,7 @@ void Game::InitCoreEntities()
 	beatRenderable_B->isUI = true;
 	beatRenderable_B->SetTexture("art/BeatCounet_B.png");
 	pBeatCounter_B->m_scale *= 3;
-	pBeatCounter_B->m_position = glm::vec2(4, -3);
+	pBeatCounter_B->m_position = glm::vec2(3.8, -2.3);
 
 	/*
 	Entity* pBeatCounter_C = CreateEntity();
@@ -247,7 +257,7 @@ void Game::InitCoreEntities()
 	beatRenderable->SetTexture("art/BeatCounter_A.png");
 	beatCounter* beatCountController = pBeatCounter_A->AddComponent<beatCounter>();
 	pBeatCounter_A->m_scale *= .75;
-	pBeatCounter_A->m_position = glm::vec2(2.93, -2.97);
+	pBeatCounter_A->m_position = glm::vec2(2.73, -2.27);
 
 	/*pBerryEntity = CreateEntity();
 	auto berryRenderable = pBerryEntity->AddComponent<Renderable>();
