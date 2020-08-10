@@ -35,12 +35,13 @@ public:
 	static Game* g_pGame;
 
 private:
+	void ResetGame_Internal();
 	void InitSystems();
 	void InitCoreEntities();
 	void DestroyMarkedEntities();
 	bool m_isRunning;
 	std::vector<Entity*> m_entityList;
-
+	bool m_doReset;
 	Entity* pBerryEntity;
 	Entity* pBerryBarryEntity;
 

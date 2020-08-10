@@ -60,21 +60,23 @@ void Game::CleanUp()
 
 void Game::Update()
 {
+	if (m_doReset)
+	{
+		ResetGame_Internal();
+	}
+	if (Input::g_pInput->getEscKey())
+	{
+		ResetGame_Internal();
+	}
 	if (m_isPaused && Input::g_pInput->getAnyPress())
 	{
 		StartGame();
 	}
-	if (Input::g_pInput->getEscKey())
-	{
-		ResetGame();
-	}
-
+	
 	// delete entities that are marked for delete
 	DestroyMarkedEntities();
 
 	Time::g_pTime->Update();
-
-	
 
 
 	if (!m_isPaused)
@@ -142,15 +144,7 @@ void Game::StartGame()
 
 void Game::ResetGame()
 {
-	for (int i = 0; i < m_entityList.size(); ++i)
-		if (m_entityList[i] && !m_entityList[i]->m_dontDestroyOnReset)
-			DestroyEntity(m_entityList[i]);
-
-	m_isPaused = true;
-	Audio::g_pAudio->StopMusic();
-	Metronome::g_pMetronome->Stop();
-	ResetSystems();
-	//InitCoreEntities();
+	m_doReset = true;
 }
 
 void Game::ResetSystems()
@@ -169,6 +163,19 @@ void Game::ResetSystems()
 	//ResetSystem<GameLogic>(GameLogic::g_pGameLogic);
 	//ResetSystem<UI>(UI::g_pUI);
 	//ResetSystem<CharacterCollision>(CharacterCollision::g_pChracterCollision);
+}
+
+void Game::ResetGame_Internal()
+{
+	m_doReset = false;
+	for (int i = 0; i < m_entityList.size(); ++i)
+		if (m_entityList[i] && !m_entityList[i]->m_dontDestroyOnReset)
+			DestroyEntity(m_entityList[i]);
+
+	m_isPaused = true;
+	Audio::g_pAudio->StopMusic();
+	Metronome::g_pMetronome->Stop();
+	ResetSystems();
 }
 
 void Game::InitSystems()

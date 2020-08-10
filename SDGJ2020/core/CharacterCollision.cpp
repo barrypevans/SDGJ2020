@@ -4,6 +4,8 @@
 #include "metronome.h"
 #include <iostream>
 #include "time.h"
+#include "game.h"
+
 CharacterCollision* CharacterCollision::g_pChracterCollision;
 
 struct posCoords {
@@ -82,6 +84,7 @@ bool CharacterCollision::calculateNext() {
 		//printf("\n\nEnemy %d at position X: %d Y: %d\n\n", arr[index].key, arr[index].x, arr[index].y);
 		if (compareStruct(arr[index])) {
 			noCollision = false;
+			Game::g_pGame->ResetGame();
 			//Audio::g_pAudio->Play((Audio::GameClip)(rand()%5 +21), .05f); // Lose
 			//Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
 			printf("\n\n\nDEATH!!!\n\n\n");
