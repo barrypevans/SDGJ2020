@@ -28,16 +28,13 @@ void Game::Init()
 	//seed random numbers
 	srand((unsigned)time(NULL));
 	entityId = 0;
+	m_isPaused = true;
 
 	g_pGame = this;
 	m_isRunning = true;
 	InitSystems();
 	printf("Game Initialized!\n");
 
-	Audio::g_pAudio->Play(Audio::GameClip::kElectronicTheme, .15f, 100);
-	Metronome::g_pMetronome->Start(140);
-	//Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .2f, 100);
-	//Metronome::g_pMetronome->Start(120);
 	InitCoreEntities();
 }
 
@@ -60,32 +57,47 @@ void Game::CleanUp()
 
 void Game::Update()
 {
+	if (m_isPaused && Input::g_pInput->getAnyPress())
+	{
+		StartGame();
+	}
+	if (Input::g_pInput->getEscKey())
+	{
+		ResetGame();
+	}
+
 	// delete entities that are marked for delete
 	DestroyMarkedEntities();
 
 	Time::g_pTime->Update();
-	UI::g_pUI->Update();
-	Camera::g_pCamera->Update();
 
-	if (Window::g_pWindow)
+	if (!m_isPaused)
 	{
-		Window::g_pWindow->PollEvents();
-		Window::g_pWindow->Update();
+		UI::g_pUI->Update();
 	}
 
+	Camera::g_pCamera->Update();
+	Window::g_pWindow->PollEvents();
+	Window::g_pWindow->Update();
 	Renderer::g_pRenderer->ClearRenderQueue();
-	
 
-	// update all entities
-	for (int i = 0; i < m_entityList.size(); ++i)
-		if (m_entityList[i])
-			m_entityList[i]->Update();
+	if (!m_isPaused)
+	{
+		// update all entities
+		for (int i = 0; i < m_entityList.size(); ++i)
+			if (m_entityList[i])
+				m_entityList[i]->Update();
 
-	GameLogic::g_pGameLogic->Update();
+		GameLogic::g_pGameLogic->Update();
+	}
+
 	Renderer::g_pRenderer->RenderAllInQueue();
-
 	Window::g_pWindow->SwapBuffers();
-	Metronome::g_pMetronome->Update();
+
+	if (!m_isPaused)
+	{
+		Metronome::g_pMetronome->Update();
+	}
 }
 
 bool Game::IsRunning()
@@ -111,9 +123,50 @@ void Game::DestroyEntity(Entity* entity)
 	entity->m_markedForDestroy = true;
 }
 
+void Game::StartGame()
+{
+	m_isPaused = false;
+	Audio::g_pAudio->Play(Audio::GameClip::kElectronicTheme, .15f, 100);
+	Metronome::g_pMetronome->Start(140);
+
+	//Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .2f, 100);
+	//Metronome::g_pMetronome->Start(120);
+}
+
+void Game::ResetGame()
+{
+	for (int i = 0; i < m_entityList.size(); ++i)
+		if (m_entityList[i] && !m_entityList[i]->m_dontDestroyOnReset)
+			DestroyEntity(m_entityList[i]);
+
+	m_isPaused = true;
+	Audio::g_pAudio->StopMusic();
+	Metronome::g_pMetronome->Stop();
+	ResetSystems();
+	//InitCoreEntities();
+}
+
+void Game::ResetSystems()
+{
+	Window::g_pWindow->Reset();
+	AssetManager::g_pAssetManager->Reset();
+	Audio::g_pAudio->Reset();
+	Renderer::g_pRenderer->Reset();
+	Camera::g_pCamera->Reset();
+	Metronome::g_pMetronome->Reset();
+	Time::g_pTime->Reset();
+	Input::g_pInput->Reset();
+	UI::g_pUI->Reset();
+	GameLogic::g_pGameLogic->Reset();
+	CharacterCollision::g_pChracterCollision->Reset();
+	//ResetSystem<GameLogic>(GameLogic::g_pGameLogic);
+	//ResetSystem<UI>(UI::g_pUI);
+	//ResetSystem<CharacterCollision>(CharacterCollision::g_pChracterCollision);
+}
 
 void Game::InitSystems()
 {
+
 	Window::g_pWindow = new Window(this);
 	AssetManager::g_pAssetManager = new AssetManager();
 	Audio::g_pAudio = new Audio();
@@ -125,8 +178,6 @@ void Game::InitSystems()
 	Input::g_pInput = new Input();
 	UI::g_pUI = new UI();
 	CharacterCollision::g_pChracterCollision = new CharacterCollision();
-
-
 
 
 	Window::g_pWindow->Init();
@@ -145,6 +196,7 @@ void Game::InitSystems()
 void Game::InitCoreEntities()
 {
 	Entity* pBackDrop = CreateEntity();
+	pBackDrop->m_dontDestroyOnReset = true;
 	auto pBackDropRenderable = pBackDrop->AddComponent<Renderable>();
 	pBackDropRenderable->SetTexture("art/backdrop.png");
 	pBackDrop->m_scale *= 10.65f;
@@ -152,6 +204,7 @@ void Game::InitCoreEntities()
 	pBackDropRenderable->m_layerOrder = -10;
 
 	Entity* pDanceFloorEntity = CreateEntity();
+	pDanceFloorEntity->m_dontDestroyOnReset = true;
 	auto danceRenderable = pDanceFloorEntity->AddComponent<Renderable>();
 	danceRenderable->SetTexture("art/dance-floor-02.png");
 	danceRenderable->SetUserTexture("art/dance-floor-mask.png");
@@ -171,6 +224,7 @@ void Game::InitCoreEntities()
 
 
 	Entity* pBeatCounter_B = CreateEntity();
+	pBeatCounter_B->m_dontDestroyOnReset = true;
 	auto beatRenderable_B = pBeatCounter_B->AddComponent<Renderable>();
 	beatRenderable_B->isUI = true;
 	beatRenderable_B->SetTexture("art/BeatCounet_B.png");
@@ -187,6 +241,7 @@ void Game::InitCoreEntities()
 	*/
 
 	Entity* pBeatCounter_A = CreateEntity();
+	pBeatCounter_A->m_dontDestroyOnReset = true;
 	auto beatRenderable = pBeatCounter_A->AddComponent<Renderable>();
 	beatRenderable->isUI = true;
 	beatRenderable->SetTexture("art/BeatCounter_A.png");

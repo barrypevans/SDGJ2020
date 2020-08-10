@@ -10,6 +10,7 @@ public:
 	virtual void Init() override;
 	virtual void CleanUp() override;
 	virtual void Update() override;
+	virtual void Reset() override;
 
 	void SpawnEnemy(int enemyType);
 	void DealDamage();

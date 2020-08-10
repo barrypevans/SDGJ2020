@@ -8,6 +8,7 @@ void NumberRenderer::Init()
 	for (int i = 0; i < 10; i++)
 	{
 		Entity* digitEntity = Game::g_pGame->CreateEntity();
+		digitEntity->m_dontDestroyOnReset = true;
 		auto renderableDigit = digitEntity->AddComponent<RenderableDigit>();
 		renderableDigit->SetDigit(-1);
 		m_digits.push_back(renderableDigit);

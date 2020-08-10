@@ -46,4 +46,5 @@ public:
 		return this->playerPosY;
 	}
 	static PlayerController* g_pPlayerController;
+	friend class GameLogic;
 };

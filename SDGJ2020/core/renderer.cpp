@@ -31,14 +31,22 @@ void Renderer::Update()
 {
 
 }
-
+/*
 void Renderer::JoinRenderQueue(Renderable* renderable)
 {
 	renderables.push_back(renderable);
 }
-
+*/
 void Renderer::RenderAllInQueue()
 {
+
+	for (int i = 0; i < Game::g_pGame->m_entityList.size(); ++i)
+	{
+		Renderable* renderable = nullptr;
+		if ((renderable=Game::g_pGame->m_entityList[i]->GetComponent<Renderable>()))
+			renderables.push_back(renderable);
+	}
+	
 	std::sort(renderables.begin(), renderables.end(),
 		[](const Renderable* a, const Renderable* b)
 	{

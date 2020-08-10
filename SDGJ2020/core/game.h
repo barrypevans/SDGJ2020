@@ -13,10 +13,25 @@ public:
 	bool IsRunning();
 	void RequestShutDown();
 	int entityId;
-
+	bool m_isPaused;
 	Entity* CreateEntity();
 	void DestroyEntity(Entity* entity);
+	void StartGame();
+	void ResetGame();
 
+	template<class T>
+	void ResetSystem(T* system)
+	{
+		if (system)
+		{
+			system->CleanUp();
+			delete system;
+		}
+		system = new T();
+		system->Init();
+	}
+
+	void ResetSystems();
 	static Game* g_pGame;
 
 private:
@@ -28,6 +43,7 @@ private:
 
 	Entity* pBerryEntity;
 	Entity* pBerryBarryEntity;
-	
+
+	friend class Renderer;
 };
 

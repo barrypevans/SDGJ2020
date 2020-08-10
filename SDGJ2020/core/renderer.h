@@ -16,7 +16,7 @@ public:
 	virtual void CleanUp() override;
 	virtual void Update() override;
 
-	void JoinRenderQueue(Renderable* renderable);
+	//void JoinRenderQueue(Renderable* renderable);
 	void ClearRenderQueue();
 	void RenderAllInQueue();
 

@@ -22,7 +22,7 @@ void GameLogic::Init()
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale = glm::vec2(.5f, .5f);
-
+	pCharacterEntity->m_dontDestroyOnReset = true;
 	m_maxEnemies = 4;
 	int m_beat = 0;
 	m_score = 0;
@@ -46,6 +46,17 @@ void GameLogic::Update()
 				SpawnEnemy(0);
 		}
 	}
+}
+
+void GameLogic::Reset()
+{
+	PlayerController* playerController = pCharacterEntity->GetComponent<PlayerController>();
+	playerController->playerPosX = 0;
+	playerController->playerPosY = 0;
+	playerController->targetPos = glm::vec2(0, 0);
+	pCharacterEntity->m_position = glm::vec2(0,0);
+	m_score = 0;
+	m_activeEnemies.clear();
 }
 
 void GameLogic::SpawnEnemy(int enemyType)

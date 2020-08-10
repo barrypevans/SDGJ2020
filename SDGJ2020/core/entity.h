@@ -52,7 +52,7 @@ public:
 	glm::vec2 m_scale;
 	float m_rotation;
 	int UID;
-
+	bool m_dontDestroyOnReset;
 private:
 	std::vector<Component*> m_components;
 	bool m_markedForDestroy;
