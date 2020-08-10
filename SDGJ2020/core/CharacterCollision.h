@@ -72,6 +72,7 @@ public:
 	bool setNPCCoords(int key, int x, int y);
 	bool calculateNext();
 	bool compareStruct(posCoords a);
+	void flush();
 	
 
 	static CharacterCollision* g_pChracterCollision;
