@@ -23,7 +23,7 @@ void GameLogic::Init()
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale = glm::vec2(.5f, .5f);
-
+	pCharacterEntity->m_dontDestroyOnReset = true;
 	m_maxEnemies = 4;
 	int m_beat = 0;
 	m_score = 0;
@@ -47,6 +47,17 @@ void GameLogic::Update()
 				SpawnEnemy(0);
 		}
 	}
+}
+
+void GameLogic::Reset()
+{
+	PlayerController* playerController = pCharacterEntity->GetComponent<PlayerController>();
+	playerController->playerPosX = 0;
+	playerController->playerPosY = 0;
+	playerController->targetPos = glm::vec2(0, 0);
+	pCharacterEntity->m_position = glm::vec2(0,0);
+	m_score = 0;
+	m_activeEnemies.clear();
 }
 
 void GameLogic::SpawnEnemy(int enemyType)
@@ -108,7 +119,7 @@ void GameLogic::TriggerHype()
 {
 	pCharacterEntity->GetComponent<PlayerAnimController>()->Pose();
 	m_score += kHypeMoveScore;
-	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f);
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f); // Hype
 	m_hypeCount = 0;
 	Camera::g_pCamera->DoShake();
 	DealDamage();
@@ -128,7 +139,7 @@ void GameLogic::ClearMoveCount()
 
 void GameLogic::FailedMove()
 {
-	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f);
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
 	ClearMoveCount();
 	Camera::g_pCamera->DoShake(.3f);
 }

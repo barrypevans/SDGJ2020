@@ -8,7 +8,7 @@ class Input : public ISystem
 	bool rightKey[3];
 	bool upKey[3];
 	bool downKey[3];
-
+	bool escKey[3];
 	
 
 public:
@@ -22,11 +22,12 @@ public:
 		this->rightKey[0] = this->rightKey[1];
 		this->upKey[0] = this->upKey[1];
 		this->downKey[0] = this->downKey[1];
+		this->escKey[0] = this->downKey[1];
 		this->leftKey[2] = false;
 		this->rightKey[2] = false;
 		this->upKey[2] = false;
 		this->downKey[2] = false;
-
+		this->escKey[2] = false;
 	}
 	bool getAnyPress() {
 		return (this->getDownKeyPress() || this->getLeftKeyPress() || this->getRightKeyPress() || this->getUpKeyPress());
@@ -56,7 +57,9 @@ public:
 	bool getDownKeyRel() {
 		return this->downKey[2];
 	}
-
+	bool getEscKey() {
+		return (!this->escKey[0] && this->escKey[1]);
+	}
 	void handleEvent(SDL_Event& event);
 	static Input* g_pInput;
 
@@ -73,6 +76,9 @@ private:
 	void setDownKey(bool key) {
 		this->downKey[1] = key;
 	};
+	void setEscKey(bool key) {
+		this->escKey[1] = key;
+	};
 	void setLeftKeyPrev(bool key) {
 		this->leftKey[0] = key;
 	};
@@ -84,6 +90,9 @@ private:
 	};
 	void setDownKeyPrev(bool key) {
 		this->downKey[0] = key;
+	};
+	void setEscKeyPrev(bool key) {
+		this->escKey[0] = key;
 	};
 
 	void setLeftKeyRelease(bool key) {
@@ -97,6 +106,9 @@ private:
 	}
 	void setDownKeyRelease(bool key) {
 		this->downKey[2] = key;
+	}
+	void setEscKeyRelease(bool key) {
+		this->escKey[2] = key;
 	}
 };
 

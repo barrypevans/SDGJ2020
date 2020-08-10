@@ -15,7 +15,7 @@ void Renderable::SetUserTexture(std::string texturePath)
 }
 void Renderable::Update()
 {
-	Renderer::g_pRenderer->JoinRenderQueue(this);
+	//Renderer::g_pRenderer->JoinRenderQueue(this);
 }
 
 void Renderable::Init()

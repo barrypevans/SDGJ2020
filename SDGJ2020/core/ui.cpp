@@ -12,6 +12,7 @@ void UI::Init()
 	InitBar(&pHypebar, &hypebarRenderable, "HypeBar5iso.png");
 
 	pHypebarGlow = Game::g_pGame->CreateEntity();
+	pHypebarGlow->m_dontDestroyOnReset = true;
 	hypebarGlowRenderable = pHypebarGlow->AddComponent<Renderable>();
 	hypebarGlowRenderable->OverrideShader("shaders/growableGlow.fs");
 	hypebarGlowRenderable->isUI = true;
@@ -21,6 +22,7 @@ void UI::Init()
 	hypebarGlowRenderable->m_layerOrder = 49;
 
 	m_pScoreRendererEntity = Game::g_pGame->CreateEntity();
+	m_pScoreRendererEntity->m_dontDestroyOnReset = true;
 	m_pScoreRendererEntity->m_position = glm::vec2(-Camera::g_pCamera->GetWidth() + 1.0f, Camera::g_pCamera->GetHeight() - 1.0f) * 0.5f ;
 	m_pScoreRenderer = m_pScoreRendererEntity->AddComponent<NumberRenderer>();
 }
