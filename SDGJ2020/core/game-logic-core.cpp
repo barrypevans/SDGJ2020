@@ -156,14 +156,14 @@ void GameLogic::LoadHighScore()
 
 void GameLogic::WriteHighScore()
 {
-	printf(GetHighScoreLocation().c_str());
+	/*printf(GetHighScoreLocation().c_str());
 	char scoreString[20];
 	sprintf_s(scoreString, "%d", m_score);
 	std::ofstream myfile;
 	myfile.open(GetHighScoreLocation());
 	myfile << scoreString;
 	myfile.close();
-	m_highScore = m_score;
+	m_highScore = m_score;*/
 }
 
 std::string GameLogic::GetHighScoreLocation()
