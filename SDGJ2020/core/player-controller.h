@@ -14,6 +14,7 @@ class PlayerController : public Component
 	int beatCount;
 	int npcPositionX;
 	int npcPositionY;
+	bool hasInit;
 
 	glm::vec2 targetPos = glm::vec2(0,0);
 

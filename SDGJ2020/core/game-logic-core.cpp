@@ -28,7 +28,7 @@ void GameLogic::Init()
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale = glm::vec2(.8f, .8f);
 	pCharacterEntity->m_dontDestroyOnReset = true;
-	m_maxEnemies = 4;
+
 	int m_beat = 0;
 	m_score = 0;
 }
@@ -60,6 +60,7 @@ void GameLogic::Reset()
 	playerController->playerPosY = 3;
 	playerController->targetPos = glm::vec2(0, 0);
 	pCharacterEntity->m_position = glm::vec2(0,0);
+	playerController->hasInit = true;
 	m_score = 0;
 	m_activeEnemies.clear();
 }
@@ -100,6 +101,7 @@ void GameLogic::DealDamage()
 			--i;
 			// destroy enemy
 			Game::g_pGame->DestroyEntity(enemy);
+			m_score += 5000;
 		}
 	}
 }
@@ -155,14 +157,14 @@ void GameLogic::LoadHighScore()
 
 void GameLogic::WriteHighScore()
 {
-	printf(GetHighScoreLocation().c_str());
+	/*printf(GetHighScoreLocation().c_str());
 	char scoreString[20];
 	sprintf_s(scoreString, "%d", m_score);
 	std::ofstream myfile;
 	myfile.open(GetHighScoreLocation());
 	myfile << scoreString;
 	myfile.close();
-	m_highScore = m_score;
+	m_highScore = m_score;*/
 }
 
 std::string GameLogic::GetHighScoreLocation()
