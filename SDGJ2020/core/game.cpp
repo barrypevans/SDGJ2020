@@ -173,6 +173,7 @@ void Game::ResetSystems()
 	UI::g_pUI->Reset();
 	GameLogic::g_pGameLogic->Reset();
 	CharacterCollision::g_pChracterCollision->Reset();
+	Effects::g_pEffects->Reset();
 }
 
 void Game::ResetGame_Internal()
