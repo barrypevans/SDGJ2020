@@ -9,16 +9,16 @@ UI* UI::g_pUI;
 
 void UI::Init()
 {
-	InitBar(&pHypebar, &hypebarRenderable, "HypeBar5.png");
+	InitBar(&pHypebar, &hypebarRenderable, "HypeBar5iso.png");
 
 	pHypebarGlow = Game::g_pGame->CreateEntity();
 	hypebarGlowRenderable = pHypebarGlow->AddComponent<Renderable>();
 	hypebarGlowRenderable->OverrideShader("shaders/growableGlow.fs");
 	hypebarGlowRenderable->isUI = true;
-	hypebarGlowRenderable->SetTexture("art/HypeBarGlow.png");
-	pHypebarGlow->m_position = glm::vec2(-4.5, -2.9);
-	pHypebarGlow->m_scale = glm::vec2(3.5, 3.5);
-	hypebarGlowRenderable->m_layerOrder = 9;
+	hypebarGlowRenderable->SetTexture("art/HypeBarGlowIso.png");
+	pHypebarGlow->m_position = hypeBarPosition;
+	pHypebarGlow->m_scale = glm::vec2(hypeBarSize, hypeBarSize);
+	hypebarGlowRenderable->m_layerOrder = 49;
 
 	m_pScoreRendererEntity = Game::g_pGame->CreateEntity();
 	m_pScoreRendererEntity->m_position = glm::vec2(-Camera::g_pCamera->GetWidth() + 1.0f, Camera::g_pCamera->GetHeight() - 1.0f) * 0.5f ;
@@ -75,9 +75,9 @@ void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
 	(*r)->isUI = true;
 	(*r)->SetTexture("art/" + textureFilename);
 
-	(*e)->m_position = glm::vec2(-4.5, -2.9);
-	(*e)->m_scale = glm::vec2(2.5, 2.5);
-	(*r)->m_layerOrder = 10;
+	(*e)->m_position = hypeBarPosition;
+	(*e)->m_scale = glm::vec2(hypeBarSize, hypeBarSize);
+	(*r)->m_layerOrder = 50;
 	(*r)->OverrideShader("shaders/stepBarUI.fs");
 }
 
