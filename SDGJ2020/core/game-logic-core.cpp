@@ -28,7 +28,7 @@ void GameLogic::Init()
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale = glm::vec2(.8f, .8f);
 	pCharacterEntity->m_dontDestroyOnReset = true;
-
+	m_maxEnemies = 1000;
 	int m_beat = 0;
 	m_score = 0;
 }
@@ -67,7 +67,6 @@ void GameLogic::Reset()
 
 void GameLogic::SpawnEnemy(int enemyType)
 {
-	CharacterCollision::g_pChracterCollision->enemyTypeA = enemyType;
 	Entity* pNPCEntity = Game::g_pGame->CreateEntity();
 	auto NPCRenderable = pNPCEntity->AddComponent<Renderable>();
 	NPCRenderable->SetTexture("art/Badguy_Flat.png");
