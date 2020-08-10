@@ -37,6 +37,7 @@ void Metronome::Start(float bpm)
 {
 	m_start = TimeSinceEpochMillisec();
 	m_activeOffset = 60000.0f / bpm;
+	m_currentBeat = 1;
 }
 
 void Metronome::Stop()
