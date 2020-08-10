@@ -34,4 +34,7 @@ public:
 	Entity* m_pScoreRendererEntity;
 	NumberRenderer* m_pScoreRenderer;
 
+	glm::vec2 hypeBarPosition = glm::vec2(-3.4, -2.6);
+	float hypeBarSize = 5;
+
 };
