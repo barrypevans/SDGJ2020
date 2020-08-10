@@ -9,7 +9,7 @@ UI* UI::g_pUI;
 
 void UI::Init()
 {
-	InitBar(&pHypebar, &hypebarRenderable, "HypeBar5iso.png");
+	InitBar(&pHypebar, &hypebarRenderable, "HypeBar5isoB.png");
 
 	pHypebarGlow = Game::g_pGame->CreateEntity();
 	pHypebarGlow->m_dontDestroyOnReset = true;
