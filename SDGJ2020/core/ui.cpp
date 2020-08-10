@@ -73,6 +73,8 @@ void UI::Update()
 void UI::InitBar(Entity** e, Renderable** r, std::string textureFilename)
 {
 	*e = Game::g_pGame->CreateEntity();
+	(*e)->m_dontDestroyOnReset = true;
+
 	*r = (*e)->AddComponent<Renderable>();
 	(*r)->isUI = true;
 	(*r)->SetTexture("art/" + textureFilename);
