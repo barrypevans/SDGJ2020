@@ -135,6 +135,8 @@ void Game::DestroyEntity(Entity* entity)
 void Game::StartGame()
 {
 	m_isPaused = false;
+	Audio::g_pAudio->StopIntroDialogue();
+	Audio::g_pAudio->Play(Audio::GameClip::kTimeToDance, .1f, 0);
 	Audio::g_pAudio->Play(Audio::GameClip::kElectronicTheme, .15f, 100);
 	Metronome::g_pMetronome->Start(140);
 

@@ -21,6 +21,8 @@ void Audio::Init()
 	ASSERT(result == FMOD_OK, "FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
 
     PrepareClips();
+
+    Audio::Play(GameClip::kIntro,.2f,0);
 }
 
 void Audio::Update() 
@@ -34,10 +36,13 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
     FMOD::Channel* channel;
 
     bool isMusic = clip == GameClip::kFunkTheme || clip == GameClip::kElectronicTheme;
+    bool isIntroDialogue = clip == GameClip::kIntro;
 
     result = system->playSound(clips[(int)clip], 0, false, &channel);
     if (isMusic)
         musicChannel = channel;
+    else if (isIntroDialogue)
+        introDialogueChannel = channel;
 
     if (result != FMOD_OK) {
         printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
@@ -54,6 +59,10 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
 }
 void Audio::StopMusic() {
     musicChannel->stop();
+}
+void Audio::StopIntroDialogue() 
+{
+    introDialogueChannel->stop();
 }
 
 void Audio::PrepareClips() 
