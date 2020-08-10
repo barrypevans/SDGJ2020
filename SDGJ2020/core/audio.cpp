@@ -33,7 +33,7 @@ void Audio::Play(GameClip clip, float volume, int loopCount)
     FMOD_RESULT result;
     FMOD::Channel* channel;
 
-    bool isMusic = clip == GameClip::kFunkTheme;
+    bool isMusic = clip == GameClip::kFunkTheme || clip == GameClip::kElectronicTheme;
 
     result = system->playSound(clips[(int)clip], 0, false, &channel);
     if (isMusic)

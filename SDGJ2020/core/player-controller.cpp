@@ -126,6 +126,7 @@ void PlayerController::Update()
 				}
 			}
 
+			entity->GetComponent<Renderable>()->m_layerOrder = playerPosX - playerPosY + 16;
 	}
 		entity->m_position = glm::mix(entity->m_position, targetPos, 10.0f * Time::g_pTime->GetDeltaTime());
 		CharacterCollision::g_pChracterCollision->playerPosX = playerPosX;
