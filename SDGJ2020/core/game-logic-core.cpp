@@ -28,7 +28,7 @@ void GameLogic::Init()
 	// make the character's width half of the tile size
 	pCharacterEntity->m_scale = glm::vec2(.8f, .8f);
 	pCharacterEntity->m_dontDestroyOnReset = true;
-	m_maxEnemies = 4;
+
 	int m_beat = 0;
 	m_score = 0;
 }
