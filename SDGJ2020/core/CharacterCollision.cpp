@@ -115,6 +115,7 @@ void CharacterCollision::Reset()
 	playerPosY = 0;
 	npcPositionX = 0;
 	npcPositionY = 0;
+	flush();
 }
 void CharacterCollision::CleanUp() {
 

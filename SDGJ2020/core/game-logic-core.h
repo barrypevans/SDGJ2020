@@ -34,4 +34,10 @@ public:
 
 
 	static GameLogic* g_pGameLogic;
+
+
+	int m_highScore;
+	void LoadHighScore();
+	void WriteHighScore();
+	std::string GetHighScoreLocation();
 };

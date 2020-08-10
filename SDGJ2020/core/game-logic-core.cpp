@@ -8,6 +8,7 @@
 #include "camera.h"
 #include "../game/player-anim-controller.h"
 #include "effects.h"
+#include <fstream>
 GameLogic* GameLogic::g_pGameLogic;
 
 void GameLogic::Init()
@@ -145,4 +146,29 @@ void GameLogic::FailedMove()
 	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
 	ClearMoveCount();
 	Camera::g_pCamera->DoShake(.3f);
+}
+
+void GameLogic::LoadHighScore()
+{
+
+}
+
+void GameLogic::WriteHighScore()
+{
+	printf(GetHighScoreLocation().c_str());
+	char scoreString[20];
+	sprintf_s(scoreString, "%d", m_score);
+	std::ofstream myfile;
+	myfile.open(GetHighScoreLocation());
+	myfile << scoreString;
+	myfile.close();
+	m_highScore = m_score;
+}
+
+std::string GameLogic::GetHighScoreLocation()
+{
+	char* buf = nullptr;
+	size_t sz = 0;
+	_dupenv_s(&buf, &sz, "APPDATA");
+	return std::string(buf)+"/HYPE/highscore.txt";
 }

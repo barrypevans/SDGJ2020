@@ -35,6 +35,7 @@ public:
 	static Game* g_pGame;
 
 private:
+
 	void ResetGame_Internal();
 	void InitSystems();
 	void InitCoreEntities();

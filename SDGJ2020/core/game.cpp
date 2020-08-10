@@ -66,6 +66,7 @@ void Game::Update()
 	}
 	if (Input::g_pInput->getEscKey() && !m_isPaused)
 	{
+		GameLogic::g_pGameLogic->WriteHighScore();
 		ResetGame_Internal();
 	}
 	if (m_isPaused && Input::g_pInput->getAnyPress())
