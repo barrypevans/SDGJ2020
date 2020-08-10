@@ -17,7 +17,6 @@ public:
 	virtual void Update() override;
 
 	std::vector<Entity*> glowTiles;
-	std::vector<Renderable*> glowTileRenderables;
 
 	void GlowTilesAt(int x, int y);
 

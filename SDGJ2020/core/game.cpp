@@ -246,8 +246,8 @@ void Game::InitCoreEntities()
 	pBeatCounter_B->m_dontDestroyOnReset = true;
 	auto beatRenderable_B = pBeatCounter_B->AddComponent<Renderable>();
 	beatRenderable_B->isUI = true;
-	beatRenderable_B->SetTexture("art/BeatCounet_B.png");
-	pBeatCounter_B->m_scale *= 3;
+	beatRenderable_B->SetTexture("art/Bar.png");
+	pBeatCounter_B->m_scale *= 2.9;
 	pBeatCounter_B->m_position = glm::vec2(3.8, -2.3);
 
 	/*
@@ -263,7 +263,7 @@ void Game::InitCoreEntities()
 	pBeatCounter_A->m_dontDestroyOnReset = true;
 	auto beatRenderable = pBeatCounter_A->AddComponent<Renderable>();
 	beatRenderable->isUI = true;
-	beatRenderable->SetTexture("art/BeatCounter_A.png");
+	beatRenderable->SetTexture("art/dot.png");
 	beatCounter* beatCountController = pBeatCounter_A->AddComponent<beatCounter>();
 	pBeatCounter_A->m_scale *= .75;
 	pBeatCounter_A->m_position = glm::vec2(2.73, -2.27);
