@@ -73,6 +73,13 @@ void Effects::GlowTilesAt(int x, int y)
 
 	Entity* currentTile;
 
+	//center
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + 0, y + 0);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+
+
 	//top
 	if (y != 9)
 	{
