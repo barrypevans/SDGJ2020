@@ -46,6 +46,15 @@ void Effects::Update()
 
 }
 
+void Effects::Reset()
+{
+	for (int i = 0; i < glowTiles.size(); i++)
+	{
+		Game::g_pGame->DestroyEntity(glowTiles[i]);
+	}
+	glowTiles.clear();
+}
+
 glm::vec2 Grid2Isospace(int posX, int posY)
 {
 	float x = posX;
@@ -62,34 +71,68 @@ void Effects::GlowTilesAt(int x, int y)
 {
 	glowingTime = 0;
 
-	for (int i = 0; i < 8; i++)
-	{
-		glowTiles.push_back(Game::g_pGame->CreateEntity());
-		//glowTiles[i]->m_position = position + glm::vec2(i * 0.5f, i * 0.25f);
-		glowTiles[i]->m_scale = glm::vec2(1.2f, 1.2f);
-		glowTiles[i]->AddComponent<Renderable>();
-		glowTiles[i]->GetComponent<Renderable>()->OverrideShader("shaders/attackGlow.fs");
-		glowTiles[i]->GetComponent<Renderable>()->SetTexture("art/TileGlow.png");
+	Entity* currentTile;
 
-		glowTiles[i]->GetComponent<Renderable>()->userData2 = (float)rand() / RAND_MAX;
-	}
+	//top
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + 0, y + 1);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
 
-	glowTiles[0]->m_position = offset + Grid2Isospace(x + 0,y + 1);
-	glowTiles[0]->GetComponent<Renderable>()->m_layerOrder = 2;
-	glowTiles[1]->m_position = offset + Grid2Isospace(x + 1,y + 1);
-	glowTiles[1]->GetComponent<Renderable>()->m_layerOrder = 3;
-	glowTiles[2]->m_position = offset + Grid2Isospace(x + 1,y + 0);
-	glowTiles[2]->GetComponent<Renderable>()->m_layerOrder = 4;
-	glowTiles[3]->m_position = offset + Grid2Isospace(x + 1,y + -1);
-	glowTiles[3]->GetComponent<Renderable>()->m_layerOrder = 5;
-	glowTiles[4]->m_position = offset + Grid2Isospace(x + 0,y + -1);
-	glowTiles[4]->GetComponent<Renderable>()->m_layerOrder = 4;
-	glowTiles[5]->m_position = offset + Grid2Isospace(x +-1,y + -1);
-	glowTiles[5]->GetComponent<Renderable>()->m_layerOrder = 3;
-	glowTiles[6]->m_position = offset + Grid2Isospace(x +-1,y + 0);
-	glowTiles[6]->GetComponent<Renderable>()->m_layerOrder = 2;
-	glowTiles[7]->m_position = offset + Grid2Isospace(x +-1,y + 1);
-	glowTiles[7]->GetComponent<Renderable>()->m_layerOrder = 1;
+	//top right
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + 1, y + 1);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
 
+	//right
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + 1, y + 0);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
 
+	//bottom right
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + 1, y + -1);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+
+	//bottom
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + 0, y + -1);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+
+	//bottom left
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + -1, y + -1);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+
+	//left
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + -1, y + 0);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+
+	//left
+	currentTile = AddAttackGlowTile();
+	glowTiles.push_back(currentTile);
+	currentTile->m_position = offset + Grid2Isospace(x + -1, y + 1);
+	currentTile->GetComponent<Renderable>()->m_layerOrder = 2;
+
+}
+
+Entity* Effects::AddAttackGlowTile()
+{
+	Entity* e = Game::g_pGame->CreateEntity();
+	//glowTiles[i]->m_position = position + glm::vec2(i * 0.5f, i * 0.25f);
+	e->m_scale = glm::vec2(1.2f, 1.2f);
+	e->AddComponent<Renderable>();
+	e->GetComponent<Renderable>()->OverrideShader("shaders/attackGlow.fs");
+	e->GetComponent<Renderable>()->SetTexture("art/TileGlow.png");
+
+	e->GetComponent<Renderable>()->userData2 = (float)rand() / RAND_MAX;
+
+	return e;
 }

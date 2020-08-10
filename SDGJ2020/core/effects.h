@@ -15,9 +15,11 @@ public:
 	virtual void Init() override;
 	virtual void CleanUp() override;
 	virtual void Update() override;
+	virtual void Reset() override;
 
 	std::vector<Entity*> glowTiles;
 
 	void GlowTilesAt(int x, int y);
 
+	Entity* AddAttackGlowTile();
 };
