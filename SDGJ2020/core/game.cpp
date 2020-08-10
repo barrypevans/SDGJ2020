@@ -152,6 +152,7 @@ void Game::StartGame(int songIndex)
 		Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .2f, 100);
 		Metronome::g_pMetronome->Start(120);
 	}	
+	m_pIntroCard->m_position = glm::vec2(1000, 0);
 }
 
 void Game::ResetGame()
@@ -172,9 +173,6 @@ void Game::ResetSystems()
 	UI::g_pUI->Reset();
 	GameLogic::g_pGameLogic->Reset();
 	CharacterCollision::g_pChracterCollision->Reset();
-	//ResetSystem<GameLogic>(GameLogic::g_pGameLogic);
-	//ResetSystem<UI>(UI::g_pUI);
-	//ResetSystem<CharacterCollision>(CharacterCollision::g_pChracterCollision);
 }
 
 void Game::ResetGame_Internal()
@@ -188,6 +186,7 @@ void Game::ResetGame_Internal()
 	Audio::g_pAudio->StopMusic();
 	Metronome::g_pMetronome->Stop();
 	ResetSystems();
+	m_pIntroCard->m_position = glm::vec2(0, 0);
 }
 
 void Game::InitSystems()
@@ -251,6 +250,13 @@ void Game::InitCoreEntities()
 	//pDanceFloorEntity->AddComponent<DanceFloorVisualController>();
 	pDanceFloorEntityold->m_scale *= 10;*/
 
+	m_pIntroCard = CreateEntity();
+	Renderable* introCardRenderable = m_pIntroCard->AddComponent<Renderable>();
+	introCardRenderable->SetTexture("art/Intro.png");
+	introCardRenderable->m_layerOrder = 100000;
+	m_pIntroCard->m_position = glm::vec2(0, 0);
+	m_pIntroCard->m_scale = glm::vec2(5, 5);
+	m_pIntroCard->m_dontDestroyOnReset = true;
 
 	Entity* pBeatCounter_B = CreateEntity();
 	pBeatCounter_B->m_dontDestroyOnReset = true;

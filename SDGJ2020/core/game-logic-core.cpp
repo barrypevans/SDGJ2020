@@ -100,6 +100,7 @@ void GameLogic::DealDamage()
 			--i;
 			// destroy enemy
 			Game::g_pGame->DestroyEntity(enemy);
+			m_score += 5000;
 		}
 	}
 }

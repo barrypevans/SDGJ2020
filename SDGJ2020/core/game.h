@@ -46,6 +46,8 @@ private:
 	Entity* pBerryEntity;
 	Entity* pBerryBarryEntity;
 
+	Entity* m_pIntroCard;
+
 	friend class Renderer;
 };
 
