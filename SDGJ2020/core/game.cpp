@@ -69,9 +69,13 @@ void Game::Update()
 		GameLogic::g_pGameLogic->WriteHighScore();
 		ResetGame_Internal();
 	}
-	if (m_isPaused && Input::g_pInput->getAnyPress())
+	if (m_isPaused && Input::g_pInput->getRightKeyPress())
 	{
-		StartGame();
+		StartGame(0);
+	}
+	else if (m_isPaused && Input::g_pInput->getLeftKeyPress())
+	{
+		StartGame(1);
 	}
 	
 	// delete entities that are marked for delete
@@ -133,16 +137,21 @@ void Game::DestroyEntity(Entity* entity)
 	entity->m_markedForDestroy = true;
 }
 
-void Game::StartGame()
+void Game::StartGame(int songIndex)
 {
 	m_isPaused = false;
 	Audio::g_pAudio->StopIntroDialogue();
 	Audio::g_pAudio->Play(Audio::GameClip::kTimeToDance, .1f, 0);
-	Audio::g_pAudio->Play(Audio::GameClip::kElectronicTheme, .15f, 100);
-	Metronome::g_pMetronome->Start(140);
-
-	//Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .2f, 100);
-	//Metronome::g_pMetronome->Start(120);
+	if (songIndex == 0)
+	{
+		Audio::g_pAudio->Play(Audio::GameClip::kElectronicTheme, .15f, 100);
+		Metronome::g_pMetronome->Start(140);
+	}
+	else
+	{
+		Audio::g_pAudio->Play(Audio::GameClip::kFunkTheme, .2f, 100);
+		Metronome::g_pMetronome->Start(120);
+	}	
 }
 
 void Game::ResetGame()

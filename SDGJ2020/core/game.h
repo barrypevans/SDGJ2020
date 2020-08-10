@@ -16,7 +16,7 @@ public:
 	bool m_isPaused;
 	Entity* CreateEntity();
 	void DestroyEntity(Entity* entity);
-	void StartGame();
+	void StartGame(int songIndex);
 	void ResetGame();
 
 	template<class T>
