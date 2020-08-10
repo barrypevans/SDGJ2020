@@ -18,7 +18,8 @@ public:
 	virtual void CleanUp() override;
 	CharacterCollision();
 	virtual void Update() override;
-	
+	virtual void Reset() override;
+
 	int playerPosX;
 	int playerPosY;
 	int npcPositionX;

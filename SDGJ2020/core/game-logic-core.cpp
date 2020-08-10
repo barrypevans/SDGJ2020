@@ -16,13 +16,16 @@ void GameLogic::Init()
 	pCharacterEntity->m_position = glm::vec2(0, 0);
 	pCharacterEntity->AddComponent<PlayerAnimController>();
 	auto charRenderable = pCharacterEntity->AddComponent<Animatable>();
-	charRenderable->AddAnimation("idle", new Animation("art/player_idle.png", 20));
-	charRenderable->AddAnimation("pose", new Animation("art/pose_01.png", 1));
+	charRenderable->AddAnimation("idle", new Animation("art/player_idle_02.png", 20));
+	charRenderable->AddAnimation("pose_1", new Animation("art/pose_01.png", 1));
+	charRenderable->AddAnimation("pose_2", new Animation("art/pose_02.png", 1));
+	charRenderable->AddAnimation("pose_3", new Animation("art/pose_03.png", 1));
+	charRenderable->AddAnimation("pose_4", new Animation("art/pose_04.png", 1));
 	charRenderable->SetActiveAnimation("idle");
 
 	PlayerController* playerController = pCharacterEntity->AddComponent<PlayerController>();
 	// make the character's width half of the tile size
-	pCharacterEntity->m_scale = glm::vec2(.5f, .5f);
+	pCharacterEntity->m_scale = glm::vec2(.8f, .8f);
 	pCharacterEntity->m_dontDestroyOnReset = true;
 	m_maxEnemies = 4;
 	int m_beat = 0;
@@ -52,8 +55,8 @@ void GameLogic::Update()
 void GameLogic::Reset()
 {
 	PlayerController* playerController = pCharacterEntity->GetComponent<PlayerController>();
-	playerController->playerPosX = 0;
-	playerController->playerPosY = 0;
+	playerController->playerPosX = 6;
+	playerController->playerPosY = 3;
 	playerController->targetPos = glm::vec2(0, 0);
 	pCharacterEntity->m_position = glm::vec2(0,0);
 	m_score = 0;
