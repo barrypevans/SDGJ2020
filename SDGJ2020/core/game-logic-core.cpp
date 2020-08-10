@@ -45,7 +45,7 @@ void GameLogic::Update()
 		m_beat++;
 
 		// spawn enemy every 4 bars
-		if (m_beat % 16 == 0)
+		if (m_beat % 8 == 0)
 		{
 			if (m_activeEnemies.size() < m_maxEnemies)
 				SpawnEnemy(0);
