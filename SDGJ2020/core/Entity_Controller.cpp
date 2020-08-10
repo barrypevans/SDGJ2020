@@ -11,21 +11,6 @@ void Entity_Controller::Init()
 {
 	Entity* entity = (Entity*)m_entity;
 	key = entity->UID;
-	if (CharacterCollision::g_pChracterCollision->enemyTypeA != -1) {
-		enemyType = CharacterCollision::g_pChracterCollision->enemyTypeA;
-		CharacterCollision::g_pChracterCollision->enemyTypeA = -1;
-	}
-	else if (CharacterCollision::g_pChracterCollision->enemyTypeB != -1) {
-		enemyType = CharacterCollision::g_pChracterCollision->enemyTypeB;
-		CharacterCollision::g_pChracterCollision->enemyTypeB = -1;
-	}
-	else if (CharacterCollision::g_pChracterCollision->enemyTypeC != -1) {
-		enemyType = CharacterCollision::g_pChracterCollision->enemyTypeC;
-		CharacterCollision::g_pChracterCollision->enemyTypeC = -1;
-	}
-	else {
-		enemyType = 1;
-	}
 
 	entityPosX = 6;
 	entityPosY = 3;
@@ -75,12 +60,12 @@ void Entity_Controller::Update()
 		// put movement code here
 		//get input
 		
-
+		//printf("\n\nType %d\n\n", enemyType);
 		if (Metronome::g_pMetronome->Beat) {
 			beatCount++;
 			if (enemyType == King) {
 				if (beatCount > 3) {
-					//printf("\n\nSetting Key %d\n\n", key);
+					
 					switch (rand() % 4) {
 					case 0:
 						if (entityPosX != 9 && (CharacterCollision::g_pChracterCollision->setNPCCoords(key, entityPosX + 1, entityPosY)) && (CharacterCollision::g_pChracterCollision->calculateNext())) { moveRight(entity); }
