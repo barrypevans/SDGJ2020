@@ -52,7 +52,7 @@ public:
 		return entityPosY;
 	}
 	void setType(int type) {
-		this->enemyType;
+		this->enemyType=type;
 	}
 	void setEntityPos(int posX, int posY) {
 		((Entity*)m_entity)->m_position.x = (posX + posY) / 2;
