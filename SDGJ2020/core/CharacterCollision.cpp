@@ -93,7 +93,7 @@ bool CharacterCollision::calculateNext() {
 		if (compareStruct(arr[index])) {
 			noCollision = false;
 			Game::g_pGame->ResetGame();
-			//Audio::g_pAudio->Play((Audio::GameClip)(rand()%5 +21), .05f); // Lose
+			Audio::g_pAudio->Play((Audio::GameClip)(rand()%5 +19), .1f); // Lose
 			//Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
 			printf("\n\n\nDEATH!!!\n\n\n");
 			printf("\n\n\nDEATH!!!\n\n\n");

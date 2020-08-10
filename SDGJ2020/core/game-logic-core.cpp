@@ -123,7 +123,7 @@ void GameLogic::TriggerHype()
 {
 	pCharacterEntity->GetComponent<PlayerAnimController>()->Pose();
 	m_score += kHypeMoveScore;
-	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 4), .1f); // Hype
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 15 + 3), .1f); // Hype
 	m_hypeCount = 0;
 	Camera::g_pCamera->DoShake();
 	DealDamage();
@@ -143,7 +143,7 @@ void GameLogic::ClearMoveCount()
 
 void GameLogic::FailedMove()
 {
-	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 30), .1f); // Scratch
+	Audio::g_pAudio->Play((Audio::GameClip)(rand() % 7 + 27), .1f); // Scratch
 	ClearMoveCount();
 	Camera::g_pCamera->DoShake(.3f);
 }
